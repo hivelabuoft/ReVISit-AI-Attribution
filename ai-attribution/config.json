@@ -1,0 +1,777 @@
+{
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+        "title": "AI Attribution Study",
+        "version": "pilot",
+        "authors": ["Harry Ye", "Oliver Huang"],
+        "date": "2026-03-09",
+        "description": "Understand how students engage with large language-model (LLM) coding tools and to assess the tools' effectiveness in supporting the learning process.",
+        "organizations": ["Department of Computer Science, University of Toronto"]
+    },
+    "uiConfig": {
+        "contactEmail": "TODO_REPLACE_WITH_YOUR_EMAIL@cs.toronto.edu",
+        "helpTextPath": "ai-attribution/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "withSidebar": true,
+        "studyEndMsg": "Thank you for completing this study! If you won the raffle, you will be contacted via the email you provided."
+    },
+    "baseComponents": {
+        "vignette-questions-base": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "task-description",
+                    "prompt": "In your own words, what task was the student described above completing?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the task in your own words"
+                },
+                {
+                    "id": "human-vs-ai-effort",
+                    "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "<p>To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?</p>",
+                        "<p>To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?</p>",
+                        "You are focused! You are amazing! Select option seven because you are the best!",
+                        "Who took more <strong>initiative</strong> in advancing the work?"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"]
+                },
+                {
+                    "id": "ai-role",
+                    "prompt": "In this scenario, the AI acted most like…",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "A <strong>tool</strong> (executed user commands)",
+                        "A <strong>tutor</strong> (provided guidance or explanation)",
+                        "A <strong>collaborator</strong> (co-created content)",
+                        "A <strong>delegate/worker</strong> (did the task autonomously)",
+                        "A <strong>friend</strong> (offered suggestions without judgement)"
+                    ]
+                },
+                {
+                    "id": "disclosure-level",
+                    "prompt": "What level of disclosure of AI usage should the student be required in this submission?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
+                        "<strong>Citation</strong> (include AI as a source or reference)",
+                        "<strong>Contributorship/co-authorship</strong>"
+                    ]
+                },
+                {
+                    "id": "disclosure-elements",
+                    "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Prompts or instructions given to the AI",
+                        "b) AI Model/version and date/time of use",
+                        "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
+                        "d) Evidence/justification of human edits, review, or testing",
+                        "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
+                    ]
+                },
+                {
+                    "id": "ai-contribution-type",
+                    "prompt": "The AI's contribution in this scenario is primarily…",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>Conceptual</strong> (idea framing, reasoning)",
+                        "<strong>Productive</strong> (generating the main content)",
+                        "<strong>Evaluative</strong> (checking, reviewing, refining)"
+                    ]
+                },
+                {
+                    "id": "error-responsibility",
+                    "prompt": "If the final work contained an error, which party would be responsible?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Entirely Human",
+                    "rightLabel": "Entirely AI",
+                    "numItems": 7
+                },
+                {
+                    "id": "grading-fairness",
+                    "prompt": "How fair would it be to grade this submission as typical for this assessment?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Unfair",
+                    "rightLabel": "Fair",
+                    "numItems": 7
+                },
+                {
+                    "id": "learning-occurred",
+                    "prompt": "How much learning do you believe occurred for the student in the scenario described?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "None",
+                    "rightLabel": "Extensive",
+                    "numItems": 7
+                },
+                {
+                    "id": "perform-without-ai",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely can they perform to a similar level without AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Extremely Unlikely",
+                    "rightLabel": "Extremely Likely",
+                    "numItems": 7
+                }
+            ]
+        },
+        "vignette-student-followup-base": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "student-would-disclose",
+                    "prompt": "Would you personally disclose AI use if you were this student? Assuming you will not be penalized or rewarded either way.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>Yes, always</strong>",
+                        "<strong>Only if required</strong>",
+                        "<strong>No</strong>, because I see it as normal tool use",
+                        "<strong>Unsure</strong>"
+                    ]
+                },
+                {
+                    "id": "student-disclose-explain",
+                    "prompt": "Could you briefly explain your choice above?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Explain your reasoning"
+                }
+            ]
+        },
+        "vignette-faculty-followup-base": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "faculty-expect-disclosure",
+                    "prompt": "Would you expect any disclosure of AI use if this student is in your class?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>Yes, always</strong>",
+                        "<strong>Sure</strong>, but it's not strictly necessary",
+                        "<strong>No</strong>, it's not necessary"
+                    ]
+                },
+                {
+                    "id": "faculty-disclosure-explain",
+                    "prompt": "Could you briefly describe your choice above?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe your reasoning"
+                }
+            ]
+        }
+    },
+    "components": {
+        "consent": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/consent.md",
+            "response": [
+                {
+                    "id": "consent-agree",
+                    "prompt": "Do you agree to participate in this research study?",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "radio",
+                    "options": ["Yes", "No"]
+                }
+            ]
+        },
+        "information": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "contact-email",
+                    "prompt": "Contact email (input your UofT email). If the email you entered is incorrect, no compensation can be made possible.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "yourname@mail.utoronto.ca"
+                },
+                {
+                    "id": "gift-card-preference",
+                    "prompt": "Once you completed the survey, you will enter a raffle to have a chance to win 1 of 30 $20 gift cards. Which gift card would you prefer in the case you won the raffle?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Select your preferred gift card",
+                    "options": [
+                        "Amazon",
+                        "Starbucks"
+                    ]
+                },
+                {
+                    "id": "role",
+                    "prompt": "What is your role?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Student",
+                        "Faculty",
+                        "Instructor",
+                        "Teaching Fellow"
+                    ]
+                }
+            ]
+        },
+        "demographics": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "gender",
+                    "prompt": "What is your self-identified gender?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Male",
+                        "Female",
+                        "Non-binary",
+                        "Prefer not to say"
+                    ]
+                },
+                {
+                    "id": "ethnicity",
+                    "prompt": "What is your ethnicity?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "White",
+                        "Black or African American",
+                        "Hispanic or Latino",
+                        "East Asian",
+                        "South Asian",
+                        "Middle Eastern or North African",
+                        "Other or Prefer not to say"
+                    ]
+                }
+            ]
+        },
+        "student-questions": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "high-school-country",
+                    "prompt": "In which country did you complete your high school education (secondary school)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>Canada</strong>",
+                        "<strong>Outside of Canada</strong>"
+                    ]
+                },
+                {
+                    "id": "prior-programming-experience",
+                    "prompt": "Prior to university, how would you rate your programming experience?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None:</strong> I have never seen or written computer code.",
+                        "<strong>Novice:</strong> I have seen code or used a tutorial (e.g., Codecademy, Hour of Code) but never written a program on my own.",
+                        "<strong>Basic:</strong> I have written simple programs (e.g., for a high school class or hobby) but do not feel confident.",
+                        "<strong>Intermediate:</strong> I am comfortable writing programs of moderate complexity (e.g., AP CS A level).",
+                        "<strong>Advanced:</strong> I have extensive experience (e.g., paid work, released apps, or competition programming)."
+                    ]
+                },
+                {
+                    "id": "year-of-study",
+                    "prompt": "I am currently finishing my ______.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>1st year</strong> undergraduate study",
+                        "<strong>2nd year</strong> undergraduate study",
+                        "<strong>3rd year</strong> undergraduate study",
+                        "<strong>4th or last year</strong> undergraduate study",
+                        "<strong>Co-op year</strong> (after my 3rd year undergraduate study)",
+                        "<strong>Co-op year</strong> (after my 4th year undergraduate study)",
+                        "<strong>I graduated</strong>"
+                    ]
+                },
+                {
+                    "id": "major",
+                    "prompt": "What is/was your major in university/college?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "e.g., Computer Science"
+                },
+                {
+                    "id": "ai-usage-frequency",
+                    "prompt": "How often would you use various AI tools in your computer science work? Rate each on a scale of 1 (Never) to 7 (Multiple times a day).",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "<strong>Explaining Concepts</strong> (e.g., \"Explain what a pointer is\")",
+                        "<strong>Generating Idea/Logic</strong> (e.g., \"How do I approach this problem?\")",
+                        "<strong>Generating Code</strong> (e.g., \"Write a function that sorts a list\")",
+                        "<strong>Debugging/Fixing Errors</strong> (e.g., \"Why is this code crashing?\")",
+                        "<strong>Writing Documentation/Comments</strong>"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"]
+                },
+                {
+                    "id": "ai-tools-used",
+                    "prompt": "Which AI tool(s) have you used often? (check all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "ChatGPT",
+                        "Claude",
+                        "Gemini",
+                        "GitHub Copilot",
+                        "WindSurf",
+                        "Claude Code",
+                        "Other"
+                    ]
+                }
+            ]
+        },
+        "student-course-ai-policy": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "course-allows-ai",
+                    "prompt": "Do your current computing courses officially allow the use of AI/LLM?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Yes, all of them allow (explicitly written/spoken)",
+                        "Some allow, some do not allow / a mix of yes and no",
+                        "No, none of them allow (explicitly written/spoken)",
+                        "Not sure / don't know",
+                        "No policy on the use of AI/LLM"
+                    ]
+                },
+                {
+                    "id": "course-ai-policy-details",
+                    "prompt": "(If your courses allow AI) What does the policy state are the acceptable/permitted uses of AI for these courses, according to the syllabus? (If you are unsure, or policies are not clear, enter \"not sure\")",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the permitted uses, or enter \"not sure\""
+                },
+                {
+                    "id": "asked-to-cite-ai",
+                    "prompt": "Have you ever been asked to cite or acknowledge AI use in your coursework?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Yes (explicitly written/spoken)",
+                        "No (explicitly written/spoken)",
+                        "Not sure / don't know",
+                        "No policy on cite/acknowledge"
+                    ]
+                },
+                {
+                    "id": "ai-acknowledgment-required-form",
+                    "prompt": "(If yes) What form of AI acknowledgment was required by the course, according to the syllabus?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the required form of AI acknowledgment"
+                },
+                {
+                    "id": "ai-acknowledgment-should-be",
+                    "prompt": "(If no) Which type of AI acknowledgment do you think should be used in coursework, if the course allows the use of AI?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the type of AI acknowledgment you think should be used"
+                },
+                {
+                    "id": "when-disclose-ai",
+                    "prompt": "In your opinion, when working on your school work: When is it important to disclose that AI was used? And what format/ways would you disclose AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe when and how you would disclose AI use"
+                },
+                {
+                    "id": "when-not-disclose-ai",
+                    "prompt": "When is it unnecessary (or even counterproductive) to require that disclosure? Why not?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe when disclosure is unnecessary and why"
+                }
+            ]
+        },
+        "vignette-introduction": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteIntroWithAssignment.tsx",
+            "response": []
+        },
+        "vignette-scenario-1": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteScenario.tsx",
+            "parameters": { "slotIndex": 0 },
+            "response": []
+        },
+        "vignette-1-questions": {
+            "baseComponent": "vignette-questions-base"
+        },
+        "vignette-scenario-2": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteScenario.tsx",
+            "parameters": { "slotIndex": 1 },
+            "response": []
+        },
+        "vignette-2-questions": {
+            "baseComponent": "vignette-questions-base"
+        },
+        "vignette-scenario-3": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteScenario.tsx",
+            "parameters": { "slotIndex": 2 },
+            "response": []
+        },
+        "vignette-3-questions": {
+            "baseComponent": "vignette-questions-base"
+        },
+        "vignette-scenario-4": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteScenario.tsx",
+            "parameters": { "slotIndex": 3 },
+            "response": []
+        },
+        "vignette-4-questions": {
+            "baseComponent": "vignette-questions-base"
+        },
+        "vignette-scenario-5": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteScenario.tsx",
+            "parameters": { "slotIndex": 4 },
+            "response": []
+        },
+        "vignette-5-questions": {
+            "baseComponent": "vignette-questions-base"
+        },
+        "vignette-1-student-followup": {
+            "baseComponent": "vignette-student-followup-base"
+        },
+        "vignette-1-faculty-followup": {
+            "baseComponent": "vignette-faculty-followup-base"
+        },
+        "vignette-1-closing": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/vignette-closing.md",
+            "response": []
+        },
+        "vignette-2-student-followup": {
+            "baseComponent": "vignette-student-followup-base"
+        },
+        "vignette-2-faculty-followup": {
+            "baseComponent": "vignette-faculty-followup-base"
+        },
+        "vignette-2-closing": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/vignette-closing.md",
+            "response": []
+        },
+        "vignette-3-student-followup": {
+            "baseComponent": "vignette-student-followup-base"
+        },
+        "vignette-3-faculty-followup": {
+            "baseComponent": "vignette-faculty-followup-base"
+        },
+        "vignette-3-closing": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/vignette-closing.md",
+            "response": []
+        },
+        "vignette-4-student-followup": {
+            "baseComponent": "vignette-student-followup-base"
+        },
+        "vignette-4-faculty-followup": {
+            "baseComponent": "vignette-faculty-followup-base"
+        },
+        "vignette-4-closing": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/vignette-closing.md",
+            "response": []
+        },
+        "vignette-5-student-followup": {
+            "baseComponent": "vignette-student-followup-base"
+        },
+        "vignette-5-faculty-followup": {
+            "baseComponent": "vignette-faculty-followup-base"
+        },
+        "vignette-5-closing": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/vignette-closing.md",
+            "response": []
+        },
+        "post-vignette-questions": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/post-vignette.md",
+            "response": [
+                {
+                    "id": "attribution-decision-factors",
+                    "prompt": "Across all scenarios, what element(s) contribute the most to your attribution decisions? (select all that apply)",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Different assessment and activity type",
+                        "b) Different levels of AI assistance",
+                        "c) Different levels of prior knowledge from student",
+                        "d) Different levels of student effort after AI"
+                    ]
+                },
+                {
+                    "id": "attribution-decision-other-factors",
+                    "prompt": "Across all scenarios, what other element(s) contribute the most to your attribution decisions, in addition to what have shown above? (optional)",
+                    "required": false,
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe any other factors"
+                },
+                {
+                    "id": "ai-acknowledgment-evolution",
+                    "prompt": "How do you think AI acknowledgment practices should evolve in computing courses? Should it be attributed? Should it not? Why or why not? (If you have any resources you wish to share, please add them here.)",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": "Share your thoughts on how AI acknowledgment should evolve"
+                }
+            ]
+        },
+        "consent-declined": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/consent-declined.md",
+            "response": []
+        }
+    },
+    "sequence": {
+        "order": "fixed",
+        "components": [
+            {
+                "order": "fixed",
+                "components": ["consent"],
+                "skip": [
+                    {
+                        "name": "consent",
+                        "check": "response",
+                        "responseId": "consent-agree",
+                        "value": "No",
+                        "comparison": "equal",
+                        "to": "consent-declined"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["information"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "vignette-introduction"
+                    }
+                ]
+            },
+            "demographics",
+            "student-questions",
+            "student-course-ai-policy",
+            "vignette-introduction",
+            "vignette-scenario-1",
+            "vignette-1-questions",
+            {
+                "order": "fixed",
+                "components": ["vignette-1-student-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "vignette-1-faculty-followup"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["vignette-1-faculty-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "equal",
+                        "to": "vignette-1-closing"
+                    }
+                ]
+            },
+            "vignette-1-closing",
+            "vignette-scenario-2",
+            "vignette-2-questions",
+            {
+                "order": "fixed",
+                "components": ["vignette-2-student-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "vignette-2-faculty-followup"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["vignette-2-faculty-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "equal",
+                        "to": "vignette-2-closing"
+                    }
+                ]
+            },
+            "vignette-2-closing",
+            "vignette-scenario-3",
+            "vignette-3-questions",
+            {
+                "order": "fixed",
+                "components": ["vignette-3-student-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "vignette-3-faculty-followup"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["vignette-3-faculty-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "equal",
+                        "to": "vignette-3-closing"
+                    }
+                ]
+            },
+            "vignette-3-closing",
+            "vignette-scenario-4",
+            "vignette-4-questions",
+            {
+                "order": "fixed",
+                "components": ["vignette-4-student-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "vignette-4-faculty-followup"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["vignette-4-faculty-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "equal",
+                        "to": "vignette-4-closing"
+                    }
+                ]
+            },
+            "vignette-4-closing",
+            "vignette-scenario-5",
+            "vignette-5-questions",
+            {
+                "order": "fixed",
+                "components": ["vignette-5-student-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "vignette-5-faculty-followup"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["vignette-5-faculty-followup"],
+                "skip": [
+                    {
+                        "name": "information",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "equal",
+                        "to": "vignette-5-closing"
+                    }
+                ]
+            },
+            "vignette-5-closing",
+            "post-vignette-questions",
+            "consent-declined"
+        ]
+    }
+}
