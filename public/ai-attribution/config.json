@@ -434,6 +434,161 @@
                 }
             ]
         },
+        "teaching-questions": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "years-as-instructor",
+                    "prompt": "How many years have you been a course instructor/coordinator?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Less than 1 year</strong>",
+                        "<strong>1–2 years</strong>",
+                        "<strong>3–5 years</strong>",
+                        "<strong>6–10 years</strong>",
+                        "<strong>More than 10 years</strong>"
+                    ]
+                },
+                {
+                    "id": "years-as-ta",
+                    "prompt": "(If you selected \"None\" above) How many years have you been a teaching assistant?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>Less than 1 year</strong>",
+                        "<strong>1–2 years</strong>",
+                        "<strong>3–5 years</strong>",
+                        "<strong>6–10 years</strong>",
+                        "<strong>More than 10 years</strong>"
+                    ]
+                },
+                {
+                    "id": "courses-delivered",
+                    "prompt": "Number of courses you delivered as part of the instructional team in your career (i.e., as TA or Course Instructor or Course Coordinator). <br><em>(Multiple roles/sections of the same course in the same semester count as one — e.g., teaching 3 sections of CS1 in fall 2023 counts as 1.)</em>",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>1</strong>",
+                        "<strong>2–3</strong>",
+                        "<strong>4–5</strong>",
+                        "<strong>6+</strong>"
+                    ]
+                },
+                {
+                    "id": "teaching-areas",
+                    "prompt": "What areas are you currently teaching, or have taught the most often? <br><em>(e.g., 1st year intro to programming, 3rd year data science)</em>",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "e.g., 1st year intro to programming, 3rd year data science"
+                }
+            ]
+        },
+        "teaching-course-ai-policy": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "course-allows-ai",
+                    "prompt": "Does your current or most recent computing course(s) explicitly allow the use of AI/LLM?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Yes",
+                        "Some of my courses allow, while some don't",
+                        "No",
+                        "Did not specify"
+                    ]
+                },
+                {
+                    "id": "ai-policy-description",
+                    "prompt": "(If your courses allow AI) How would you describe that AI policy?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the AI policy"
+                },
+                {
+                    "id": "asked-students-cite-ai",
+                    "prompt": "Have you ever asked your students to cite or acknowledge AI use in your coursework?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "id": "acknowledgment-form-required",
+                    "prompt": "(If yes) What form of acknowledgment was required, and under what condition should the student provide it?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the form and conditions of required acknowledgment"
+                },
+                {
+                    "id": "no-acknowledgment-reasoning",
+                    "prompt": "(If no) What are the reasons you do not require the acknowledgment of AI?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe your reasoning"
+                },
+                {
+                    "id": "evaluation-change-ai-usage",
+                    "prompt": "Does your evaluation of students' work change depending on their AI usage (i.e., if AI was used vs. not used)? Could you briefly explain your reasoning?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Explain whether and how your evaluation changes"
+                },
+                {
+                    "id": "evaluation-change-attribution",
+                    "prompt": "Does your evaluation of students' work change depending on their ways of attributing AI use (i.e., if students mentioned briefly vs. student show responsible use through chat logs)? Could you briefly explain your reasoning?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Explain whether and how your evaluation changes"
+                },
+                {
+                    "id": "student-disclosure-frequency",
+                    "prompt": "How often do students choose to disclose AI use, if it is required as part of your course? (optional, skip if not required)",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Never",
+                    "rightLabel": "Always",
+                    "numItems": 7
+                },
+                {
+                    "id": "assessment-modification",
+                    "prompt": "How did/would you modify assessments in your courses based on the emerging capabilities of AI/LLMs?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe how you have or would modify assessments"
+                },
+                {
+                    "id": "ai-policy-sources",
+                    "prompt": "If your decisions on AI policy are based on/influenced by any publicly available sources, and you are willing to share, please link! (optional)",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Paste any relevant links or references"
+                }
+            ]
+        },
+        "role-gate": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/RoleGate.tsx",
+            "response": []
+        },
         "vignette-introduction": {
             "type": "react-component",
             "path": "ai-attribution/assets/VignetteIntroWithAssignment.tsx",
@@ -607,22 +762,37 @@
                         "responseId": "role",
                         "value": "Student",
                         "comparison": "notEqual",
-                        "to": "vignette-introduction"
+                        "to": "teaching-questions"
                     }
                 ]
             },
             "demographics",
             "student-questions",
-            "student-course-ai-policy",
+            {
+                "order": "fixed",
+                "components": ["student-course-ai-policy"],
+                "skip": [
+                    {
+                        "name": "student-course-ai-policy",
+                        "check": "response",
+                        "responseId": "when-not-disclose-ai",
+                        "value": "",
+                        "comparison": "notEqual",
+                        "to": "vignette-introduction"
+                    }
+                ]
+            },
+            "teaching-questions",
+            "teaching-course-ai-policy",
             "vignette-introduction",
             "vignette-scenario-1",
             "vignette-1-questions",
             {
                 "order": "fixed",
-                "components": ["vignette-1-student-followup"],
+                "components": ["role-gate", "vignette-1-student-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -633,10 +803,10 @@
             },
             {
                 "order": "fixed",
-                "components": ["vignette-1-faculty-followup"],
+                "components": ["role-gate", "vignette-1-faculty-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -650,10 +820,10 @@
             "vignette-2-questions",
             {
                 "order": "fixed",
-                "components": ["vignette-2-student-followup"],
+                "components": ["role-gate", "vignette-2-student-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -664,10 +834,10 @@
             },
             {
                 "order": "fixed",
-                "components": ["vignette-2-faculty-followup"],
+                "components": ["role-gate", "vignette-2-faculty-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -681,10 +851,10 @@
             "vignette-3-questions",
             {
                 "order": "fixed",
-                "components": ["vignette-3-student-followup"],
+                "components": ["role-gate", "vignette-3-student-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -695,10 +865,10 @@
             },
             {
                 "order": "fixed",
-                "components": ["vignette-3-faculty-followup"],
+                "components": ["role-gate", "vignette-3-faculty-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -712,10 +882,10 @@
             "vignette-4-questions",
             {
                 "order": "fixed",
-                "components": ["vignette-4-student-followup"],
+                "components": ["role-gate", "vignette-4-student-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -726,10 +896,10 @@
             },
             {
                 "order": "fixed",
-                "components": ["vignette-4-faculty-followup"],
+                "components": ["role-gate", "vignette-4-faculty-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -743,10 +913,10 @@
             "vignette-5-questions",
             {
                 "order": "fixed",
-                "components": ["vignette-5-student-followup"],
+                "components": ["role-gate", "vignette-5-student-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",
@@ -757,10 +927,10 @@
             },
             {
                 "order": "fixed",
-                "components": ["vignette-5-faculty-followup"],
+                "components": ["role-gate", "vignette-5-faculty-followup"],
                 "skip": [
                     {
-                        "name": "information",
+                        "name": "role-gate",
                         "check": "response",
                         "responseId": "role",
                         "value": "Student",

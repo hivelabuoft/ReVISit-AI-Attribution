@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vignette Assignment Debug</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 2em auto; padding: 0 1em; }
+    h1 { margin-bottom: 0.3em; }
+    .actions { display: flex; gap: 1em; margin-bottom: 1.5em; }
+    .actions button { padding: 0.5em 1.2em; font-size: 1rem; cursor: pointer; border-radius: 4px; border: 1px solid #ccc; }
+    .btn-danger { background: #c00; color: #fff; border: none; }
+    .summary { background: #f5f7fa; padding: 1em 1.5em; border-radius: 8px; margin-bottom: 1.5em; }
+    .summary table td { padding: 0.2em 1em 0.2em 0; }
+    .summary td:first-child { font-weight: bold; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 4px; margin-bottom: 2em; }
+    .cell { border: 1px solid #ccc; border-radius: 4px; padding: 0.3em 0.4em; text-align: center; font-size: 0.85rem; }
+    .cell .id { font-weight: bold; color: #333; }
+    .cell .count { font-size: 1.1rem; }
+    .cell-min { background: #d4edda; }
+    .cell-max { background: #f8d7da; }
+    .cell-zero { background: #fff; }
+    table.participants { border-collapse: collapse; width: 100%; }
+    table.participants th { padding: 0.5em 1em; text-align: left; border-bottom: 2px solid #ccc; background: #f0f0f0; }
+    table.participants td { padding: 0.4em 1em; border-bottom: 1px solid #eee; }
+    .badge { display: inline-block; background: #4a90d9; color: #fff; border-radius: 4px; padding: 0.1em 0.5em; margin: 0.1em 0.2em; font-size: 0.85rem; font-weight: bold; }
+    .mono { font-family: monospace; font-size: 0.9rem; }
+    .empty { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>Vignette Assignment Debug</h1>
+  <p style="color:#666; margin-top:0;">Reads from <code>localStorage['vignette_assignment']</code></p>
+
+  <div class="actions">
+    <button onclick="refresh()">Refresh</button>
+    <button class="btn-danger" onclick="clearAll()">Clear All Data</button>
+    <button onclick="simulateParticipants()">Simulate 20 Participants</button>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <h2>Vignette Counts (1–102)</h2>
+  <div class="grid" id="grid"></div>
+
+  <h2>Participant Assignments</h2>
+  <div id="participants"></div>
+
+  <script>
+    const KEY = 'vignette_assignment';
+    const TOTAL = 102;
+    const PER_PARTICIPANT = 5;
+
+    function getStore() {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (raw) return JSON.parse(raw);
+      } catch {}
+      return { counts: new Array(TOTAL).fill(0), assignments: {} };
+    }
+
+    function saveStore(store) {
+      localStorage.setItem(KEY, JSON.stringify(store));
+    }
+
+    function refresh() {
+      const store = getStore();
+      const counts = store.counts || new Array(TOTAL).fill(0);
+      const assignments = store.assignments || {};
+      const pCount = Object.keys(assignments).length;
+      const total = counts.reduce((a, b) => a + b, 0);
+      const min = Math.min(...counts);
+      const max = Math.max(...counts);
+
+      // Summary
+      document.getElementById('summary').innerHTML = `
+        <h2 style="margin-top:0">Summary</h2>
+        <table>
+          <tr><td>Participants</td><td>${pCount}</td></tr>
+          <tr><td>Total assignments</td><td>${total}</td></tr>
+          <tr><td>Min count</td><td>${min}</td></tr>
+          <tr><td>Max count</td><td>${max}</td></tr>
+          <tr><td>Imbalance (max − min)</td><td>${max - min}</td></tr>
+        </table>
+      `;
+
+      // Grid
+      const gridEl = document.getElementById('grid');
+      gridEl.innerHTML = counts.map((c, i) => {
+        const cls = c === 0 ? 'cell-zero' : c === min ? 'cell-min' : (c === max && max > min) ? 'cell-max' : '';
+        return `<div class="cell ${cls}"><div class="id">#${i + 1}</div><div class="count">${c}</div></div>`;
+      }).join('');
+
+      // Participants
+      const pEl = document.getElementById('participants');
+      const entries = Object.entries(assignments);
+      if (entries.length === 0) {
+        pEl.innerHTML = '<p class="empty">No participants yet.</p>';
+      } else {
+        pEl.innerHTML = `
+          <table class="participants">
+            <thead><tr><th>#</th><th>Participant ID</th><th>Assigned Vignettes</th></tr></thead>
+            <tbody>
+              ${entries.map(([pid, vigs], idx) => `
+                <tr>
+                  <td>${idx + 1}</td>
+                  <td class="mono">${pid}</td>
+                  <td>${vigs.map(v => `<span class="badge">#${v}</span>`).join('')}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      }
+    }
+
+    function clearAll() {
+      if (confirm('Clear all vignette assignment data?')) {
+        localStorage.removeItem(KEY);
+        sessionStorage.removeItem('vignette_participant_id');
+        refresh();
+      }
+    }
+
+    function simulateParticipants() {
+      const store = getStore();
+      for (let p = 0; p < 20; p++) {
+        const pid = `sim-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+        if (store.assignments[pid]) continue;
+
+        // Pick least-assigned with random tie-breaking
+        const indexed = store.counts.map((c, i) => ({ id: i + 1, count: c }));
+        for (let i = indexed.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [indexed[i], indexed[j]] = [indexed[j], indexed[i]];
+        }
+        indexed.sort((a, b) => a.count - b.count);
+        const selected = indexed.slice(0, PER_PARTICIPANT).map(v => v.id).sort((a, b) => a - b);
+
+        for (const id of selected) store.counts[id - 1] += 1;
+        store.assignments[pid] = selected;
+      }
+      saveStore(store);
+      refresh();
+    }
+
+    refresh();
+  </script>
+</body>
+</html>
