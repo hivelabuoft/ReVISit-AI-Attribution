@@ -33,6 +33,7 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
 
     load();
     return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [participantId]);
 
   return (
@@ -210,23 +211,12 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
           {' '}
           scenario as a slide show
         </h3>
-        <div style={{
-          border: '1px solid #ddd',
-          borderRadius: 8,
-          overflow: 'hidden',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-          margin: '1em auto',
-          maxWidth: 820,
+        <p style={{
+          color: '#666', fontStyle: 'italic', margin: '1em 0', textAlign: 'center',
         }}
         >
-          <iframe
-            src="https://hivelabuoft.github.io/ai-attribution-in-cs/pages/76"
-            title="Scenario slide show example"
-            style={{
-              display: 'block', width: '100%', minHeight: 700, height: 'calc(100vh - 300px)', border: 'none',
-            }}
-          />
-        </div>
+          The scenarios will be presented as interactive slide decks on the following pages.
+        </p>
       </div>
 
       <hr style={{ border: 'none', borderTop: '2px solid #e0e0e0', margin: '2em 0' }} />

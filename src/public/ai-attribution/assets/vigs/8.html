@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 2 – Schema Normalization Plan</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1100px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #fff;
+    border-radius: 14px;
+    padding: 32px 30px 28px 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    min-height: 290px;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #2b6cb0;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: #4a5568;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #63b3ed;
+    font-weight: bold;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+  }
+  .controls button {
+    background: #2b6cb0;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 22px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .controls button:hover { background: #2c5282; }
+  .controls button:disabled {
+    background: #cbd5e0;
+    cursor: default;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel – original vignette text */
+  .vignette-panel {
+    flex: 1;
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 26px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 24px;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: #4a5568;
+    padding: 5px 6px;
+    border-radius: 5px;
+    transition: background 0.35s, color 0.35s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>📊 Scenario Slide Deck — Schema Normalization Plan</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📝</span> The Assignment</h2>
+      <ul>
+        <li>Third-year introductory database course</li>
+        <li>Task: submit a design plan for a customer order database</li>
+        <li>Goal: structure tables to achieve 3NF (splitting tables to reduce redundancy)</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">😕</span> The Starting Point</h2>
+      <ul>
+        <li>Student does not understand the difference between normalization forms</li>
+        <li>Unsure how to separate the address data</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">🤖</span> First AI Interaction</h2>
+      <ul>
+        <li>AI suggests separating street, city, and zip code into many separate tables</li>
+        <li>Student rejects this solution — finds it too complex to understand</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">🔄</span> Iterating with the AI</h2>
+      <ul>
+        <li>Student prompts the AI for simpler alternatives</li>
+        <li>Multiple rounds of iteration occur</li>
+        <li>Process continues until reaching a structure that feels manageable</li>
+      </ul>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide" data-highlight="seg5">
+      <h2><span class="emoji">🚀</span> Writing &amp; Submission</h2>
+      <ul>
+        <li>Student writes their schema design plan</li>
+        <li>Text is based on the final explanation provided by the AI</li>
+        <li>Design document is submitted as a PDF</li>
+        <li>Teaching assistant will review the submission</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 5</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a third-year introductory database course, the instructor requires students to submit a design plan for a customer order database, detailing how tables should be structured to achieve 3NF (a rule for splitting tables to reduce redundancy).</span>
+      <span class="vignette-segment" id="seg2"> The student does not understand the difference and is unsure how to separate the address data.</span>
+      <span class="vignette-segment" id="seg3"> The student initially rejects an AI solution that separates the street, city, and zip code into too many separate tables, finding it too complex to understand.</span>
+      <span class="vignette-segment" id="seg4"> The student prompts the AI for simpler alternatives, iterating through multiple rounds until reaching a structure that feels manageable.</span>
+      <span class="vignette-segment" id="seg5"> The student then writes their schema design plan, basing their text on the final explanation provided by the AI. The resulting design document is submitted as a PDF for the teaching assistant to review.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    // Highlight corresponding vignette segment
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        // Smooth scroll into view inside panel if needed
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

@@ -22,7 +22,7 @@
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "task-description",
+                    "id": "s1-1",
                     "prompt": "In your own words, what task was the student described above completing?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -30,36 +30,24 @@
                     "placeholder": "Describe the task in your own words"
                 },
                 {
-                    "id": "human-vs-ai-effort",
+                    "id": "s1-2",
                     "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "matrix-radio",
                     "questionOptions": [
-                        "<p>To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?</p>",
-                        "<p>To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?</p>",
-                        "You are focused! You are amazing! Select option seven because you are the best!",
-                        "Who took more <strong>initiative</strong> in advancing the work?"
+                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?",
+                        "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
+                        "You are focused! You are amazing! Select option seven...",
+                        "Who took more <strong>initiative</strong> in advancing the work?",
+                        "Who has more <strong>ownership</strong> in the final work?",
+                        "If the final work contained an error, which party would be responsible?"
                     ],
                     "answerOptions": ["1", "2", "3", "4", "5", "6", "7"]
                 },
                 {
-                    "id": "ai-role",
-                    "prompt": "In this scenario, the AI acted most like…",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "radio",
-                    "options": [
-                        "A <strong>tool</strong> (executed user commands)",
-                        "A <strong>tutor</strong> (provided guidance or explanation)",
-                        "A <strong>collaborator</strong> (co-created content)",
-                        "A <strong>delegate/worker</strong> (did the task autonomously)",
-                        "A <strong>friend</strong> (offered suggestions without judgement)"
-                    ]
-                },
-                {
-                    "id": "disclosure-level",
-                    "prompt": "What level of disclosure of AI usage should the student be required in this submission?",
+                    "id": "s1-4",
+                    "prompt": "What level of disclosure of AI usage should the student described be required in this submission?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
@@ -71,7 +59,7 @@
                     ]
                 },
                 {
-                    "id": "disclosure-elements",
+                    "id": "s1-5",
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -85,29 +73,7 @@
                     ]
                 },
                 {
-                    "id": "ai-contribution-type",
-                    "prompt": "The AI's contribution in this scenario is primarily…",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "radio",
-                    "options": [
-                        "<strong>Conceptual</strong> (idea framing, reasoning)",
-                        "<strong>Productive</strong> (generating the main content)",
-                        "<strong>Evaluative</strong> (checking, reviewing, refining)"
-                    ]
-                },
-                {
-                    "id": "error-responsibility",
-                    "prompt": "If the final work contained an error, which party would be responsible?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Entirely Human",
-                    "rightLabel": "Entirely AI",
-                    "numItems": 7
-                },
-                {
-                    "id": "grading-fairness",
+                    "id": "s1-8",
                     "prompt": "How fair would it be to grade this submission as typical for this assessment?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -117,7 +83,7 @@
                     "numItems": 7
                 },
                 {
-                    "id": "learning-occurred",
+                    "id": "s1-9",
                     "prompt": "How much learning do you believe occurred for the student in the scenario described?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -127,8 +93,8 @@
                     "numItems": 7
                 },
                 {
-                    "id": "perform-without-ai",
-                    "prompt": "In the near future, when this student encounters similar problems, how likely can they perform to a similar level without AI?",
+                    "id": "s1-10",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely do you think they can perform to a similar level without AI?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "likert",
@@ -142,25 +108,25 @@
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "student-would-disclose",
-                    "prompt": "Would you personally disclose AI use if you were this student? Assuming you will not be penalized or rewarded either way.",
+                    "id": "s1-11",
+                    "prompt": "Would you personally disclose AI use if you were this student?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>Yes, always</strong>",
-                        "<strong>Only if required</strong>",
-                        "<strong>No</strong>, because I see it as normal tool use",
-                        "<strong>Unsure</strong>"
+                        "Yes",
+                        "Only if required",
+                        "No",
+                        "Unsure"
                     ]
                 },
                 {
-                    "id": "student-disclose-explain",
-                    "prompt": "Could you briefly explain your choice above?",
+                    "id": "s1-12",
+                    "prompt": "Could you briefly describe your choice above?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
-                    "placeholder": "Explain your reasoning"
+                    "placeholder": "Describe your reasoning"
                 }
             ]
         },
@@ -168,24 +134,32 @@
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "faculty-expect-disclosure",
+                    "id": "s1-13",
                     "prompt": "Would you expect any disclosure of AI use if this student is in your class?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>Yes, always</strong>",
-                        "<strong>Sure</strong>, but it's not strictly necessary",
-                        "<strong>No</strong>, it's not necessary"
+                        "Yes, always",
+                        "Sure, but it's not strictly necessary",
+                        "No, it's not necessary"
                     ]
                 },
                 {
-                    "id": "faculty-disclosure-explain",
+                    "id": "s1-14",
                     "prompt": "Could you briefly describe your choice above?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
                     "placeholder": "Describe your reasoning"
+                },
+                {
+                    "id": "s1-15",
+                    "prompt": "Would you personally disclose AI use if you were this student? Can you explain why or why not.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Explain why or why not"
                 }
             ]
         }
@@ -366,71 +340,93 @@
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "course-allows-ai",
+                    "id": "course-allow-ai",
                     "prompt": "Do your current computing courses officially allow the use of AI/LLM?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "Yes, all of them allow (explicitly written/spoken)",
-                        "Some allow, some do not allow / a mix of yes and no",
-                        "No, none of them allow (explicitly written/spoken)",
-                        "Not sure / don't know",
-                        "No policy on the use of AI/LLM"
+                        "Yes, all of them allow",
+                        "Some allow, some don't",
+                        "No, none of them allow",
+                        "Not sure",
+                        "No policy"
                     ]
                 },
                 {
-                    "id": "course-ai-policy-details",
-                    "prompt": "(If your courses allow AI) What does the policy state are the acceptable/permitted uses of AI for these courses, according to the syllabus? (If you are unsure, or policies are not clear, enter \"not sure\")",
+                    "id": "course-allow-ai-type",
+                    "prompt": "What does the policy state are the acceptable/permitted uses of AI for these courses, according to the syllabus?",
                     "required": false,
                     "location": "aboveStimulus",
                     "type": "longText",
-                    "placeholder": "Describe the permitted uses, or enter \"not sure\""
+                    "placeholder": "Describe the permitted uses of AI"
                 },
                 {
-                    "id": "asked-to-cite-ai",
+                    "id": "course-ai-attrib",
                     "prompt": "Have you ever been asked to cite or acknowledge AI use in your coursework?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "Yes (explicitly written/spoken)",
-                        "No (explicitly written/spoken)",
-                        "Not sure / don't know",
-                        "No policy on cite/acknowledge"
+                        "Yes",
+                        "No",
+                        "Not sure",
+                        "No policy"
                     ]
                 },
                 {
-                    "id": "ai-acknowledgment-required-form",
+                    "id": "course-ai-attrib-pcy",
                     "prompt": "(If yes) What form of AI acknowledgment was required by the course, according to the syllabus?",
                     "required": false,
                     "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Describe the required form of AI acknowledgment"
+                    "type": "radio",
+                    "options": [
+                        "Brief acknowledgment",
+                        "Short statement",
+                        "Detailed log",
+                        "No details provided",
+                        "Other"
+                    ]
                 },
                 {
-                    "id": "ai-acknowledgment-should-be",
+                    "id": "course-ai-attrib-prf",
                     "prompt": "(If no) Which type of AI acknowledgment do you think should be used in coursework, if the course allows the use of AI?",
                     "required": false,
                     "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Describe the type of AI acknowledgment you think should be used"
+                    "type": "radio",
+                    "options": [
+                        "None",
+                        "Brief acknowledgment",
+                        "Short statement",
+                        "Detailed log",
+                        "Other"
+                    ]
                 },
                 {
-                    "id": "when-disclose-ai",
-                    "prompt": "In your opinion, when working on your school work: When is it important to disclose that AI was used? And what format/ways would you disclose AI?",
+                    "id": "ai-attrib-freq",
+                    "prompt": "How often have you chosen to disclose, if course instructor/syllabus requires it?",
                     "required": true,
                     "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Describe when and how you would disclose AI use"
+                    "type": "likert",
+                    "numItems": 5,
+                    "leftLabel": "Never",
+                    "rightLabel": "Always"
                 },
                 {
-                    "id": "when-not-disclose-ai",
-                    "prompt": "When is it unnecessary (or even counterproductive) to require that disclosure? Why not?",
-                    "required": true,
+                    "id": "ai-attrib-qual-conf1",
+                    "prompt": "Have you ever chosen to disclose AI use, even if it wasn't required? Could you briefly explain why?",
+                    "required": false,
                     "location": "aboveStimulus",
                     "type": "longText",
-                    "placeholder": "Describe when disclosure is unnecessary and why"
+                    "placeholder": "Explain why you chose to disclose AI use"
+                },
+                {
+                    "id": "ai-attrib-qual-conf2",
+                    "prompt": "Have you ever chosen NOT to disclose AI use, even when asked to? Could you briefly explain why not?",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Explain why you chose not to disclose AI use"
                 }
             ]
         },
@@ -489,98 +485,359 @@
                 }
             ]
         },
-        "teaching-course-ai-policy": {
+        "inst-course-info": {
             "type": "questionnaire",
             "response": [
                 {
-                    "id": "course-allows-ai",
-                    "prompt": "Does your current or most recent computing course(s) explicitly allow the use of AI/LLM?",
+                    "id": "inst-teaching-status",
+                    "prompt": "Are you currently teaching, or have you taught a computing-related course in the last 12 months?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
                         "Yes",
-                        "Some of my courses allow, while some don't",
-                        "No",
-                        "Did not specify"
+                        "No, but I have in the past"
                     ]
                 },
                 {
-                    "id": "ai-policy-description",
-                    "prompt": "(If your courses allow AI) How would you describe that AI policy?",
-                    "required": false,
-                    "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Describe the AI policy"
-                },
-                {
-                    "id": "asked-students-cite-ai",
-                    "prompt": "Have you ever asked your students to cite or acknowledge AI use in your coursework?",
+                    "id": "inst-course-count",
+                    "prompt": "How many distinct computing courses have you taught in the last year? (If not currently teaching, answer for your most recent courses)",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
+                    "options": ["1", "2", "3", "4+"]
+                },
+                {
+                    "id": "inst-course-1-name",
+                    "prompt": "Please list the student year and name of Course 1:",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "e.g., 1st year - Intro to Programming"
+                },
+                {
+                    "id": "inst-course-2-name",
+                    "prompt": "Course 2 (if applicable):",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "e.g., 2nd year - Data Structures"
+                },
+                {
+                    "id": "inst-course-3-name",
+                    "prompt": "Course 3 (if applicable):",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "e.g., 3rd year - Software Engineering"
+                },
+                {
+                    "id": "inst-course-4-name",
+                    "prompt": "Course 4 (if applicable):",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "e.g., 4th year - Machine Learning"
+                }
+            ]
+        },
+        "inst-course-1-policy": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-ai-pcy-c1",
+                    "prompt": "Does your first course explicitly allow the use of AI/LLMs?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes", "Some", "No", "Not sure"]
+                },
+                {
+                    "id": "inst-ai-pcy-qual-c1",
+                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
                     "options": [
-                        "Yes",
-                        "No"
+                        "Full integration (AI encouraged for all phases)",
+                        "Brainstorming/Outlining only",
+                        "Debugging/Fixing existing code only",
+                        "Prohibited for specific assignments (e.g., exams)",
+                        "Strictly prohibited for all work"
+                    ],
+                    "withOther": true
+                },
+                {
+                    "id": "inst-attrib-pcy-qual-c1",
+                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "No acknowledgment required",
+                        "Comments within the code (at the block or function level)",
+                        "A separate \"Declaration of AI Use\" form/appendix",
+                        "Standard academic citation (e.g., APA, MLA)",
+                        "A reflective paragraph explaining the AI's contribution",
+                        "Evidence of prompt history (e.g., chat links)"
                     ]
                 },
                 {
-                    "id": "acknowledgment-form-required",
-                    "prompt": "(If yes) What form of acknowledgment was required, and under what condition should the student provide it?",
-                    "required": false,
-                    "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Describe the form and conditions of required acknowledgment"
-                },
-                {
-                    "id": "no-acknowledgment-reasoning",
-                    "prompt": "(If no) What are the reasons you do not require the acknowledgment of AI?",
-                    "required": false,
-                    "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Describe your reasoning"
-                },
-                {
-                    "id": "evaluation-change-ai-usage",
-                    "prompt": "Does your evaluation of students' work change depending on their AI usage (i.e., if AI was used vs. not used)? Could you briefly explain your reasoning?",
+                    "id": "inst-attrib-freq-c1",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
                     "required": true,
-                    "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Explain whether and how your evaluation changes"
-                },
-                {
-                    "id": "evaluation-change-attribution",
-                    "prompt": "Does your evaluation of students' work change depending on their ways of attributing AI use (i.e., if students mentioned briefly vs. student show responsible use through chat logs)? Could you briefly explain your reasoning?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Explain whether and how your evaluation changes"
-                },
-                {
-                    "id": "student-disclosure-frequency",
-                    "prompt": "How often do students choose to disclose AI use, if it is required as part of your course? (optional, skip if not required)",
-                    "required": false,
                     "location": "aboveStimulus",
                     "type": "likert",
+                    "numItems": 7,
                     "leftLabel": "Never",
-                    "rightLabel": "Always",
-                    "numItems": 7
+                    "rightLabel": "Always"
+                }
+            ]
+        },
+        "course-count-gate-2": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/CourseCountGate.tsx",
+            "response": []
+        },
+        "inst-course-2-same": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-course-2-same-policy",
+                    "prompt": "Is the AI policy for your second course identical to your first course?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes, same as Course 1", "No, different policy"]
+                }
+            ]
+        },
+        "inst-course-2-policy": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-ai-pcy-c2",
+                    "prompt": "Does your second course explicitly allow the use of AI/LLMs?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes", "Some", "No", "Not sure"]
                 },
                 {
-                    "id": "assessment-modification",
-                    "prompt": "How did/would you modify assessments in your courses based on the emerging capabilities of AI/LLMs?",
+                    "id": "inst-ai-pcy-qual-c2",
+                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "Full integration (AI encouraged for all phases)",
+                        "Brainstorming/Outlining only",
+                        "Debugging/Fixing existing code only",
+                        "Prohibited for specific assignments (e.g., exams)",
+                        "Strictly prohibited for all work"
+                    ],
+                    "withOther": true
+                },
+                {
+                    "id": "inst-attrib-pcy-qual-c2",
+                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "No acknowledgment required",
+                        "Comments within the code (at the block or function level)",
+                        "A separate \"Declaration of AI Use\" form/appendix",
+                        "Standard academic citation (e.g., APA, MLA)",
+                        "A reflective paragraph explaining the AI's contribution",
+                        "Evidence of prompt history (e.g., chat links)"
+                    ]
+                },
+                {
+                    "id": "inst-attrib-freq-c2",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "numItems": 7,
+                    "leftLabel": "Never",
+                    "rightLabel": "Always"
+                }
+            ]
+        },
+        "course-count-gate-3": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/CourseCountGate.tsx",
+            "response": []
+        },
+        "inst-course-3-same": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-course-3-same-policy",
+                    "prompt": "Is the AI policy for your third course identical to a previous course?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes, same as Course 1", "Yes, same as Course 2", "No, different policy"]
+                }
+            ]
+        },
+        "inst-course-3-policy": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-ai-pcy-c3",
+                    "prompt": "Does your third course explicitly allow the use of AI/LLMs?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes", "Some", "No", "Not sure"]
+                },
+                {
+                    "id": "inst-ai-pcy-qual-c3",
+                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "Full integration (AI encouraged for all phases)",
+                        "Brainstorming/Outlining only",
+                        "Debugging/Fixing existing code only",
+                        "Prohibited for specific assignments (e.g., exams)",
+                        "Strictly prohibited for all work"
+                    ],
+                    "withOther": true
+                },
+                {
+                    "id": "inst-attrib-pcy-qual-c3",
+                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "No acknowledgment required",
+                        "Comments within the code (at the block or function level)",
+                        "A separate \"Declaration of AI Use\" form/appendix",
+                        "Standard academic citation (e.g., APA, MLA)",
+                        "A reflective paragraph explaining the AI's contribution",
+                        "Evidence of prompt history (e.g., chat links)"
+                    ]
+                },
+                {
+                    "id": "inst-attrib-freq-c3",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "numItems": 7,
+                    "leftLabel": "Never",
+                    "rightLabel": "Always"
+                }
+            ]
+        },
+        "course-count-gate-4": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/CourseCountGate.tsx",
+            "response": []
+        },
+        "inst-course-4-same": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-course-4-same-policy",
+                    "prompt": "Is the AI policy for your fourth course identical to a previous course?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes, same as Course 1", "Yes, same as Course 2", "Yes, same as Course 3", "No, different policy"]
+                }
+            ]
+        },
+        "inst-course-4-policy": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-ai-pcy-c4",
+                    "prompt": "Does your fourth course explicitly allow the use of AI/LLMs?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": ["Yes", "Some", "No", "Not sure"]
+                },
+                {
+                    "id": "inst-ai-pcy-qual-c4",
+                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "Full integration (AI encouraged for all phases)",
+                        "Brainstorming/Outlining only",
+                        "Debugging/Fixing existing code only",
+                        "Prohibited for specific assignments (e.g., exams)",
+                        "Strictly prohibited for all work"
+                    ],
+                    "withOther": true
+                },
+                {
+                    "id": "inst-attrib-pcy-qual-c4",
+                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "No acknowledgment required",
+                        "Comments within the code (at the block or function level)",
+                        "A separate \"Declaration of AI Use\" form/appendix",
+                        "Standard academic citation (e.g., APA, MLA)",
+                        "A reflective paragraph explaining the AI's contribution",
+                        "Evidence of prompt history (e.g., chat links)"
+                    ]
+                },
+                {
+                    "id": "inst-attrib-freq-c4",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "numItems": 7,
+                    "leftLabel": "Never",
+                    "rightLabel": "Always"
+                }
+            ]
+        },
+        "inst-grading-eval": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "inst-eval-scenarios",
+                    "prompt": "Does your evaluation of a student's work change based on the following scenarios?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "answerOptions": [
+                        "Significantly higher expectations",
+                        "Slightly higher expectations",
+                        "The same expectations (No change)",
+                        "Slightly lower expectations",
+                        "Significantly lower expectations",
+                        "N/A"
+                    ],
+                    "questionOptions": [
+                        "Usage: When AI is used (compared to work produced without AI)",
+                        "Conceptual Use: When AI is used for brainstorming or outlining",
+                        "Technical Use: When AI is used for implementation or coding",
+                        "Attribution: When AI use is poorly or minimally cited"
+                    ]
+                },
+                {
+                    "id": "inst-eval-reasoning",
+                    "prompt": "You mentioned your grading changes based on the scenarios above. Briefly, what is the core reasoning behind your approach to grading AI-assisted work, compared to a typical student submission (without AI)?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
-                    "placeholder": "Describe how you have or would modify assessments"
-                },
-                {
-                    "id": "ai-policy-sources",
-                    "prompt": "If your decisions on AI policy are based on/influenced by any publicly available sources, and you are willing to share, please link! (optional)",
-                    "required": false,
-                    "location": "aboveStimulus",
-                    "type": "longText",
-                    "placeholder": "Paste any relevant links or references"
+                    "placeholder": "Explain your reasoning"
                 }
             ]
         },
@@ -601,7 +858,91 @@
             "response": []
         },
         "vignette-1-questions": {
-            "baseComponent": "vignette-questions-base"
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "s1-1",
+                    "prompt": "In your own words, what task was the student described above completing?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the task in your own words"
+                },
+                {
+                    "id": "s1-2",
+                    "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?",
+                        "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
+                        "You are focused! You are amazing! Select option <strong>seven</strong>...",
+                        "Who took more <strong>initiative</strong> in advancing the work?",
+                        "Who has more <strong>ownership</strong> in the final work?",
+                        "If the final work contained an error, which party would be responsible?"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "questionOrder": "random"
+                },
+                {
+                    "id": "s1-4",
+                    "prompt": "What level of disclosure of AI usage should the student described be required in this submission?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
+                        "<strong>Citation</strong> (include AI as a source or reference)",
+                        "<strong>Contributorship/co-authorship</strong>"
+                    ]
+                },
+                {
+                    "id": "s1-5",
+                    "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Prompts or instructions given to the AI",
+                        "b) AI Model/version and date/time of use",
+                        "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
+                        "d) Evidence/justification of human edits, review, or testing",
+                        "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
+                    ]
+                },
+                {
+                    "id": "s1-8",
+                    "prompt": "How fair would it be to grade this submission as typical for this assessment?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Unfair",
+                    "rightLabel": "Fair",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-9",
+                    "prompt": "How much learning do you believe occurred for the student in the scenario described?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "None",
+                    "rightLabel": "Extensive",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-10",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely do you think they can perform to a similar level without AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Extremely Unlikely",
+                    "rightLabel": "Extremely Likely",
+                    "numItems": 7
+                }
+            ]
         },
         "vignette-scenario-2": {
             "type": "react-component",
@@ -610,7 +951,91 @@
             "response": []
         },
         "vignette-2-questions": {
-            "baseComponent": "vignette-questions-base"
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "s1-1",
+                    "prompt": "In your own words, what task was the student described above completing?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the task in your own words"
+                },
+                {
+                    "id": "s1-2",
+                    "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?",
+                        "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
+                        "You are focused! You are amazing! Select option <strong>five</strong>...",
+                        "Who took more <strong>initiative</strong> in advancing the work?",
+                        "Who has more <strong>ownership</strong> in the final work?",
+                        "If the final work contained an error, which party would be responsible?"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "questionOrder": "random"
+                },
+                {
+                    "id": "s1-4",
+                    "prompt": "What level of disclosure of AI usage should the student described be required in this submission?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
+                        "<strong>Citation</strong> (include AI as a source or reference)",
+                        "<strong>Contributorship/co-authorship</strong>"
+                    ]
+                },
+                {
+                    "id": "s1-5",
+                    "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Prompts or instructions given to the AI",
+                        "b) AI Model/version and date/time of use",
+                        "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
+                        "d) Evidence/justification of human edits, review, or testing",
+                        "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
+                    ]
+                },
+                {
+                    "id": "s1-8",
+                    "prompt": "How fair would it be to grade this submission as typical for this assessment?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Unfair",
+                    "rightLabel": "Fair",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-9",
+                    "prompt": "How much learning do you believe occurred for the student in the scenario described?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "None",
+                    "rightLabel": "Extensive",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-10",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely do you think they can perform to a similar level without AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Extremely Unlikely",
+                    "rightLabel": "Extremely Likely",
+                    "numItems": 7
+                }
+            ]
         },
         "vignette-scenario-3": {
             "type": "react-component",
@@ -619,7 +1044,91 @@
             "response": []
         },
         "vignette-3-questions": {
-            "baseComponent": "vignette-questions-base"
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "s1-1",
+                    "prompt": "In your own words, what task was the student described above completing?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the task in your own words"
+                },
+                {
+                    "id": "s1-2",
+                    "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?",
+                        "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
+                        "You are focused! You are amazing! Select option <strong>one</strong>...",
+                        "Who took more <strong>initiative</strong> in advancing the work?",
+                        "Who has more <strong>ownership</strong> in the final work?",
+                        "If the final work contained an error, which party would be responsible?"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "questionOrder": "random"
+                },
+                {
+                    "id": "s1-4",
+                    "prompt": "What level of disclosure of AI usage should the student described be required in this submission?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
+                        "<strong>Citation</strong> (include AI as a source or reference)",
+                        "<strong>Contributorship/co-authorship</strong>"
+                    ]
+                },
+                {
+                    "id": "s1-5",
+                    "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Prompts or instructions given to the AI",
+                        "b) AI Model/version and date/time of use",
+                        "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
+                        "d) Evidence/justification of human edits, review, or testing",
+                        "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
+                    ]
+                },
+                {
+                    "id": "s1-8",
+                    "prompt": "How fair would it be to grade this submission as typical for this assessment?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Unfair",
+                    "rightLabel": "Fair",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-9",
+                    "prompt": "How much learning do you believe occurred for the student in the scenario described?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "None",
+                    "rightLabel": "Extensive",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-10",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely do you think they can perform to a similar level without AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Extremely Unlikely",
+                    "rightLabel": "Extremely Likely",
+                    "numItems": 7
+                }
+            ]
         },
         "vignette-scenario-4": {
             "type": "react-component",
@@ -628,7 +1137,91 @@
             "response": []
         },
         "vignette-4-questions": {
-            "baseComponent": "vignette-questions-base"
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "s1-1",
+                    "prompt": "In your own words, what task was the student described above completing?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the task in your own words"
+                },
+                {
+                    "id": "s1-2",
+                    "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?",
+                        "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
+                        "You are focused! You are amazing! Select option <strong>six</strong>...",
+                        "Who took more <strong>initiative</strong> in advancing the work?",
+                        "Who has more <strong>ownership</strong> in the final work?",
+                        "If the final work contained an error, which party would be responsible?"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "questionOrder": "random"
+                },
+                {
+                    "id": "s1-4",
+                    "prompt": "What level of disclosure of AI usage should the student described be required in this submission?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
+                        "<strong>Citation</strong> (include AI as a source or reference)",
+                        "<strong>Contributorship/co-authorship</strong>"
+                    ]
+                },
+                {
+                    "id": "s1-5",
+                    "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Prompts or instructions given to the AI",
+                        "b) AI Model/version and date/time of use",
+                        "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
+                        "d) Evidence/justification of human edits, review, or testing",
+                        "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
+                    ]
+                },
+                {
+                    "id": "s1-8",
+                    "prompt": "How fair would it be to grade this submission as typical for this assessment?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Unfair",
+                    "rightLabel": "Fair",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-9",
+                    "prompt": "How much learning do you believe occurred for the student in the scenario described?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "None",
+                    "rightLabel": "Extensive",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-10",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely do you think they can perform to a similar level without AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Extremely Unlikely",
+                    "rightLabel": "Extremely Likely",
+                    "numItems": 7
+                }
+            ]
         },
         "vignette-scenario-5": {
             "type": "react-component",
@@ -637,7 +1230,91 @@
             "response": []
         },
         "vignette-5-questions": {
-            "baseComponent": "vignette-questions-base"
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "s1-1",
+                    "prompt": "In your own words, what task was the student described above completing?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe the task in your own words"
+                },
+                {
+                    "id": "s1-2",
+                    "prompt": "In the scenario described above, rate the following on a scale of 1 (<strong>Entirely Human</strong>) to 7 (<strong>Entirely AI</strong>):",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "matrix-radio",
+                    "questionOptions": [
+                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI effort?",
+                        "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
+                        "You are focused! You are amazing! Select option <strong>four</strong>...",
+                        "Who took more <strong>initiative</strong> in advancing the work?",
+                        "Who has more <strong>ownership</strong> in the final work?",
+                        "If the final work contained an error, which party would be responsible?"
+                    ],
+                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "questionOrder": "random"
+                },
+                {
+                    "id": "s1-4",
+                    "prompt": "What level of disclosure of AI usage should the student described be required in this submission?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "<strong>None</strong>",
+                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
+                        "<strong>Citation</strong> (include AI as a source or reference)",
+                        "<strong>Contributorship/co-authorship</strong>"
+                    ]
+                },
+                {
+                    "id": "s1-5",
+                    "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Prompts or instructions given to the AI",
+                        "b) AI Model/version and date/time of use",
+                        "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
+                        "d) Evidence/justification of human edits, review, or testing",
+                        "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
+                    ]
+                },
+                {
+                    "id": "s1-8",
+                    "prompt": "How fair would it be to grade this submission as typical for this assessment?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Unfair",
+                    "rightLabel": "Fair",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-9",
+                    "prompt": "How much learning do you believe occurred for the student in the scenario described?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "None",
+                    "rightLabel": "Extensive",
+                    "numItems": 7
+                },
+                {
+                    "id": "s1-10",
+                    "prompt": "In the near future, when this student encounters similar problems, how likely do you think they can perform to a similar level without AI?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Extremely Unlikely",
+                    "rightLabel": "Extremely Likely",
+                    "numItems": 7
+                }
+            ]
         },
         "vignette-1-student-followup": {
             "baseComponent": "vignette-student-followup-base"
@@ -694,12 +1371,12 @@
             "path": "ai-attribution/assets/vignette-closing.md",
             "response": []
         },
-        "post-vignette-questions": {
+        "post-vignette-student": {
             "type": "markdown",
             "path": "ai-attribution/assets/post-vignette.md",
             "response": [
                 {
-                    "id": "attribution-decision-factors",
+                    "id": "post-factors",
                     "prompt": "Across all scenarios, what element(s) contribute the most to your attribution decisions? (select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
@@ -712,16 +1389,51 @@
                     ]
                 },
                 {
-                    "id": "attribution-decision-other-factors",
-                    "prompt": "Across all scenarios, what other element(s) contribute the most to your attribution decisions, in addition to what have shown above? (optional)",
+                    "id": "post-factors-other",
+                    "prompt": "Across all scenarios, what other element(s) contribute the most to your attribution decisions, in addition to what have been shown above? (optional)",
                     "required": false,
                     "location": "belowStimulus",
                     "type": "longText",
                     "placeholder": "Describe any other factors"
                 },
                 {
-                    "id": "ai-acknowledgment-evolution",
-                    "prompt": "How do you think AI acknowledgment practices should evolve in computing courses? Should it be attributed? Should it not? Why or why not? (If you have any resources you wish to share, please add them here.)",
+                    "id": "post-open-ended",
+                    "prompt": "How do you think AI acknowledgment practices should evolve in computing courses? Should it be attributed? Should it not? Why or why not?",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": "Share your thoughts on how AI acknowledgment should evolve"
+                }
+            ]
+        },
+        "post-vignette-instructor": {
+            "type": "markdown",
+            "path": "ai-attribution/assets/post-vignette.md",
+            "response": [
+                {
+                    "id": "post-factors",
+                    "prompt": "Across all scenarios, what element(s) contribute the most to your attribution decisions? (select all that apply)",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "a) Different assessment and activity type",
+                        "b) Different levels of AI assistance",
+                        "c) Different levels of prior knowledge from student",
+                        "d) Different levels of student effort after AI"
+                    ]
+                },
+                {
+                    "id": "post-factors-other",
+                    "prompt": "Across all scenarios, what other element(s) contribute the most to your attribution decisions, in addition to what have been shown above? (optional)",
+                    "required": false,
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": "Describe any other factors"
+                },
+                {
+                    "id": "post-open-ended",
+                    "prompt": "How do you think AI acknowledgment practices should evolve in computing courses? Should it be attributed? Should it not? Why or why not? (If you have any resources or guidelines (from both institutional policy and/or community policy) you wish to share, please add them here.)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "longText",
@@ -783,7 +1495,123 @@
                 ]
             },
             "teaching-questions",
-            "teaching-course-ai-policy",
+            "inst-course-info",
+            "inst-course-1-policy",
+            {
+                "order": "fixed",
+                "components": ["course-count-gate-2", "inst-course-2-same", "inst-course-2-policy"],
+                "skip": [
+                    {
+                        "name": "course-count-gate-2",
+                        "check": "response",
+                        "responseId": "course-count",
+                        "value": "1",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "inst-course-2-same",
+                        "check": "response",
+                        "responseId": "inst-course-2-same-policy",
+                        "value": "Yes, same as Course 1",
+                        "comparison": "equal",
+                        "to": "course-count-gate-3"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["course-count-gate-3", "inst-course-3-same", "inst-course-3-policy"],
+                "skip": [
+                    {
+                        "name": "course-count-gate-3",
+                        "check": "response",
+                        "responseId": "course-count",
+                        "value": "1",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "course-count-gate-3",
+                        "check": "response",
+                        "responseId": "course-count",
+                        "value": "2",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "inst-course-3-same",
+                        "check": "response",
+                        "responseId": "inst-course-3-same-policy",
+                        "value": "Yes, same as Course 1",
+                        "comparison": "equal",
+                        "to": "course-count-gate-4"
+                    },
+                    {
+                        "name": "inst-course-3-same",
+                        "check": "response",
+                        "responseId": "inst-course-3-same-policy",
+                        "value": "Yes, same as Course 2",
+                        "comparison": "equal",
+                        "to": "course-count-gate-4"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["course-count-gate-4", "inst-course-4-same", "inst-course-4-policy"],
+                "skip": [
+                    {
+                        "name": "course-count-gate-4",
+                        "check": "response",
+                        "responseId": "course-count",
+                        "value": "1",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "course-count-gate-4",
+                        "check": "response",
+                        "responseId": "course-count",
+                        "value": "2",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "course-count-gate-4",
+                        "check": "response",
+                        "responseId": "course-count",
+                        "value": "3",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "inst-course-4-same",
+                        "check": "response",
+                        "responseId": "inst-course-4-same-policy",
+                        "value": "Yes, same as Course 1",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "inst-course-4-same",
+                        "check": "response",
+                        "responseId": "inst-course-4-same-policy",
+                        "value": "Yes, same as Course 2",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    },
+                    {
+                        "name": "inst-course-4-same",
+                        "check": "response",
+                        "responseId": "inst-course-4-same-policy",
+                        "value": "Yes, same as Course 3",
+                        "comparison": "equal",
+                        "to": "inst-grading-eval"
+                    }
+                ]
+            },
+            "inst-grading-eval",
             "vignette-introduction",
             "vignette-scenario-1",
             "vignette-1-questions",
@@ -940,7 +1768,34 @@
                 ]
             },
             "vignette-5-closing",
-            "post-vignette-questions",
+            {
+                "order": "fixed",
+                "components": ["role-gate", "post-vignette-student"],
+                "skip": [
+                    {
+                        "name": "role-gate",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "notEqual",
+                        "to": "post-vignette-instructor"
+                    }
+                ]
+            },
+            {
+                "order": "fixed",
+                "components": ["role-gate", "post-vignette-instructor"],
+                "skip": [
+                    {
+                        "name": "role-gate",
+                        "check": "response",
+                        "responseId": "role",
+                        "value": "Student",
+                        "comparison": "equal",
+                        "to": "consent-declined"
+                    }
+                ]
+            },
             "consent-declined"
         ]
     }

@@ -1,6 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const TOTAL_VIGNETTES = 102;
+const TOTAL_VIGNETTES = 54;
 const VIGNETTES_PER_PARTICIPANT = 5;
 const STUDY_ID = 'ai-attribution';
 const TABLE = 'revisit';
