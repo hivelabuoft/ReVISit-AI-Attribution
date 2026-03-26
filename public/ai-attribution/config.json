@@ -9,7 +9,7 @@
         "organizations": ["Department of Computer Science, University of Toronto"]
     },
     "uiConfig": {
-        "contactEmail": "TODO_REPLACE_WITH_YOUR_EMAIL@cs.toronto.edu",
+        "contactEmail": "harryye@cs.toronto.edu",
         "helpTextPath": "ai-attribution/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,

@@ -49,6 +49,8 @@ import { EditedText, TaglessEditedText } from '../../analysis/individualStudy/th
 export class FirebaseStorageEngine extends CloudStorageEngine {
   private RECAPTCHAV3TOKEN = import.meta.env.VITE_RECAPTCHAV3TOKEN;
 
+  private ENABLE_APP_CHECK = import.meta.env.VITE_ENABLE_FIREBASE_APP_CHECK === 'true';
+
   private firestore: Firestore;
 
   private studyCollection: CollectionReference<DocumentData, DocumentData>;
@@ -76,13 +78,17 @@ export class FirebaseStorageEngine extends CloudStorageEngine {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
     }
-    try {
-      initializeAppCheck(firebaseApp, {
-        provider: new ReCaptchaV3Provider(this.RECAPTCHAV3TOKEN),
-        isTokenAutoRefreshEnabled: false,
-      });
-    } catch {
-      console.warn('Failed to initialize Firebase App Check');
+    if (this.ENABLE_APP_CHECK && this.RECAPTCHAV3TOKEN?.trim()) {
+      try {
+        initializeAppCheck(firebaseApp, {
+          provider: new ReCaptchaV3Provider(this.RECAPTCHAV3TOKEN),
+          isTokenAutoRefreshEnabled: false,
+        });
+      } catch {
+        console.warn('Failed to initialize Firebase App Check');
+      }
+    } else {
+      console.warn('Skipping Firebase App Check.');
     }
   }
 
