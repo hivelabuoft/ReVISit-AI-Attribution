@@ -130,6 +130,46 @@ describe('mergeReactiveAnswers', () => {
 
     expect(mergedValues).toEqual({ answer1: 1, answer2: 2, other: 'keep-me' });
   });
+
+  it('prefills non-reactive empty responses without overwriting existing answers', () => {
+    const mergedValues = mergeReactiveAnswers(
+      [
+        {
+          id: 'radio-answer',
+          prompt: 'Radio answer',
+          type: 'radio',
+          options: ['Yes', 'No'],
+        },
+        {
+          id: 'checkbox-answer',
+          prompt: 'Checkbox answer',
+          type: 'checkbox',
+          options: ['A', 'B'],
+        },
+        {
+          id: 'text-answer',
+          prompt: 'Text answer',
+          type: 'shortText',
+        },
+      ],
+      {
+        'radio-answer': '',
+        'checkbox-answer': [],
+        'text-answer': 'participant edit',
+      },
+      {
+        'radio-answer': 'Yes',
+        'checkbox-answer': ['A'],
+        'text-answer': 'prefilled text',
+      },
+    );
+
+    expect(mergedValues).toEqual({
+      'radio-answer': 'Yes',
+      'checkbox-answer': ['A'],
+      'text-answer': 'participant edit',
+    });
+  });
 });
 
 describe('generateErrorMessage', () => {

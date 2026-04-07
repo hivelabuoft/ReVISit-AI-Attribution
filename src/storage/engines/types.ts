@@ -1008,10 +1008,14 @@ export abstract class StorageEngine {
           'participantData',
           this.participantData,
         );
-        await this._cacheStorageObject(
-          `participants/${this.currentParticipantId}`,
-          'participantData',
-        );
+        try {
+          await this._cacheStorageObject(
+            `participants/${this.currentParticipantId}`,
+            'participantData',
+          );
+        } catch (error) {
+          console.warn('Failed to cache participant data metadata after completion', error);
+        }
       }
 
       return true;

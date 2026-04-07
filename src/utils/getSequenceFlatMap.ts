@@ -2,6 +2,13 @@ import { DynamicBlock, StudyConfig } from '../parser/types';
 import { isDynamicBlock } from '../parser/utils';
 import { Sequence } from '../store/types';
 
+function getDynamicBlockPossibleComponents(sequence: DynamicBlock): string[] {
+  const possibleComponents = sequence.parameters?.possibleComponents;
+  return Array.isArray(possibleComponents)
+    ? possibleComponents.filter((component): component is string => typeof component === 'string')
+    : [];
+}
+
 export function getSequenceFlatMap<T extends Sequence | StudyConfig['sequence']>(sequence: T): string[] {
   return isDynamicBlock(sequence) ? [sequence.id] : sequence.components.flatMap((component) => (typeof component === 'string' ? component : getSequenceFlatMap(component)));
 }
@@ -17,11 +24,11 @@ export function findFuncBlock(name: string, sequence: StudyConfig['sequence']): 
 
 export function getSequenceFlatMapWithInterruptions(sequence: StudyConfig['sequence']): string[] {
   if (isDynamicBlock(sequence)) {
-    return [];
+    return getDynamicBlockPossibleComponents(sequence);
   }
 
   return [
-    ...sequence.components.flatMap((component) => (typeof component === 'string' ? component : (isDynamicBlock(component) ? [] : getSequenceFlatMapWithInterruptions(component)))),
+    ...sequence.components.flatMap((component) => (typeof component === 'string' ? component : getSequenceFlatMapWithInterruptions(component))),
     ...sequence.interruptions?.flatMap((interruption) => interruption.components) || [],
   ];
 }

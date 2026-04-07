@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 11 – Data Cleaning Pipeline Step</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef3f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1120px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 32px 30px 32px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    min-height: 300px;
+    border-top: 4px solid #45B7D1;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #45B7D1;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #45B7D1;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .controls button {
+    background: #45B7D1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 600;
+  }
+  .controls button:hover { background: #349fb8; }
+  .controls button:disabled {
+    background: #c7d2da;
+    cursor: default;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel */
+  .vignette-panel {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 24px;
+    border-top: 4px solid #d1d5db;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #4a5568;
+    padding: 3px 5px;
+    border-radius: 4px;
+    transition: background 0.35s, color 0.35s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: #e0f5fa;
+    color: #1a8da8;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧹 Scenario Slide Deck — Data Cleaning Pipeline Step</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📋</span> The Assignment</h2>
+      <ul>
+        <li>Second-year data science course on reproducible pipelines</li>
+        <li>Focus: cleaning and preprocessing raw datasets (ETL)</li>
+        <li>Task: write pseudocode for a function to handle missing values in a pandas DataFrame</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">🧠</span> What the Student Knows</h2>
+      <ul>
+        <li>Already understands the logic of mean imputation</li>
+        <li>Wants a clean, Pythonic pseudocode representation</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">🤖</span> First AI Interaction</h2>
+      <ul>
+        <li>Student seeks help from AI</li>
+        <li>Rejects the AI's initial approach — knows it introduces bias</li>
+        <li>Prompts for a "flagging" strategy instead</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">🔄</span> Tightening Constraints</h2>
+      <ul>
+        <li>AI offers a complex statistical fix</li>
+        <li>Student restricts the tool again: specifies simple "if-then" logic suitable for a flowchart</li>
+        <li>Three rounds of tightening constraints total</li>
+        <li>AI generates a concise logic block matching the student's vision</li>
+      </ul>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide" data-highlight="seg5">
+      <h2><span class="emoji">📤</span> Adoption &amp; Submission</h2>
+      <ul>
+        <li>Student adopts this specific version without further edits</li>
+        <li>Pastes it into their pipeline design document</li>
+        <li>Plan is submitted for approval before the implementation phase</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 5</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a second-year data science course, students learn to design reproducible pipelines for cleaning and preprocessing raw datasets (ETL). The assignment asks for a pseudocode description of a function to handle missing values in a pandas DataFrame.</span>
+      <span class="vignette-segment" id="seg2"> The student knows the logic of mean imputation but wants a clean, Pythonic pseudocode representation.</span>
+      <span class="vignette-segment" id="seg3"> The student seeks help from AI but rejects its initial approach, knowing it introduces bias, and prompts for a 'flagging' strategy instead.</span>
+      <span class="vignette-segment" id="seg4"> When the AI offers a complex statistical fix, the student restricts the tool again, specifying a simple 'if-then' logic, suitable for a flowchart. After three rounds of tightening constraints, the AI generates a concise logic block that matches the student's vision.</span>
+      <span class="vignette-segment" id="seg5"> The student adopts this specific version without further edits and pastes it into their pipeline design document. The plan is submitted for approval before the implementation phase.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    // Highlight corresponding vignette segment
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

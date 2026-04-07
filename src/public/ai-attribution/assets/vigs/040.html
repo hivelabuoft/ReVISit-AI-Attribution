@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 40 – Deadlock Analysis</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef3f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1120px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 32px 30px 32px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    min-height: 300px;
+    border-top: 4px solid #85C1E9;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #85C1E9;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #85C1E9;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .controls button {
+    background: #5ba3d9;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .controls button:hover { background: #4a8fc5; }
+  .controls button:disabled {
+    background: #c9d6e2;
+    cursor: default;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel */
+  .vignette-panel {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 24px;
+    border-top: 4px solid #d6eaf8;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #4a5568;
+    padding: 3px 5px;
+    border-radius: 4px;
+    transition: background 0.35s, color 0.35s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: #d6eaf8;
+    color: #2471a3;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>🔒 Scenario Slide Deck — Deadlock Analysis</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📋</span> The Assignment</h2>
+      <ul>
+        <li>Fourth-year operating systems course</li>
+        <li>Students analyze concurrency issues — how multiple processes can block each other forever (deadlock)</li>
+        <li>A snippet of multi-threaded code that occasionally freezes is provided</li>
+        <li>Task: explain and fix the locking order</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">🧠</span> Student's Starting Point</h2>
+      <ul>
+        <li>Student remembers course material and suspects a circular dependency</li>
+        <li>Wants to confirm their theoretical understanding of the "hold and wait" condition</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">🤖</span> AI Interaction</h2>
+      <ul>
+        <li>Asks the AI to explain why the specific lock acquisition order in the snippet leads to a deadlock</li>
+        <li>AI provides a step-by-step trace of the race condition</li>
+        <li>AI confirms the student's suspicion</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">✏️</span> Editing &amp; Submission</h2>
+      <ul>
+        <li>Student accepts the AI's confirmation</li>
+        <li>Edits the code based on the AI's explanation</li>
+        <li>Runs the corrected code through a stress test</li>
+        <li>Ensures the freezing no longer occurs</li>
+        <li>Corrected code is submitted</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 4</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a fourth-year operating systems course, students analyze concurrency issues, specifically how multiple processes can block each other forever (deadlock). The assignment provides a snippet of multi-threaded code that occasionally freezes and asks the student to explain and fix the locking order.</span>
+      <span class="vignette-segment" id="seg2"> The student, remembering from the course material, suspects a circular dependency, but wants to confirm their theoretical understanding of the 'hold and wait' condition.</span>
+      <span class="vignette-segment" id="seg3"> They ask the AI to explain why the specific lock acquisition order in the snippet leads to a deadlock. The AI provides a step-by-step trace of the race condition, confirming the student's suspicion.</span>
+      <span class="vignette-segment" id="seg4"> The student accepts this confirmation and edits the code based on the AI's explanation. The corrected code is submitted after running through a stress test to ensure the freezing no longer occurs.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    // Highlight corresponding vignette segment
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

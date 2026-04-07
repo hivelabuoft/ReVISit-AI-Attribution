@@ -106,7 +106,6 @@
   <li><strong>Your Task:</strong> After you review each scenario, we will ask for your personal perspective on the situation.</li>
   <li><strong>How to View:</strong> Each scenario is available in both <u>plain text</u> and <u>interactive slide deck</u> formats. Feel free to use whichever format you prefer (or both). An example can be seen below.</li>
   <li><strong>A Note on Content:</strong> If some technical concepts or course names are unfamiliar, do not worry. We are interested in your best judgment.</li>
-  <li><strong>Don't worry if you forget the scenario:</strong> Simply click the <strong>back</strong> button to see the scenario shown previously.</li>
 </ul>
 </div>
 

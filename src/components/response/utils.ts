@@ -170,11 +170,34 @@ export const mergeReactiveAnswers = (
   currentValues: StoredAnswer['answer'],
   reactiveAnswers: Record<string, StoredAnswer['answer'][string]>,
 ) => {
-  const reactiveResponses = responses.filter((response) => response.type === 'reactive');
   let mergedValues: StoredAnswer['answer'] | null = null;
 
-  reactiveResponses.forEach((response) => {
+  responses.forEach((response) => {
     if (Object.prototype.hasOwnProperty.call(reactiveAnswers, response.id)) {
+      const currentValue = currentValues[response.id];
+      const shouldAlwaysMerge = response.type === 'reactive';
+      const hasExistingValue = (() => {
+        if (Array.isArray(currentValue)) {
+          return currentValue.length > 0;
+        }
+
+        if (currentValue && typeof currentValue === 'object') {
+          return Object.values(currentValue).some((value) => {
+            if (Array.isArray(value)) {
+              return value.length > 0;
+            }
+
+            return value !== '' && value !== null && value !== undefined;
+          });
+        }
+
+        return currentValue !== '' && currentValue !== null && currentValue !== undefined;
+      })();
+
+      if (!shouldAlwaysMerge && hasExistingValue) {
+        return;
+      }
+
       if (mergedValues === null) {
         mergedValues = { ...currentValues };
       }

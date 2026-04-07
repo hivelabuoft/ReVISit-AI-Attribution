@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 50 – Test Suite Generation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1120px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 32px 30px 32px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    min-height: 300px;
+    border-top: 4px solid #4ECDC4;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #4ECDC4;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #4ECDC4;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .controls button {
+    background: #3ab5ad;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 600;
+  }
+  .controls button:hover { background: #32a09a; }
+  .controls button:disabled {
+    background: #cbd5e0;
+    cursor: default;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel */
+  .vignette-panel {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 24px;
+    border-top: 4px solid #e2e8f0;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: #4a5568;
+    padding: 3px 5px;
+    border-radius: 5px;
+    transition: background 0.35s, color 0.35s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: #e6faf9;
+    color: #2a9d8f;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧪 Scenario Slide Deck — Test Suite Generation</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📋</span> The Assignment</h2>
+      <ul>
+        <li>Third-year software testing course</li>
+        <li>Students are given a completed web application</li>
+        <li>Task: generate a comprehensive test suite for the app</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">😬</span> Starting Point &amp; First AI Move</h2>
+      <ul>
+        <li>Student doesn't know how to test the program</li>
+        <li>Uses an AI agent to scan the codebase</li>
+        <li>Agent generates test files for all major components</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">🚫</span> Rejecting the First Output</h2>
+      <ul>
+        <li>Agent produces a standard set of tests</li>
+        <li>Student rejects them for having insufficient coverage</li>
+        <li>Directs the agent to rewrite the suite to simulate a "hostile user" trying to break input fields</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">🔄</span> Iterating Further</h2>
+      <ul>
+        <li>Student reviews the new output</li>
+        <li>Iterates a couple more times with the agent</li>
+        <li>Refines exactly which error messages count as a successful test</li>
+        <li>Continues until the logic matches expectations</li>
+      </ul>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide" data-highlight="seg5">
+      <h2><span class="emoji">📤</span> Submission</h2>
+      <ul>
+        <li>Student accepts the updated test suite</li>
+        <li>Submits the files as-is</li>
+        <li>Uses the agent's generated code from the final prompt</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 5</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a third-year software testing course, students are given a completed web application and must generate a comprehensive test suite.</span>
+      <span class="vignette-segment" id="seg2"> The student, don't know how to test the program, uses an AI agent to scan the codebase and generate test files for all the major components.</span>
+      <span class="vignette-segment" id="seg3"> The agent produces a standard set of tests, but the student rejects them for having insufficient coverage. The student directs the agent to rewrite the suite to simulate a 'hostile user' trying to break the input fields.</span>
+      <span class="vignette-segment" id="seg4"> After reviewing the new output, the student iterates a couple of more times, refining exactly which error messages count as a successful test, until the logic matches their expectations.</span>
+      <span class="vignette-segment" id="seg5"> The student accepts the updated suite and submits the files, using the agent's generated code from the final prompt.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    // Highlight corresponding vignette segment
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 1 – Sorting Algorithm Pseudocode</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #faf5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1100px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 32px 30px 32px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    min-height: 280px;
+    border-top: 4px solid #FF6B6B;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #FF6B6B;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #FF6B6B;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .controls button {
+    background: #FF6B6B;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 600;
+  }
+  .controls button:hover { background: #e85555; }
+  .controls button:disabled {
+    background: #d4c9c9;
+    cursor: default;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel – original vignette text */
+  .vignette-panel {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 24px;
+    border-top: 4px solid #e0d6d6;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: #4a5568;
+    padding: 4px 5px;
+    border-radius: 5px;
+    transition: background 0.35s, color 0.35s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: #fff0f0;
+    color: #c53030;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>🔢 Scenario Slide Deck — Sorting Algorithm Pseudocode</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📋</span> The Assignment</h2>
+      <ul>
+        <li>Second-year data structures course</li>
+        <li>Task: write a text-based proposal</li>
+        <li>Goal: select the best sorting strategy for a large dataset</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">😟</span> The Starting Point</h2>
+      <ul>
+        <li>Student is unsure which sorting method is most efficient</li>
+        <li>Needs guidance before writing the proposal</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">🤖</span> AI Interaction</h2>
+      <ul>
+        <li>Student asks the AI to recommend a specific algorithm</li>
+        <li>AI suggests a divide-and-conquer approach</li>
+        <li>AI outlines the algorithm's unique characteristics</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">✍️</span> Writing &amp; Submission</h2>
+      <ul>
+        <li>Student uses the AI's response as the primary source</li>
+        <li>Integrates the AI's recommendation and rationale without modification</li>
+        <li>Adopts the suggested strategy in their plan directly</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 4</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a second year data structures course, the instructor requires a text-based proposal selecting the best sorting strategy for a large dataset.</span>
+      <span class="vignette-segment" id="seg2"> Unsure which method is most efficient,</span>
+      <span class="vignette-segment" id="seg3"> the student asks the AI to recommend a specific algorithm. The AI suggests a divide-and-conquer approach and outlines its unique characteristics.</span>
+      <span class="vignette-segment" id="seg4"> Using the AI's response as the primary source, the student writes their proposal by integrating the AI's recommendation and rationale without modification, adopting the suggested strategy in their plan directly.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    // Highlight corresponding vignette segment
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

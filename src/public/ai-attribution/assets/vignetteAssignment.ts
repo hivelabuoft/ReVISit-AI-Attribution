@@ -1,7 +1,8 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { availableVignetteIds } from './vignetteRegistry';
 
-const TOTAL_VIGNETTES = 54;
-const VIGNETTES_PER_PARTICIPANT = 5;
+const MAX_VIGNETTE_ID = availableVignetteIds.at(-1) ?? 0;
+const VIGNETTES_PER_PARTICIPANT = Math.min(5, availableVignetteIds.length);
 const STUDY_ID = 'ai-attribution';
 const TABLE = 'revisit';
 const LOCAL_STORAGE_KEY = 'vignette_assignment';
@@ -24,7 +25,7 @@ function getSupabase(): SupabaseClient {
 
 // ── Picking logic (shared) ──────────────────────────────────────────────
 function pickLeastAssigned(counts: number[]): number[] {
-  const indexed = counts.map((count, i) => ({ id: i + 1, count }));
+  const indexed = availableVignetteIds.map((id) => ({ id, count: counts[id - 1] ?? 0 }));
   // Shuffle for random tie-breaking
   for (let i = indexed.length - 1; i > 0; i -= 1) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -49,7 +50,7 @@ function getLocalStore(): LocalStore {
     if (raw) return JSON.parse(raw) as LocalStore;
   } catch { /* ignore */ }
   return {
-    counts: new Array(TOTAL_VIGNETTES).fill(0),
+    counts: new Array(MAX_VIGNETTE_ID).fill(0),
     assignments: {},
   };
 }
@@ -93,8 +94,9 @@ async function getAssignmentSupabase(participantId: string): Promise<number[]> {
     .eq('docId', `vignette_assignment_${participantId}`)
     .single();
 
-  if (existing?.data?.vignettes) {
-    return existing.data.vignettes as number[];
+  const existingAssignment = existing?.data?.vignettes as number[] | undefined;
+  if (existingAssignment) {
+    return existingAssignment;
   }
 
   // 2. Fetch global counts
@@ -106,7 +108,7 @@ async function getAssignmentSupabase(participantId: string): Promise<number[]> {
     .single();
 
   const counts: number[] = countRow?.data?.counts
-    ?? new Array(TOTAL_VIGNETTES).fill(0);
+    ?? new Array(MAX_VIGNETTE_ID).fill(0);
 
   // 3. Pick least-assigned
   const selected = pickLeastAssigned(counts);

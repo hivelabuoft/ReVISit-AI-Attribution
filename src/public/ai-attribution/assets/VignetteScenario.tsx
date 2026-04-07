@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { StimulusParams } from '../../../store/types';
 import { getParticipantId, getVignetteAssignment } from './vignetteAssignment';
-
-// Import all vignette HTML files as raw strings at build time
-const vignetteModules = import.meta.glob('./vigs/*.html', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+import { getVignetteHtml } from './vignetteRegistry';
 
 interface Slide {
   emoji: string;
@@ -49,11 +47,6 @@ function parseVignetteHtml(html: string): VignetteData {
   }));
 
   return { heading, slides, segments };
-}
-
-function getVignetteHtml(vignetteId: number): string | null {
-  const key = `./vigs/${vignetteId}.html`;
-  return vignetteModules[key] ?? null;
 }
 
 /* ── Styles ─────────────────────────────────────────────────────────── */

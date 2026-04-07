@@ -1036,6 +1036,58 @@ describe('Parser Warnings', () => {
     expect(hasUnusedWarning).toBe(true);
   });
 
+  test('does not add unused-component warnings for possibleComponents referenced by a dynamic block', async () => {
+    const studyConfig = {
+      $schema: '',
+      studyMetadata: {
+        title: 'Test Study',
+        version: '1.0',
+        authors: ['Test'],
+        date: '2024-01-01',
+        description: 'Test',
+        organizations: ['Test Org'],
+      },
+      uiConfig: {
+        contactEmail: 'test@test.com',
+        helpTextPath: '',
+        logoPath: '',
+        withProgressBar: true,
+        autoDownloadStudy: false,
+        withSidebar: true,
+      },
+      components: {
+        dynamicA: {
+          type: 'markdown',
+          path: 'dynamicA.md',
+          response: [],
+        },
+        dynamicB: {
+          type: 'markdown',
+          path: 'dynamicB.md',
+          response: [],
+        },
+      },
+      sequence: {
+        order: 'fixed',
+        components: [{
+          id: 'dynamic-block',
+          order: 'dynamic',
+          functionPath: 'dynamic-function.js',
+          parameters: {
+            possibleComponents: ['dynamicA', 'dynamicB'],
+          },
+        }],
+      },
+    };
+
+    const result = await parseStudyConfig(JSON.stringify(studyConfig));
+
+    const hasUnusedWarning = result.warnings.some(
+      (warning) => warning.category === 'unused-component',
+    );
+    expect(hasUnusedWarning).toBe(false);
+  });
+
   test('adds disabled-sidebar warning when sidebar location is used but sidebar is disabled', async () => {
     const studyConfig = {
       $schema: '',

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 28 – Unit Test Generation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #faf8f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1100px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    padding: 34px 32px 28px 32px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    min-height: 290px;
+    border-left: 5px solid #FFA07A;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #FFA07A;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #FFA07A;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .controls button {
+    background: #e8805a;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 9px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .controls button:hover { background: #d4714e; }
+  .controls button:disabled {
+    background: #d1ccc8;
+    cursor: default;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel */
+  .vignette-panel {
+    flex: 1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 24px;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: #4a5568;
+    padding: 3px 5px;
+    border-radius: 5px;
+    transition: background 0.35s, color 0.35s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: #fff0e8;
+    color: #c55a2b;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧪 Scenario Slide Deck — Unit Test Generation</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📋</span> The Assignment</h2>
+      <ul>
+        <li>Third-year software engineering course</li>
+        <li>Students learn to write JUnit tests for existing Java classes</li>
+        <li>Task: cover a specific 'Calculator' class with a suite of unit tests</li>
+        <li>Must include edge cases for division by zero</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">💡</span> The Student's Starting Point</h2>
+      <ul>
+        <li>Proficient in Java already</li>
+        <li>Wants to save typing time on the boilerplate code</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">🤖</span> AI Interaction</h2>
+      <ul>
+        <li>Pastes the Calculator class into an AI tool</li>
+        <li>Asks the AI to generate the JUnit test methods</li>
+        <li>AI outputs a complete block of test functions covering all required scenarios</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">👀</span> Review &amp; Adoption</h2>
+      <ul>
+        <li>Student reviews the generated code</li>
+        <li>Sees that the assertions are correct</li>
+        <li>Pastes the block directly into their test file</li>
+      </ul>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide" data-highlight="seg5">
+      <h2><span class="emoji">🚀</span> Testing &amp; Submission</h2>
+      <ul>
+        <li>Test suite is run locally</li>
+        <li>Passes all checks</li>
+        <li>Student submits it to be evaluated on comprehensiveness and accuracy</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 5</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a third-year software engineering course, students emphasize the importance of testing, learning to write JUnit tests for existing Java classes. The assignment requires covering a specific 'Calculator' class with a suite of unit tests, including edge cases for division by zero.</span>
+      <span class="vignette-segment" id="seg2"> The student is proficient in Java but wants to save typing time on the boilerplate code.</span>
+      <span class="vignette-segment" id="seg3"> They paste the Calculator class into an AI tool and ask it to generate the JUnit test methods. The AI outputs a complete block of test functions covering all the required scenarios.</span>
+      <span class="vignette-segment" id="seg4"> The student reviews the code, sees that the assertions are correct, and pastes the block directly into their test file.</span>
+      <span class="vignette-segment" id="seg5"> The test suite is run locally and passes all checks, so the student submits it to be evaluated on comprehensiveness and accuracy.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    // Highlight corresponding vignette segment
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

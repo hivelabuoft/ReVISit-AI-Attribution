@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario 22 – Complex Data Query</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #c9c9d4;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .main-container {
+    display: flex;
+    gap: 28px;
+    max-width: 1120px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .slide-panel {
+    flex: 1;
+    min-width: 0;
+  }
+  .slide {
+    display: none;
+    background: #16213e;
+    border-radius: 16px;
+    padding: 34px 32px 30px 32px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    min-height: 290px;
+    border: 1px solid #253554;
+  }
+  .slide.active { display: block; }
+  .slide h2 {
+    font-size: 1.15rem;
+    color: #F7DC6F;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide h2 .emoji { font-size: 1.3rem; }
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+  .slide ul li {
+    position: relative;
+    padding: 8px 0 8px 24px;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #c5cbe0;
+  }
+  .slide ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #F7DC6F;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .controls button {
+    background: #F7DC6F;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .controls button:hover { background: #f5d142; transform: translateY(-1px); }
+  .controls button:disabled {
+    background: #3a3f5c;
+    color: #6b7094;
+    cursor: default;
+    transform: none;
+  }
+  .page-info {
+    font-size: 0.9rem;
+    color: #8e93b0;
+    font-weight: 600;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  /* Right panel */
+  .vignette-panel {
+    flex: 1;
+    background: #16213e;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    position: sticky;
+    top: 24px;
+    border: 1px solid #253554;
+  }
+  .vignette-panel h3 {
+    font-size: 1rem;
+    color: #8e93b0;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vignette-panel h3 .emoji { font-size: 1.1rem; }
+  .vignette-segment {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #8d93ad;
+    padding: 3px 5px;
+    border-radius: 4px;
+    transition: background 0.4s, color 0.4s;
+    display: inline;
+  }
+  .vignette-segment.highlighted {
+    background: rgba(247, 220, 111, 0.14);
+    color: #F7DC6F;
+    font-weight: 600;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+</style>
+</head>
+<body>
+
+<h1>🗄️ Scenario Slide Deck — Complex Data Query</h1>
+
+<div class="main-container">
+
+  <!-- LEFT: Slides -->
+  <div class="slide-panel">
+
+    <!-- Slide 1 -->
+    <section class="slide active" data-highlight="seg1">
+      <h2><span class="emoji">📋</span> The Assignment</h2>
+      <ul>
+        <li>Database management course</li>
+        <li>Students practice writing commands to extract specific data patterns from large datasets</li>
+        <li>Task: write a query to identify customers who purchased at least one item from every available product category</li>
+      </ul>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" data-highlight="seg2">
+      <h2><span class="emoji">🧠</span> The Student's Starting Point</h2>
+      <ul>
+        <li>Comfortable with basic database concepts and operations</li>
+        <li>Wants to verify the logic for this specific "all-inclusive" check</li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" data-highlight="seg3">
+      <h2><span class="emoji">💬</span> AI Interaction</h2>
+      <ul>
+        <li>Asks an AI chatbot to explain the conceptual steps</li>
+        <li>Goal: compare a customer's purchase history against the full product list</li>
+        <li>AI provides a clear text-based explanation suggesting a method</li>
+      </ul>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide" data-highlight="seg4">
+      <h2><span class="emoji">✍️</span> Writing &amp; Submission</h2>
+      <ul>
+        <li>Student follows the AI's logic precisely</li>
+        <li>Writes the code step-by-step as described by the AI as is</li>
+        <li>Completed query is saved</li>
+        <li>Run against the course database for grading</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prevBtn" disabled onclick="navigate(-1)">← Back</button>
+      <span class="page-info" id="pageInfo">1 / 4</span>
+      <button id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Original Vignette Text -->
+  <div class="vignette-panel">
+    <h3><span class="emoji">📖</span> Original Vignette Text</h3>
+    <p>
+      <span class="vignette-segment" id="seg1">In a database management course, students practice writing commands to extract specific data patterns from large datasets. The assignment requires writing a query to identify customers who have purchased at least one item from every available product category.</span>
+      <span class="vignette-segment" id="seg2"> The student is comfortable with basic database concepts and operations, but wants to verify the logic for this specific 'all-inclusive' check.</span>
+      <span class="vignette-segment" id="seg3"> They ask an AI chatbot to explain the conceptual steps for comparing a customer's purchase history against the full product list. The AI provides a clear text-based explanation suggesting a method.</span>
+      <span class="vignette-segment" id="seg4"> The student follows this logic precisely, writing the code step-by-step as described by the AI as is. The completed query is saved and run against the course database for grading.</span>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let current = 0;
+
+  function updateView() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === totalSlides - 1;
+    document.getElementById('pageInfo').textContent = (current + 1) + ' / ' + totalSlides;
+
+    document.querySelectorAll('.vignette-segment').forEach(seg => seg.classList.remove('highlighted'));
+    const activeSlide = slides[current];
+    const segId = activeSlide.getAttribute('data-highlight');
+    if (segId) {
+      const target = document.getElementById(segId);
+      if (target) {
+        target.classList.add('highlighted');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < totalSlides) {
+      current = next;
+      updateView();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+  });
+
+  updateView();
+</script>
+
+</body>
+</html>

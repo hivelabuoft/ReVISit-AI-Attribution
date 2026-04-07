@@ -12,13 +12,15 @@ import { ParticipantData } from '../storage/types';
 import { download } from './downloader/DownloadTidy';
 import { useStudyId } from '../routes/utils';
 import { useIsAnalysis } from '../store/hooks/useIsAnalysis';
-import { useStoreDispatch, useStoreActions } from '../store/store';
+import { useStoreDispatch, useStoreActions, useStoreSelector } from '../store/store';
+import { getStudyEndMessage } from './studyEndMessage';
 
 export function StudyEnd() {
   const studyConfig = useStudyConfig();
   const { storageEngine } = useStorageEngine();
   const dispatch = useStoreDispatch();
   const { setParticipantCompleted } = useStoreActions();
+  const answers = useStoreSelector((state) => state.answers);
 
   const isAnalysis = useIsAnalysis();
 
@@ -147,13 +149,8 @@ export function StudyEnd() {
   const processedStudyEndMsg = useMemo(() => {
     const { studyEndMsg, urlParticipantIdParam } = studyConfig.uiConfig;
 
-    if (!urlParticipantIdParam || !studyEndMsg?.includes('{PARTICIPANT_ID}')) {
-      return studyEndMsg;
-    }
-
-    // return the study end message with the participant ID
-    return studyEndMsg.replace(/\{PARTICIPANT_ID\}/g, () => participantId);
-  }, [studyConfig, participantId]);
+    return getStudyEndMessage(answers, studyEndMsg, participantId, urlParticipantIdParam);
+  }, [answers, participantId, studyConfig]);
 
   return (
     <Center style={{ height: '100%' }}>

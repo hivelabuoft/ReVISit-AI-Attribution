@@ -5,9 +5,13 @@ import { getParticipantId, getVignetteAssignment } from './vignetteAssignment';
 export default function VignetteIntroWithAssignment({ setAnswer, answers }: StimulusParams<Record<string, never>>) {
   const [vignetteIds, setVignetteIds] = useState<number[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const infoEntry = Object.entries(answers || {}).find(
+    ([key]) => key.startsWith('information_'),
+  );
 
   const participantId = getParticipantId(
-    answers?.information?.answer?.['contact-email'] as string | undefined,
+    (infoEntry?.[1]?.answer?.['contact-email'] as string | undefined)
+      || (answers?.information?.answer?.['contact-email'] as string | undefined),
   );
 
   useEffect(() => {
