@@ -35,21 +35,36 @@ Each participant in the ai-attribution study sees **5 out of 54 vignettes**. The
    - If not, it picks the 5 vignettes with the **lowest counts**, using random tie-breaking when multiple vignettes share the same count.
    - The counts are updated and the assignment is saved.
 
-3. **Storage backends** (controlled by `VITE_VIGNETTE_MODE` in `.env`):
+3. **Storage backends** (controlled by `VITE_VIGNETTE_MODE` or `VITE_STORAGE_ENGINE` in `.env`):
    - **`local`** (default): Counts and assignments are stored in the browser's `localStorage` under the key `vignette_assignment`. Good for development and testing.
-   - **`supabase`**: Counts and assignments are stored in the Supabase database (the `revisit` table). Use this for production deployments where multiple participants across different browsers need to share the same global counts.
+   - **`firebase`**: Counts and assignments are stored in Firebase Firestore (the `_revisit` collection). Automatically used when `VITE_STORAGE_ENGINE="firebase"` is set. Recommended for production deployments where multiple participants across different browsers need to share the same global counts.
+   - **`supabase`**: Counts and assignments are stored in the Supabase database (the `revisit` table). Use this for production deployments with Supabase backend.
 
 ### Debug dashboard
 
-A standalone debug page is available at:
+#### Local Development (localStorage)
+
+For local development using localStorage:
 
 ```
 http://localhost:8080/vignette-debug.html
 ```
 
-> **Note:** You must open this from the same origin as your dev server (e.g. `http://localhost:8080/`) so it can access the same `localStorage`. Opening the HTML file directly via `file://` will not show the study's data.
+> **Note:** You must open this from the same origin as your dev server so it can access the same `localStorage`.
 
-The debug page shows:
+#### Production (Firebase)
+
+For debugging production deployments using Firebase:
+
+```
+https://ai-attribution-revisit.web.app/vignette-debug-firebase.html
+```
+
+This debug page connects to Firebase Firestore and requires your Firebase configuration. You can find your config in the Firebase console under Project Settings > General > Your apps.
+
+#### Debug Features
+
+Both debug tools show:
 - **Summary** — number of participants, total assignments, min/max vignette counts, and the imbalance (max − min).
 - **Counts grid** — all 54 vignettes with their assignment count. Green = lowest count, red = highest count.
 - **Participant table** — each participant ID and their 5 assigned vignettes.
@@ -74,8 +89,10 @@ The row order within the matrix is also randomized per vignette (`questionOrder:
 
 | File | Purpose |
 |------|---------|
-| `src/public/ai-attribution/assets/vignetteAssignment.ts` | Core assignment logic (picking, counting, local/supabase backends) |
+| `src/public/ai-attribution/assets/vignetteAssignment.ts` | Core assignment logic (picking, counting, local/firebase/supabase backends) |
 | `src/public/ai-attribution/assets/VignetteIntroWithAssignment.tsx` | Intro page that triggers assignment and displays assigned vignette IDs |
 | `src/public/ai-attribution/assets/VignetteScenario.tsx` | Renders a single vignette scenario (iframe) based on the slot index |
-| `vignette-debug.html` | Standalone debug dashboard for inspecting counts and assignments |
-| `.env` → `VITE_VIGNETTE_MODE` | Switch between `local` and `supabase` backends |
+| `vignette-debug.html` | Local debug dashboard (localStorage) |
+| `vignette-debug-firebase.html` | Production debug dashboard (Firebase) |
+| `.env` → `VITE_STORAGE_ENGINE` | Set to `"firebase"` to use Firebase for vignette storage |
+| `.env` → `VITE_VIGNETTE_MODE` | Override storage mode: `local`, `firebase`, or `supabase` |

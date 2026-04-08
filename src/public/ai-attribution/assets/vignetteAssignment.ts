@@ -1,15 +1,25 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore, doc, getDoc, setDoc, serverTimestamp,
+} from 'firebase/firestore';
+import { parse as hjsonParse } from 'hjson';
 import { availableVignetteIds } from './vignetteRegistry';
 
 const MAX_VIGNETTE_ID = availableVignetteIds.at(-1) ?? 0;
 const VIGNETTES_PER_PARTICIPANT = Math.min(5, availableVignetteIds.length);
 const STUDY_ID = 'ai-attribution';
 const TABLE = 'revisit';
+const FIRESTORE_COLLECTION = '_revisit';
 const LOCAL_STORAGE_KEY = 'vignette_assignment';
 
-const MODE: 'local' | 'supabase' = (import.meta.env.VITE_VIGNETTE_MODE as string) === 'supabase'
+const MODE: 'local' | 'supabase' | 'firebase' = (import.meta.env.VITE_VIGNETTE_MODE as string) === 'supabase'
   ? 'supabase'
-  : 'local';
+  : (import.meta.env.VITE_VIGNETTE_MODE as string) === 'firebase'
+    ? 'firebase'
+    : (import.meta.env.VITE_STORAGE_ENGINE as string) === 'firebase'
+      ? 'firebase'
+      : 'local';
 
 // ── Supabase client (only created when needed) ──────────────────────────
 let _supabase: SupabaseClient | null = null;
@@ -21,6 +31,17 @@ function getSupabase(): SupabaseClient {
     );
   }
   return _supabase;
+}
+
+// ── Firebase client (only created when needed) ─────────────────────────
+let _firestore: ReturnType<typeof getFirestore> | null = null;
+function getFirestore_() {
+  if (!_firestore) {
+    const firebaseConfig = hjsonParse(import.meta.env.VITE_FIREBASE_CONFIG);
+    const app = initializeApp(firebaseConfig);
+    _firestore = getFirestore(app);
+  }
+  return _firestore;
 }
 
 // ── Picking logic (shared) ──────────────────────────────────────────────
@@ -135,6 +156,53 @@ async function getAssignmentSupabase(participantId: string): Promise<number[]> {
   return selected;
 }
 
+// ── Firebase backend ────────────────────────────────────────────────────
+async function getAssignmentFirebase(participantId: string): Promise<number[]> {
+  const firestore = getFirestore_();
+
+  // 1. Check for existing assignment
+  const participantDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_assignment_${participantId}`);
+  const participantSnap = await getDoc(participantDoc);
+
+  if (participantSnap.exists()) {
+    const data = participantSnap.data();
+    return data.vignettes || [];
+  }
+
+  // 2. Get global counts (with transaction-like behavior for consistency)
+  const countsDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_counts`);
+  const countsSnap = await getDoc(countsDoc);
+
+  const counts: number[] = countsSnap.exists()
+    ? (countsSnap.data().counts || new Array(MAX_VIGNETTE_ID).fill(0))
+    : new Array(MAX_VIGNETTE_ID).fill(0);
+
+  // 3. Pick least-assigned
+  const selected = pickLeastAssigned(counts);
+
+  // 4. Update counts
+  for (const id of selected) {
+    counts[id - 1] += 1;
+  }
+
+  // 5. Save updated counts
+  await setDoc(countsDoc, {
+    counts,
+    lastUpdated: serverTimestamp(),
+    studyId: STUDY_ID,
+  });
+
+  // 6. Save participant assignment
+  await setDoc(participantDoc, {
+    vignettes: selected,
+    assignedAt: serverTimestamp(),
+    participantId,
+    studyId: STUDY_ID,
+  });
+
+  return selected;
+}
+
 // ── Stable participant ID ────────────────────────────────────────────────
 const SESSION_PID_KEY = 'vignette_participant_id';
 
@@ -158,6 +226,9 @@ export function getParticipantId(email: string | undefined | null): string {
 export async function getVignetteAssignment(participantId: string): Promise<number[]> {
   if (MODE === 'supabase') {
     return getAssignmentSupabase(participantId);
+  }
+  if (MODE === 'firebase') {
+    return getAssignmentFirebase(participantId);
   }
   return getAssignmentLocal(participantId);
 }
