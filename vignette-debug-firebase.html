@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vignette Assignment Debug (Firebase)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 2em auto; padding: 0 1em; }
+    h1 { margin-bottom: 0.3em; }
+    .config { background: #e8f4f8; padding: 1em 1.5em; border-radius: 8px; margin-bottom: 1.5em; }
+    .config textarea, .config select { margin: 0.5em; padding: 0.5em; width: 100%; max-width: 500px; border: 1px solid #ccc; border-radius: 4px; }
+    .config button { padding: 0.5em 1.2em; margin: 0.5em; }
+    .actions { display: flex; gap: 1em; margin-bottom: 1.5em; }
+    .actions button { padding: 0.5em 1.2em; font-size: 1rem; cursor: pointer; border-radius: 4px; border: 1px solid #ccc; }
+    .btn-danger { background: #c00; color: #fff; border: none; }
+    .btn-primary { background: #007bff; color: #fff; border: none; }
+    .summary { background: #f5f7fa; padding: 1em 1.5em; border-radius: 8px; margin-bottom: 1.5em; }
+    .summary table td { padding: 0.2em 1em 0.2em 0; }
+    .summary td:first-child { font-weight: bold; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 4px; margin-bottom: 2em; }
+    .cell { border: 1px solid #ccc; border-radius: 4px; padding: 0.3em 0.4em; text-align: center; font-size: 0.85rem; }
+    .cell .id { font-weight: bold; color: #333; }
+    .cell .count { font-size: 1.1rem; }
+    .cell-min { background: #d4edda; }
+    .cell-max { background: #f8d7da; }
+    .cell-zero { background: #fff; }
+    table.participants { border-collapse: collapse; width: 100%; }
+    table.participants th { padding: 0.5em 1em; text-align: left; border-bottom: 2px solid #ccc; background: #f0f0f0; }
+    table.participants td { padding: 0.4em 1em; border-bottom: 1px solid #eee; }
+    .badge { display: inline-block; background: #4a90d9; color: #fff; border-radius: 4px; padding: 0.1em 0.5em; margin: 0.1em 0.2em; font-size: 0.85rem; font-weight: bold; }
+    .mono { font-family: monospace; font-size: 0.9rem; }
+    .empty { color: #888; }
+    .error { color: #c00; background: #fee; padding: 1em; border-radius: 4px; margin: 1em 0; }
+    .success { color: #0a5; background: #efe; padding: 1em; border-radius: 4px; margin: 1em 0; }
+    .status { font-weight: bold; margin: 0.5em 0; }
+  </style>
+</head>
+<body>
+  <h1>Vignette Assignment Debug (Firebase)</h1>
+  <p style="color:#666; margin-top:0;">Debug tool for Firebase-stored vignette assignments</p>
+
+  <div class="config">
+    <h2 style="margin-top:0">Configuration</h2>
+    <div>
+      <label>
+        Mode:
+        <select id="modeSelect" onchange="updateConfig()">
+          <option value="local">Local (localStorage)</option>
+          <option value="firebase" selected>Firebase (production)</option>
+        </select>
+      </label>
+    </div>
+    <div id="firebaseConfig">
+      <div>
+        <label>
+          Firebase Config (JSON):
+          <textarea id="firebaseConfigJson" rows="8" placeholder='{
+  "apiKey": "AIzaSyB...",
+  "authDomain": "your-project.firebaseapp.com",
+  "projectId": "your-project-id",
+  "storageBucket": "your-project.appspot.com",
+  "messagingSenderId": "123456789",
+  "appId": "1:123456789:web:abcdef123456"
+}'></textarea>
+        </label>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="connectAndRefresh()">Connect & Refresh</button>
+    <div id="connectionStatus" class="status"></div>
+  </div>
+
+  <div class="actions">
+    <button onclick="refresh()">Refresh</button>
+    <button class="btn-danger" onclick="clearAll()">Clear All Data</button>
+    <button onclick="simulateParticipants()">Simulate 20 Participants</button>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <h2>Vignette Counts (1–54)</h2>
+  <div class="grid" id="grid"></div>
+
+  <h2>Participant Assignments</h2>
+  <div id="participants"></div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js';
+    import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs, deleteDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js';
+
+    const STUDY_ID = 'ai-attribution';
+    const FIRESTORE_COLLECTION = '_revisit';
+    const LOCAL_STORAGE_KEY = 'vignette_assignment';
+    const TOTAL = 54;
+    const PER_PARTICIPANT = 5;
+    
+    let currentMode = 'firebase';
+    let firebaseApp = null;
+    let firestore = null;
+
+    // Available vignette IDs (should match vignetteRegistry.ts)
+    const availableVignetteIds = Array.from({length: TOTAL}, (_, i) => i + 1);
+
+    window.updateConfig = function() {
+      currentMode = document.getElementById('modeSelect').value;
+      const firebaseConfig = document.getElementById('firebaseConfig');
+      firebaseConfig.style.display = currentMode === 'firebase' ? 'block' : 'none';
+      
+      // Load saved Firebase config
+      if (currentMode === 'firebase') {
+        const savedConfig = localStorage.getItem('debug_firebase_config');
+        if (savedConfig) {
+          document.getElementById('firebaseConfigJson').value = savedConfig;
+        }
+      }
+    }
+
+    window.setStatus = function(message, type = 'info') {
+      const status = document.getElementById('connectionStatus');
+      status.textContent = message;
+      status.className = type === 'error' ? 'status error' : type === 'success' ? 'status success' : 'status';
+    }
+
+    window.connectAndRefresh = async function() {
+      if (currentMode === 'firebase') {
+        const configText = document.getElementById('firebaseConfigJson').value.trim();
+        
+        if (!configText) {
+          setStatus('Please enter Firebase configuration', 'error');
+          return;
+        }
+
+        try {
+          const firebaseConfig = JSON.parse(configText);
+          
+          // Initialize Firebase
+          firebaseApp = initializeApp(firebaseConfig);
+          firestore = getFirestore(firebaseApp);
+          
+          // Test connection by trying to read a document
+          const testDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_counts`);
+          await getDoc(testDoc); // This will throw if permissions are wrong
+          
+          // Save config
+          localStorage.setItem('debug_firebase_config', configText);
+          
+          setStatus('Connected to Firebase successfully', 'success');
+        } catch (error) {
+          setStatus(`Connection failed: ${error.message}`, 'error');
+          return;
+        }
+      } else {
+        setStatus('Using localStorage mode', 'success');
+      }
+      
+      await refresh();
+    }
+
+    // Local storage functions
+    function getLocalStore() {
+      try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch {}
+      return { counts: new Array(TOTAL).fill(0), assignments: {} };
+    }
+
+    function saveLocalStore(store) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(store));
+    }
+
+    // Firebase functions
+    async function getFirebaseCounts() {
+      const countsDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_counts`);
+      const snap = await getDoc(countsDoc);
+      return snap.exists() ? (snap.data().counts ?? new Array(TOTAL).fill(0)) : new Array(TOTAL).fill(0);
+    }
+
+    async function getFirebaseAssignments() {
+      // Query for all assignment documents
+      const q = query(
+        collection(firestore, FIRESTORE_COLLECTION),
+        where('studyId', '==', STUDY_ID)
+      );
+      
+      const querySnapshot = await getDocs(q);
+      const assignments = {};
+      
+      querySnapshot.forEach((doc) => {
+        const docId = doc.id;
+        if (docId.startsWith(`${STUDY_ID}_vignette_assignment_`)) {
+          const participantId = docId.replace(`${STUDY_ID}_vignette_assignment_`, '');
+          const data = doc.data();
+          assignments[participantId] = data.vignettes ?? [];
+        }
+      });
+      
+      return assignments;
+    }
+
+    async function updateFirebaseCounts(counts) {
+      const countsDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_counts`);
+      await setDoc(countsDoc, {
+        counts,
+        lastUpdated: serverTimestamp(),
+        studyId: STUDY_ID,
+      });
+    }
+
+    async function addFirebaseAssignment(participantId, vignettes) {
+      const participantDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_assignment_${participantId}`);
+      await setDoc(participantDoc, {
+        vignettes,
+        assignedAt: serverTimestamp(),
+        participantId,
+        studyId: STUDY_ID,
+      });
+    }
+
+    async function clearFirebaseData() {
+      // Delete counts document
+      const countsDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_counts`);
+      try {
+        await deleteDoc(countsDoc);
+      } catch (e) {
+        console.log('No counts document to delete');
+      }
+      
+      // Delete all assignment documents
+      const assignments = await getFirebaseAssignments();
+      const deletePromises = Object.keys(assignments).map(participantId => {
+        const participantDoc = doc(firestore, FIRESTORE_COLLECTION, `${STUDY_ID}_vignette_assignment_${participantId}`);
+        return deleteDoc(participantDoc);
+      });
+      
+      await Promise.all(deletePromises);
+    }
+
+    // Picking logic (from vignetteAssignment.ts)
+    function pickLeastAssigned(counts) {
+      const indexed = availableVignetteIds.map(id => ({ id, count: counts[id - 1] ?? 0 }));
+      // Shuffle for random tie-breaking
+      for (let i = indexed.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indexed[i], indexed[j]] = [indexed[j], indexed[i]];
+      }
+      // Sort by count (stable sort preserves shuffle for ties)
+      indexed.sort((a, b) => a.count - b.count);
+      const selected = indexed.slice(0, PER_PARTICIPANT).map(v => v.id);
+      selected.sort((a, b) => a - b);
+      return selected;
+    }
+
+    window.refresh = async function() {
+      try {
+        let counts, assignments;
+        
+        if (currentMode === 'firebase') {
+          if (!firestore) {
+            setStatus('Please connect to Firebase first', 'error');
+            return;
+          }
+          counts = await getFirebaseCounts();
+          assignments = await getFirebaseAssignments();
+        } else {
+          const store = getLocalStore();
+          counts = store.counts;
+          assignments = store.assignments;
+        }
+
+        const pCount = Object.keys(assignments).length;
+        const total = counts.reduce((a, b) => a + b, 0);
+        const min = Math.min(...counts);
+        const max = Math.max(...counts);
+
+        // Summary
+        document.getElementById('summary').innerHTML = `
+          <h2 style="margin-top:0">Summary (${currentMode} mode)</h2>
+          <table>
+            <tr><td>Participants</td><td>${pCount}</td></tr>
+            <tr><td>Total assignments</td><td>${total}</td></tr>
+            <tr><td>Min count</td><td>${min}</td></tr>
+            <tr><td>Max count</td><td>${max}</td></tr>
+            <tr><td>Imbalance (max − min)</td><td>${max - min}</td></tr>
+          </table>
+        `;
+
+        // Grid
+        const gridEl = document.getElementById('grid');
+        gridEl.innerHTML = counts.map((c, i) => {
+          const cls = c === 0 ? 'cell-zero' : c === min ? 'cell-min' : (c === max && max > min) ? 'cell-max' : '';
+          return `<div class="cell ${cls}"><div class="id">#${i + 1}</div><div class="count">${c}</div></div>`;
+        }).join('');
+
+        // Participants
+        const pEl = document.getElementById('participants');
+        const entries = Object.entries(assignments);
+        if (entries.length === 0) {
+          pEl.innerHTML = '<p class="empty">No participants yet.</p>';
+        } else {
+          pEl.innerHTML = `
+            <table class="participants">
+              <thead><tr><th>#</th><th>Participant ID</th><th>Assigned Vignettes</th></tr></thead>
+              <tbody>
+                ${entries.map(([pid, vigs], idx) => `
+                  <tr>
+                    <td>${idx + 1}</td>
+                    <td class="mono">${pid.length > 20 ? `${pid.slice(0, 8)}...${pid.slice(-4)}` : pid}</td>
+                    <td>${vigs.map(v => `<span class="badge">#${v}</span>`).join('')}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          `;
+        }
+        
+        setStatus(`Data loaded successfully (${pCount} participants)`, 'success');
+      } catch (error) {
+        setStatus(`Error loading data: ${error.message}`, 'error');
+        console.error('Error in refresh:', error);
+      }
+    }
+
+    window.clearAll = async function() {
+      const confirmation = prompt('Type "CLEAR" to confirm clearing all vignette assignment data:');
+      if (confirmation !== 'CLEAR') return;
+
+      try {
+        if (currentMode === 'firebase') {
+          if (!firestore) {
+            setStatus('Please connect to Firebase first', 'error');
+            return;
+          }
+          await clearFirebaseData();
+        } else {
+          localStorage.removeItem(LOCAL_STORAGE_KEY);
+        }
+        
+        // Also clear session participant ID
+        sessionStorage.removeItem('vignette_participant_id');
+        
+        setStatus('Data cleared successfully', 'success');
+        await refresh();
+      } catch (error) {
+        setStatus(`Error clearing data: ${error.message}`, 'error');
+      }
+    }
+
+    window.simulateParticipants = async function() {
+      try {
+        let counts, assignments;
+        
+        if (currentMode === 'firebase') {
+          if (!firestore) {
+            setStatus('Please connect to Firebase first', 'error');
+            return;
+          }
+          counts = await getFirebaseCounts();
+          assignments = await getFirebaseAssignments();
+        } else {
+          const store = getLocalStore();
+          counts = [...store.counts];
+          assignments = { ...store.assignments };
+        }
+
+        for (let p = 0; p < 20; p++) {
+          const pid = `sim-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+          if (assignments[pid]) continue;
+
+          const selected = pickLeastAssigned(counts);
+          
+          for (const id of selected) {
+            counts[id - 1] += 1;
+          }
+          assignments[pid] = selected;
+
+          if (currentMode === 'firebase') {
+            await addFirebaseAssignment(pid, selected);
+          }
+        }
+
+        if (currentMode === 'firebase') {
+          await updateFirebaseCounts(counts);
+        } else {
+          saveLocalStore({ counts, assignments });
+        }
+        
+        setStatus('20 participants simulated successfully', 'success');
+        await refresh();
+      } catch (error) {
+        setStatus(`Error simulating participants: ${error.message}`, 'error');
+      }
+    }
+
+    // Initialize
+    updateConfig();
+    setStatus('Enter Firebase config and connect to view data');
+  </script>
+</body>
+</html>
