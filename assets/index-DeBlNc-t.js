@@ -166,11 +166,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1100px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -215,7 +217,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #FF6B6B;
@@ -421,11 +424,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 30px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -470,7 +475,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3bb8b0;
@@ -686,11 +692,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1100px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -735,7 +743,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8846a;
@@ -937,11 +946,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -986,7 +997,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #6fc4b0;
@@ -1186,8 +1198,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    background: #f0f7f2;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1196,7 +1208,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   }
   h1 {
     font-size: 1.4rem;
-    color: #b0b0c8;
+    color: #4a5568;
     margin-bottom: 18px;
     text-align: center;
   }
@@ -1205,25 +1217,27 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
-    background: #22223a;
+    background: #fff;
     border-radius: 16px;
     padding: 34px 32px 30px 32px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border: 1px solid #33335a;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.18rem;
-    color: #F7DC6F;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -1239,13 +1253,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 8px 0 8px 24px;
     font-size: 0.96rem;
     line-height: 1.6;
-    color: #c8c8e0;
+    color: #4a5568;
   }
   .slide ul li::before {
     content: '▸';
     position: absolute;
     left: 0;
-    color: #F7DC6F;
+    color: #27AE60;
     font-weight: bold;
     font-size: 1rem;
   }
@@ -1254,11 +1268,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #F7DC6F;
-    color: #1a1a2e;
+    background: #27AE60;
+    color: #fff;
     border: none;
     border-radius: 9px;
     padding: 10px 24px;
@@ -1267,16 +1282,16 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
   }
-  .controls button:hover { background: #f5d24e; transform: translateY(-1px); }
+  .controls button:hover { background: #219a52; transform: translateY(-1px); }
   .controls button:disabled {
-    background: #3a3a5a;
-    color: #6a6a8a;
+    background: #c0d9c8;
+    color: #888;
     cursor: default;
     transform: none;
   }
   .page-info {
     font-size: 0.9rem;
-    color: #8888aa;
+    color: #718096;
     font-weight: 600;
     min-width: 70px;
     text-align: center;
@@ -1285,11 +1300,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   /* Right panel */
   .vignette-panel {
     flex: 1;
-    background: #22223a;
+    background: #fff;
     border-radius: 16px;
     padding: 28px 26px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    border: 1px solid #33335a;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    border-top: 4px solid #c8e6d0;
     position: sticky;
     top: 24px;
     max-height: 85vh;
@@ -1297,7 +1312,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   }
   .vignette-panel h3 {
     font-size: 1rem;
-    color: #8888aa;
+    color: #718096;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -1307,15 +1322,15 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   .vignette-segment {
     font-size: 0.92rem;
     line-height: 1.75;
-    color: #9090aa;
+    color: #4a5568;
     padding: 4px 5px;
     border-radius: 5px;
     transition: background 0.4s, color 0.4s;
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: rgba(247, 220, 111, 0.15);
-    color: #F7DC6F;
+    background: #f0fff4;
+    color: #1a7a3e;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -1455,7 +1470,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f1f7;
+    background: #fef9f0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -1474,11 +1489,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -1487,12 +1504,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 28px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-top: 4px solid #BB8FCE;
+    border-top: 4px solid #F39C12;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #BB8FCE;
+    color: #F39C12;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -1514,7 +1531,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #BB8FCE;
+    color: #F39C12;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -1523,10 +1540,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #BB8FCE;
+    background: #F39C12;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -1536,9 +1554,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #a370b8; }
+  .controls button:hover { background: #d4890a; }
   .controls button:disabled {
-    background: #d5c8de;
+    background: #fde9c0;
     cursor: default;
   }
   .page-info {
@@ -1558,7 +1576,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #e2d4ec;
+    border-top: 4px solid #fde5b0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -1579,8 +1597,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #f3ecf8;
-    color: #7b3f9e;
+    background: #fff8ec;
+    color: #8a5200;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -1737,11 +1755,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -1786,7 +1806,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5ba8d9;
@@ -2002,11 +2023,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -2051,7 +2074,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3bbfb6;
@@ -2251,7 +2275,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #eef3f7;
+    background: #f0f7f2;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -2270,11 +2294,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -2283,12 +2309,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-top: 4px solid #45B7D1;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #45B7D1;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -2310,7 +2336,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #45B7D1;
+    color: #27AE60;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -2319,10 +2345,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #45B7D1;
+    background: #27AE60;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -2332,9 +2359,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #349fb8; }
+  .controls button:hover { background: #219a52; }
   .controls button:disabled {
-    background: #c7d2da;
+    background: #c0d9c8;
     cursor: default;
   }
   .page-info {
@@ -2354,7 +2381,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #d1d5db;
+    border-top: 4px solid #c8e6d0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -2375,8 +2402,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #e0f5fa;
-    color: #1a8da8;
+    background: #f0fff4;
+    color: #1a7a3e;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -2535,11 +2562,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -2584,7 +2613,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8845c;
@@ -2798,11 +2828,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 30px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -2847,7 +2879,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5bbba3;
@@ -3065,11 +3098,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -3116,7 +3151,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #b5a230;
@@ -3332,11 +3368,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -3381,7 +3419,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5ba3d9;
@@ -3598,11 +3637,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -3647,7 +3688,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #FF6B6B;
@@ -3870,11 +3912,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -3919,7 +3963,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3bb8b0;
@@ -4114,7 +4159,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #eef3f7;
+    background: #f0f7f2;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -4133,11 +4178,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -4146,12 +4193,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-top: 4px solid #45B7D1;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #45B7D1;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -4173,7 +4220,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #45B7D1;
+    color: #27AE60;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -4182,10 +4229,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #45B7D1;
+    background: #27AE60;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -4195,9 +4243,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #3aa0b8; }
+  .controls button:hover { background: #219a52; }
   .controls button:disabled {
-    background: #c5cdd6;
+    background: #c0d9c8;
     cursor: default;
   }
   .page-info {
@@ -4217,7 +4265,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #d1dce5;
+    border-top: 4px solid #c8e6d0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -4238,7 +4286,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #e3f6fa;
+    background: #f0fff4;
     color: #2a8fa6;
     font-weight: 600;
     border-radius: 4px;
@@ -4398,11 +4446,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -4447,7 +4497,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8845c;
@@ -4642,8 +4693,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    background: #f0f7f2;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4652,7 +4703,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   }
   h1 {
     font-size: 1.4rem;
-    color: #c9c9d4;
+    color: #4a5568;
     margin-bottom: 18px;
     text-align: center;
     letter-spacing: 0.02em;
@@ -4662,25 +4713,27 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
-    background: #16213e;
+    background: #fff;
     border-radius: 16px;
     padding: 34px 32px 30px 32px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 290px;
-    border: 1px solid #253554;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #F7DC6F;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -4696,13 +4749,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 8px 0 8px 24px;
     font-size: 0.97rem;
     line-height: 1.6;
-    color: #c5cbe0;
+    color: #4a5568;
   }
   .slide ul li::before {
     content: '▸';
     position: absolute;
     left: 0;
-    color: #F7DC6F;
+    color: #27AE60;
     font-weight: bold;
     font-size: 1rem;
   }
@@ -4711,11 +4764,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #F7DC6F;
-    color: #1a1a2e;
+    background: #27AE60;
+    color: #fff;
     border: none;
     border-radius: 8px;
     padding: 10px 24px;
@@ -4724,16 +4778,16 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
   }
-  .controls button:hover { background: #f5d142; transform: translateY(-1px); }
+  .controls button:hover { background: #219a52; transform: translateY(-1px); }
   .controls button:disabled {
-    background: #3a3f5c;
-    color: #6b7094;
+    background: #c0d9c8;
+    color: #888;
     cursor: default;
     transform: none;
   }
   .page-info {
     font-size: 0.9rem;
-    color: #8e93b0;
+    color: #718096;
     font-weight: 600;
     min-width: 70px;
     text-align: center;
@@ -4742,17 +4796,18 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   /* Right panel */
   .vignette-panel {
     flex: 1;
-    background: #16213e;
+    background: #fff;
     border-radius: 16px;
     padding: 28px 26px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    
     position: sticky;
     top: 24px;
-    border: 1px solid #253554;
+    border-top: 4px solid #c8e6d0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
-    color: #8e93b0;
+    color: #718096;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -4762,15 +4817,15 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   .vignette-segment {
     font-size: 0.92rem;
     line-height: 1.75;
-    color: #8d93ad;
+    color: #4a5568;
     padding: 3px 5px;
     border-radius: 4px;
     transition: background 0.4s, color 0.4s;
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: rgba(247, 220, 111, 0.14);
-    color: #F7DC6F;
+    background: #f0fff4;
+    color: #1a7a3e;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -4917,11 +4972,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -4930,12 +4987,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(120,80,160,0.09);
     min-height: 300px;
-    border-top: 4px solid #BB8FCE;
+    border-top: 4px solid #F39C12;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #BB8FCE;
+    color: #F39C12;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -4957,7 +5014,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #BB8FCE;
+    color: #F39C12;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -4966,10 +5023,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #BB8FCE;
+    background: #F39C12;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -4979,9 +5037,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #a374b8; }
+  .controls button:hover { background: #d4890a; }
   .controls button:disabled {
-    background: #d5c6df;
+    background: #fde9c0;
     cursor: default;
   }
   .page-info {
@@ -5001,7 +5059,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     box-shadow: 0 3px 14px rgba(120,80,160,0.09);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #e2d4ec;
+    border-top: 4px solid #fde5b0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -5022,7 +5080,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #f3e8fa;
+    background: #fff8ec;
     color: #8b5bb0;
     font-weight: 600;
     border-radius: 4px;
@@ -5183,11 +5241,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -5232,7 +5292,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5dade2;
@@ -5449,11 +5510,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -5498,7 +5561,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #FF6B6B;
@@ -5717,11 +5781,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -5766,7 +5832,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3bbfb7;
@@ -5976,11 +6043,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1100px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -6025,7 +6094,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8805a;
@@ -6239,11 +6309,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -6288,7 +6360,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 18px;
   }
   .controls button {
     background: #6bbfad;
@@ -6487,8 +6560,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    background: #f0f7f2;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6497,7 +6570,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   }
   h1 {
     font-size: 1.4rem;
-    color: #a0a4b8;
+    color: #4a5568;
     margin-bottom: 18px;
     text-align: center;
     letter-spacing: 0.02em;
@@ -6507,25 +6580,27 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
-    background: #16213e;
+    background: #fff;
     border-radius: 16px;
     padding: 34px 32px 30px 32px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border: 1px solid #2a2d45;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.18rem;
-    color: #F7DC6F;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -6541,13 +6616,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 8px 0 8px 24px;
     font-size: 0.96rem;
     line-height: 1.6;
-    color: #c5c8d8;
+    color: #4a5568;
   }
   .slide ul li::before {
     content: '▸';
     position: absolute;
     left: 0;
-    color: #F7DC6F;
+    color: #27AE60;
     font-weight: bold;
     font-size: 1rem;
   }
@@ -6556,11 +6631,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #F7DC6F;
-    color: #1a1a2e;
+    background: #27AE60;
+    color: #fff;
     border: none;
     border-radius: 9px;
     padding: 10px 24px;
@@ -6569,16 +6645,16 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
   }
-  .controls button:hover { background: #f5d142; transform: translateY(-1px); }
+  .controls button:hover { background: #219a52; transform: translateY(-1px); }
   .controls button:disabled {
-    background: #3a3d55;
-    color: #6b6e82;
+    background: #c0d9c8;
+    color: #888;
     cursor: default;
     transform: none;
   }
   .page-info {
     font-size: 0.9rem;
-    color: #8a8da0;
+    color: #718096;
     font-weight: 600;
     min-width: 70px;
     text-align: center;
@@ -6587,17 +6663,18 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   /* Right panel */
   .vignette-panel {
     flex: 1;
-    background: #16213e;
+    background: #fff;
     border-radius: 16px;
     padding: 28px 26px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    
     position: sticky;
     top: 24px;
-    border: 1px solid #2a2d45;
+    border-top: 4px solid #c8e6d0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
-    color: #8a8da0;
+    color: #718096;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -6607,15 +6684,15 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   .vignette-segment {
     font-size: 0.92rem;
     line-height: 1.75;
-    color: #8a8da0;
+    color: #4a5568;
     padding: 3px 5px;
     border-radius: 5px;
     transition: background 0.4s, color 0.4s;
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: rgba(247, 220, 111, 0.14);
-    color: #F7DC6F;
+    background: #f0fff4;
+    color: #1a7a3e;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -6755,7 +6832,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f1f8;
+    background: #fef9f0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -6774,11 +6851,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -6787,12 +6866,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-top: 4px solid #BB8FCE;
+    border-top: 4px solid #F39C12;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #BB8FCE;
+    color: #F39C12;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -6814,7 +6893,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #BB8FCE;
+    color: #F39C12;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -6823,10 +6902,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #BB8FCE;
+    background: #F39C12;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -6836,9 +6916,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #a370bd; }
+  .controls button:hover { background: #d4890a; }
   .controls button:disabled {
-    background: #d5c4df;
+    background: #fde9c0;
     cursor: default;
   }
   .page-info {
@@ -6857,7 +6937,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #e2d1ee;
+    border-top: 4px solid #fde5b0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -6878,8 +6958,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #f3e8fa;
-    color: #7b3fa0;
+    background: #fff8ec;
+    color: #8a5200;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -7037,11 +7117,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -7086,7 +7168,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5ba3d4;
@@ -7303,11 +7386,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 30px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -7352,7 +7437,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3bb8b0;
@@ -7553,7 +7639,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #eef3f8;
+    background: #f0f7f2;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -7572,11 +7658,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -7585,12 +7673,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-top: 4px solid #45B7D1;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.18rem;
-    color: #45B7D1;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -7612,7 +7700,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #45B7D1;
+    color: #27AE60;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -7621,10 +7709,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #45B7D1;
+    background: #27AE60;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -7634,9 +7723,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s, transform 0.1s;
     font-weight: 600;
   }
-  .controls button:hover { background: #3a9fb8; transform: translateY(-1px); }
+  .controls button:hover { background: #219a52; transform: translateY(-1px); }
   .controls button:disabled {
-    background: #c8d6dd;
+    background: #c0d9c8;
     cursor: default;
     transform: none;
   }
@@ -7680,7 +7769,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #e0f5fa;
+    background: #f0fff4;
     color: #2a8da6;
     font-weight: 600;
     border-radius: 4px;
@@ -7840,11 +7929,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -7889,7 +7980,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8856a;
@@ -8104,11 +8196,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -8153,7 +8247,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #6bbfad;
@@ -8360,11 +8455,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1100px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -8412,7 +8509,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #bfa62e;
@@ -8625,11 +8723,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -8674,7 +8774,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5ba3d9;
@@ -8880,11 +8981,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -8929,7 +9032,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #FF6B6B;
@@ -9153,11 +9257,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -9202,7 +9308,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3ab5ad;
@@ -9398,7 +9505,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #eef3f7;
+    background: #f0f7f2;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -9418,11 +9525,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 30px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -9431,12 +9540,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 4px 18px rgba(0,0,0,0.07);
     min-height: 280px;
-    border-top: 4px solid #45B7D1;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #45B7D1;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -9458,7 +9567,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '●';
     position: absolute;
     left: 2px;
-    color: #45B7D1;
+    color: #27AE60;
     font-size: 0.65rem;
     top: 13px;
   }
@@ -9467,10 +9576,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #45B7D1;
+    background: #27AE60;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -9480,9 +9590,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s, transform 0.1s;
     font-weight: 600;
   }
-  .controls button:hover { background: #3a9fb7; transform: translateY(-1px); }
+  .controls button:hover { background: #219a52; transform: translateY(-1px); }
   .controls button:disabled {
-    background: #c8d6dc;
+    background: #c0d9c8;
     cursor: default;
     transform: none;
   }
@@ -9503,7 +9613,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     box-shadow: 0 4px 18px rgba(0,0,0,0.07);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #d1d5db;
+    border-top: 4px solid #c8e6d0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -9524,7 +9634,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #e0f6fb;
+    background: #f0fff4;
     color: #2a8fa8;
     font-weight: 600;
     border-radius: 4px;
@@ -9683,11 +9793,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -9732,7 +9844,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8845c;
@@ -9929,8 +10042,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    background: #f0f7f2;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9939,7 +10052,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   }
   h1 {
     font-size: 1.4rem;
-    color: #b0b0c8;
+    color: #4a5568;
     margin-bottom: 18px;
     text-align: center;
   }
@@ -9948,25 +10061,27 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
-    background: #22223a;
+    background: #fff;
     border-radius: 16px;
     padding: 34px 32px 30px 32px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 290px;
-    border: 1px solid #33335a;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.18rem;
-    color: #F7DC6F;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -9988,7 +10103,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #F7DC6F;
+    color: #27AE60;
     font-weight: bold;
   }
   .controls {
@@ -9996,11 +10111,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #F7DC6F;
-    color: #1a1a2e;
+    background: #27AE60;
+    color: #fff;
     border: none;
     border-radius: 8px;
     padding: 9px 24px;
@@ -10009,16 +10125,16 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     font-weight: 600;
     transition: background 0.2s, transform 0.1s;
   }
-  .controls button:hover { background: #f5d34a; transform: translateY(-1px); }
+  .controls button:hover { background: #219a52; transform: translateY(-1px); }
   .controls button:disabled {
-    background: #3a3a5a;
-    color: #6a6a8a;
+    background: #c0d9c8;
+    color: #888;
     cursor: default;
     transform: none;
   }
   .page-info {
     font-size: 0.9rem;
-    color: #8888a8;
+    color: #718096;
     font-weight: 600;
     min-width: 70px;
     text-align: center;
@@ -10027,17 +10143,18 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   /* Right panel – original vignette text */
   .vignette-panel {
     flex: 1;
-    background: #22223a;
+    background: #fff;
     border-radius: 16px;
     padding: 28px 26px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    
     position: sticky;
     top: 24px;
-    border: 1px solid #33335a;
+    border-top: 4px solid #c8e6d0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
-    color: #8888a8;
+    color: #718096;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -10054,8 +10171,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #3a3420;
-    color: #F7DC6F;
+    background: #c0d9c8;
+    color: #27AE60;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -10197,7 +10314,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f1f7;
+    background: #fef9f0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -10216,11 +10333,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -10229,12 +10348,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 290px;
-    border-left: 5px solid #BB8FCE;
+    border-left: 5px solid #F39C12;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #BB8FCE;
+    color: #F39C12;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -10256,7 +10375,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     content: '▸';
     position: absolute;
     left: 0;
-    color: #BB8FCE;
+    color: #F39C12;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -10265,10 +10384,11 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #BB8FCE;
+    background: #F39C12;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -10278,9 +10398,9 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #a070b8; }
+  .controls button:hover { background: #d4890a; }
   .controls button:disabled {
-    background: #d5c6de;
+    background: #fde9c0;
     cursor: default;
   }
   .page-info {
@@ -10320,8 +10440,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #f3ecf8;
-    color: #7b4ea0;
+    background: #fff8ec;
+    color: #8a5200;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -10481,11 +10601,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -10530,7 +10652,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #5aa8d8;
@@ -10748,11 +10871,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -10797,7 +10922,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #FF6B6B;
@@ -11017,11 +11143,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -11066,7 +11194,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #3ab5ad;
@@ -11283,11 +11412,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -11332,7 +11463,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #e8755a;
@@ -11544,11 +11676,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -11593,7 +11727,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #6dbfad;
@@ -11790,8 +11925,8 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    background: #f0f7f2;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11800,7 +11935,7 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   }
   h1 {
     font-size: 1.4rem;
-    color: #b0b0c8;
+    color: #4a5568;
     margin-bottom: 18px;
     text-align: center;
   }
@@ -11809,25 +11944,27 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
-    background: #22223a;
+    background: #fff;
     border-radius: 14px;
     padding: 34px 32px 28px 32px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-left: 4px solid #F7DC6F;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.18rem;
-    color: #F7DC6F;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -11843,13 +11980,13 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     padding: 8px 0 8px 24px;
     font-size: 0.97rem;
     line-height: 1.6;
-    color: #c9c9de;
+    color: #4a5568;
   }
   .slide ul li::before {
     content: '▸';
     position: absolute;
     left: 0;
-    color: #F7DC6F;
+    color: #27AE60;
     font-weight: bold;
   }
   .controls {
@@ -11857,11 +11994,12 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #F7DC6F;
-    color: #1a1a2e;
+    background: #27AE60;
+    color: #fff;
     border: none;
     border-radius: 8px;
     padding: 9px 24px;
@@ -11870,16 +12008,16 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
   }
-  .controls button:hover { background: #f5d24a; transform: scale(1.03); }
+  .controls button:hover { background: #219a52; transform: scale(1.03); }
   .controls button:disabled {
-    background: #3a3a55;
-    color: #6a6a80;
+    background: #c0d9c8;
+    color: #888;
     cursor: default;
     transform: none;
   }
   .page-info {
     font-size: 0.9rem;
-    color: #8888a8;
+    color: #718096;
     font-weight: 600;
     min-width: 72px;
     text-align: center;
@@ -11888,16 +12026,17 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   /* Right panel */
   .vignette-panel {
     flex: 1;
-    background: #22223a;
+    background: #fff;
     border-radius: 14px;
     padding: 28px 26px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    border-top: 4px solid #c8e6d0;
     position: sticky;
     top: 24px;
   }
   .vignette-panel h3 {
     font-size: 1rem;
-    color: #8888a8;
+    color: #718096;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -11907,15 +12046,15 @@ Please change the parent <Route path="${g}"> to <Route path="${g==="/"?"*":`${g}
   .vignette-segment {
     font-size: 0.93rem;
     line-height: 1.75;
-    color: #9a9ab8;
+    color: #4a5568;
     padding: 3px 5px;
     border-radius: 5px;
     transition: background 0.4s, color 0.4s;
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: rgba(247,220,111,0.15);
-    color: #F7DC6F;
+    background: #f0fff4;
+    color: #1a7a3e;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;
@@ -12388,7 +12527,7 @@ Q3: ${f(t.third)}`}),children:de("g",{children:c})})})},qBn=({degree:e})=>{const
               `,onClick:i,children:[de("rect",{width:U7,height:U7,fill:"transparent",rx:5,ry:5}),de(n2,{height:U7,width:U7,children:de(KWn,{})})]})}),Et("text",{css:Or`
               font-size: 14px;
               font-weight: 450;
-            `,transform:Bt(25,t.body.rowHeight/2),dominantBaseline:"middle",children:[de("title",{children:a?.name}),a?.name]}),de("g",{transform:Bt(t.xOffset+t.set.width/2,t.body.rowHeight+(t.set.width-10)),children:n.map((o,l)=>de(Lbe,{transform:Bt((t.set.width/2+t.gap/2)*l,0),membershipStatus:s(o),showoutline:!0}))}),de("g",{transform:Bt(0,t.body.rowHeight-2),children:de(TK,{size:r,vegaSelected:0,querySelected:0})})]})]})})},szn=()=>{const e=Ze(mr),t=Ze(o3),n=Ze(pE),a=Ze(gE);return de("g",{transform:Bt(0,e.header.totalHeight+5),children:t.length===0?de("text",{transform:Bt(e.matrixColumn.width+e.bookmarkStar.gap+e.bookmarkStar.width+e.bookmarkStar.gap,e.body.rowHeight),style:{zIndex:10},children:"No intersections to display..."}):Et("g",{children:[n&&de(azn,{}),HR(a)?de(rzn,{}):null,de(tzn,{rows:t})]})})},izn=Tf(b.jsx("path",{d:"M5 20h14v-2H5zM19 9h-4V3H9v6H5l7 7z"})),ozn=Tf(b.jsx("path",{d:"M22 5v2h-3v3h-2V7h-3V5h3V2h2v3zm-3 14H5V5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2zm-4-6v4h2v-4zm-4 4h2V9h-2zm-2 0v-6H7v6z"})),lzn=Tf(b.jsx("path",{d:"M7 9H2V7h5zm0 3H2v2h5zm13.59 7-3.83-3.83c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L22 17.59zM17 11c0-1.65-1.35-3-3-3s-3 1.35-3 3 1.35 3 3 3 3-1.35 3-3M2 19h10v-2H2z"})),czn=Tf(b.jsx("path",{d:"M6 13c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4m6-10C9.8 3 8 4.8 8 7s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4m6 10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4"})),fzn=Tf(b.jsx("path",{d:"M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6z"})),MP="small",Aae="rgba(0,0,0,0.2)",uzn=()=>{const{actions:e}=S.useContext(yo),t=Ze(Jg),n=Ze(Clt),a=Ze(Y_),r=Ze(R9),s=Ze(tbe),i=t?.elementName.replaceAll("~&~"," & ")||"",o=Ze(sE),l=Ze(iE),c=Ze(Rv);function f(u){t?.id===u.id&&c==="row"?e.setRowSelection(null):t?.id!==u.id&&e.setRowSelection(a[u.id])}return Et(Tun,{direction:"row",sx:{flexFlow:"row wrap"},children:[r.map(u=>de(II,{disabled:a[u.id]===void 0,sx:d=>({margin:d.spacing(.5),".MuiChip-icon":{color:Ox[u.colorIndex]??X2e},backgroundColor:u.id===t?.id&&c==="row"?"rgba(0,0,0,0.2)":"default"}),"aria-label":`Bookmarked intersection ${u.label}, size ${u.size}`,onKeyDown:d=>{d.key==="Enter"&&f(u)},label:`${u.label} - ${u.size}`,icon:de(jct,{fontSize:MP,onClick:d=>{t?.id===u.id&&c!=="row"&&e.setRowSelection(null),e.removeBookmark(u),d.stopPropagation()}}),onContextMenu:d=>{d.preventDefault(),d.stopPropagation(),e.removeBookmark(u),t?.id===u.id&&e.setRowSelection(null)},onClick:()=>{f(u)}},u.id)),t&&!r.find(u=>u.id===t.id)&&de(II,{sx:u=>({margin:u.spacing(.5),".MuiChip-icon":{color:n},backgroundColor:c==="row"?Aae:"default"}),icon:de(Bct,{fontSize:MP,onClick:u=>{e.addBookmark({id:t.id,label:i,size:t.size,colorIndex:s}),u.stopPropagation()}}),"aria-label":`Selected intersection ${i}, size ${t.size}`,onKeyDown:u=>{u.key==="Enter"&&e.addBookmark({id:t.id,label:i,size:t.size,colorIndex:s})},onClick:()=>{c==="row"&&e.setRowSelection(null)},label:`${i} - ${t.size}`}),o&&de(II,{sx:u=>({margin:u.spacing(.5),".MuiChip-icon":{color:jR},backgroundColor:c==="vega"?Aae:"default"}),icon:de(czn,{fontSize:MP}),"aria-label":`Selected elements ${Yce(o)}`,onContextMenu:u=>{u.preventDefault(),u.stopPropagation(),e.setVegaSelection(null)},onClick:()=>{c==="vega"?e.activateSelectionType(null):e.activateSelectionType("vega")},label:Yce(o)}),l&&de(II,{sx:u=>({margin:u.spacing(.5),".MuiChip-icon":{color:efe},backgroundColor:c==="query"?Aae:"default"}),icon:de(fzn,{fontSize:MP}),"aria-label":`Selected elements ${Xce(l)}`,onContextMenu:u=>{u.preventDefault(),u.stopPropagation(),e.setQuerySelection(null)},onClick:()=>{c==="query"?e.activateSelectionType(null):e.activateSelectionType("query")},label:Xce(l)})]})};function dzn(e){return S.useMemo(()=>e.map(t=>({...t.atts,_label:t._label,id:t._id})),[e])}function hzn(e){const t=Ze(glt);return S.useMemo(()=>e.map(n=>{const a=n==="_id"?"ID":n==="_label"?"Label":n;return{field:n,headerName:a,type:t.includes(n)?"boolean":"string",description:a}}),[e,t])}const mzn=()=>{const e=Ze(fK),t=Ze(nbe),n=dzn(t),a=Ze(glt),r=hzn(["_label",...[...e,...a].filter(o=>!o.startsWith("_"))]),[s,i]=S.useState(null);return S.useEffect(()=>{let o=!0;try{pQe(()=>import("./index-BBWYfOhv.js"),[]).then(l=>{o&&i(()=>l.DataGrid??!1)}).catch(()=>{o&&i(!1)})}catch{i(!1)}return()=>{o=!1}},[]),s===!1?Et("p",{style:{padding:"1rem",color:"gray"},children:["Install ",de("code",{children:"@mui/x-data-grid"})," to view the element data table."]}):s?de(s,{style:{height:650},rows:n,columns:r}):null},Zct={and:[{not:{param:"brush",empty:!1}},{param:"brush"}]};function pzn(e,t,n=400,a=400){return{width:a,height:n,data:{name:"elements"},mark:{type:"point",opacity:.5},encoding:{x:{field:e.attribute,type:"quantitative",scale:{zero:!1,type:e.logScale?"log":"linear"}},y:{field:t.attribute,type:"quantitative",scale:{zero:!1,type:t.logScale?"log":"linear"}}}}}function gzn(e){return{width:200,height:200,signals:[{name:"brush",value:{}}],mark:{type:"point"},params:[{name:"brush",select:{type:"interval",clear:"mousedown"}}],encoding:{x:{field:e.x,title:e.x,type:"quantitative",scale:{zero:!1,type:e.xScaleLog?"log":"linear"}},y:{field:e.y,title:e.y,type:"quantitative",scale:{zero:!1,type:e.yScaleLog?"log":"linear"}},color:{condition:[{test:{and:[{param:"brush",empty:!1},{not:{and:[{field:"selectionType",equal:"row"},{field:"isCurrent",equal:!0}]}}]},value:jR}],field:"subset",legend:null,scale:{range:{field:"color"}}},opacity:{condition:[{test:{and:[{param:"brush",empty:!1},{field:"selectionType",equal:"vega"}]},value:.8},{test:{and:[{or:[Zct,{not:{field:"selectionType",equal:"vega"}}]},{or:[{field:"isCurrentSelected",equal:!1},{field:"isCurrent",equal:!0}]}]},value:.8}],value:.3},order:{condition:[{test:{and:[{param:"brush",empty:!1},{field:"selectionType",equal:"vega"}]},value:3},{test:{and:[{field:"isCurrent",equal:!0},{field:"selectionType",equal:"row"}]},value:4},{test:{and:[{field:"isCurrentSelected",equal:!0},{field:"isCurrent",equal:!0}]},value:2},{test:{field:"bookmarked",equal:!0},value:1}],value:0}}}}function yzn(e,t,n){return n?{width:400,height:400,data:{name:"elements"},transform:[{density:e}],mark:"line",encoding:{x:{field:"value",type:"quantitative"},y:{field:"density",type:"quantitative"}}}:{width:400,height:400,data:{name:"elements"},mark:"bar",encoding:{x:{bin:{maxbins:t},field:e},y:{aggregate:"count"}}}}function vzn(e,t,n){const a=[{name:"brush",select:{type:"interval",encodings:["x"],clear:"mousedown"}}],r={field:"subset",legend:null,scale:{range:{field:"color"}}},s={condition:{test:Zct,value:1},value:.4},i=t==="row";return e.frequency?{width:200,height:200,signals:[{name:"brush",value:{}}],layer:[{transform:[{density:e.attribute},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative",title:"Probability"},color:{value:blt},opacity:i?{value:.4}:s}},{params:a,transform:[{filter:{field:"bookmarked",equal:!0}},{density:e.attribute,groupby:["subset","color"]},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative",title:"Probability"},color:r,opacity:i?{value:.4}:s}},{transform:[{filter:{param:"brush",empty:!1}},{density:e.attribute},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative"},color:{value:jR},opacity:{value:i?.4:1}}},...i?[{transform:[{filter:{field:"isCurrent",equal:!0}},{density:e.attribute,groupby:["subset","color"]},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative"},color:r,opacity:{value:1}}}]:[]]}:{width:200,height:200,signals:[{name:"brush",value:{}}],layer:[{params:a,mark:"bar",encoding:{x:{bin:{maxbins:e.bins},field:e.attribute},y:{aggregate:"count",title:"Frequency"},color:r,opacity:s}},{transform:[{filter:{param:"brush",empty:!1}}],mark:"bar",encoding:{x:{field:e.attribute,bin:{maxbins:e.bins},title:e.attribute},y:{aggregate:"count",title:"Frequency"},color:{value:jR},opacity:{value:1}}},...i&&n?[{transform:[{filter:{field:"isCurrent",equal:!0}}],mark:"bar",encoding:{x:{field:e.attribute,bin:{maxbins:e.bins}},y:{aggregate:"count",title:"Frequency"},color:r,opacity:{value:1}}}]:[]]}}function bzn(e,t,n){const a={data:{name:"elements"}};if(dlt(e))return{...a,...gzn(e)};if(hlt(e))return{...a,...vzn(e,t,n)};throw new Error("Invalid plot type")}const _fe="brush";async function mFe(e,t,n=!1){const a=e.getState();Object.entries(t).length===0?a.data[`${_fe}_store`]=[]:a.data[`${_fe}_store`]=[{fields:Object.keys(t).map(r=>({type:"R",field:r})),values:Object.values(t).map(r=>r)}],e.setState(a),n?await e.runAsync():e.run()}const Czn=()=>{const e=Ze(Gct),t=Ze(Kct),n=Ze(eOn),a=Ze(sE),{actions:r}=S.useContext(yo),s=Ze(Rv),i=zi(Z_),o=zi(D9),l=S.useRef(a),c=S.useRef(!1),f=S.useRef(!1),[u,d]=S.useState([]),h=S.useRef(null),m=S.useRef(!1),p=S.useMemo(()=>({elements:Object.values(Px(n))}),[n]),g=S.useMemo(()=>e.concat(t),[e,t]),y=S.useMemo(()=>g.map(_=>({plot:_,spec:bzn(_,s,!!a)})),[g,s,a]),v=S.useCallback((_,x)=>{!ult(x)||_.id!==h.current?.id||f.current||(m.current=!0,l.current=x,u.filter(({plot:R})=>R.id!==_.id).forEach(({view:R})=>{mFe(R,x)}))},[l,u]),C=S.useCallback((_=!1)=>{if(c.current){c.current=_;return}m.current&&(l.current&&Object.keys(l.current).length>0&&!oPn(l.current,a??void 0)?(r.setVegaSelection(l.current),o([])):a&&r.setVegaSelection(null),l.current=null,_&&(c.current=!0))},[a,r,o]),A=S.useCallback(()=>{f.current=!0;const _=[];u.forEach(({view:x})=>{_.push(mFe(x,a??{},!0))}),Promise.allSettled(_).then(()=>{f.current=!1})},[u,a]);return S.useEffect(()=>{A()},[u,a]),de(p6,{onClick:()=>{C(),m.current=!1},onMouseLeave:()=>C(!0),onMouseEnter:()=>c.current=!1,children:de(p6,{sx:{overflowX:"auto",display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"space-around"},children:g.length>0&&y.map(({plot:_,spec:x})=>de(p6,{style:{display:"inline-block",position:"relative"},onContextMenu:R=>{R.preventDefault(),R.stopPropagation(),setTimeout(A,5),i({mouseX:R.clientX,mouseY:R.clientY,id:`${_.id}-menu`,items:[{label:"Remove Plot",onClick:()=>{r.removePlot(_),d(u.filter(({plot:D})=>D.id!==_.id)),i(null)}}]})},children:de($R,{spec:x,data:p,actions:!1,signalListeners:{[_fe]:(R,D)=>v(_,D)},style:{marginLeft:"5px"},onNewView:R=>{u.push({view:R,plot:_}),d([...u]),R.addEventListener("mouseover",()=>{h.current=_}),R.addEventListener("mouseout",()=>{h.current=null})}})},_.id))})})},xae=rm.EQUALS,_zn=()=>{const e=Ze(UPn),t=Ze(iE),{actions:n}=S.useContext(yo),a=Ze(rbe),r=zi(D9),s="5px",i={marginTop:s,width:"50%"},[o,l]=S.useState(t?.att??e.length>0?e[0]:void 0),[c,f]=S.useState(t?.type??xae),[u,d]=S.useState(t?.query);S.useEffect(()=>{t?(l(t?.att),f(t?.type),d(t?.query)):(l(e.length>0?e[0]:void 0),f(xae),d(void 0))},[t,e]);const h=S.useCallback(()=>{t?(n.setQuerySelection(null),l(void 0),f(void 0),d(void 0)):o&&c&&u&&Object.values(rm).includes(c)&&e.includes(o)&&(n.setQuerySelection({att:o,type:c||rm.EQUALS,query:u}),r([]))},[o,c,u,e,n,t,r]);return e.length>0?Et(p6,{css:{marginTop:"10px"},children:[Et(o0,{css:i,children:[de(GC,{id:"query-att-select-label",children:"Attribute Name"}),de(s2,{disabled:!!t,labelId:"query-att-select-label",label:"Attribute Name",value:o??"",onChange:m=>{l(m.target.value),f(xae)},children:e.map(m=>de(KC,{value:m,children:m},m))})]}),Et(o0,{css:i,children:[de(GC,{id:"query-type-select-label",children:"Query Type"}),de(s2,{disabled:!!t||!o,label:"Query Type",labelId:"query-type-select-label",value:c??"",onChange:m=>f(m.target.value),children:o&&Object.values(a[o]==="number"?Jot:rm).map(m=>de(KC,{value:m,children:m},m))})]}),Et(p6,{css:{height:"56px",marginTop:s},children:[de(Ky,{fullWidth:!0,placeholder:"Query",css:{width:"80%",display:"inline-block"},disabled:!!t,value:u??"",onChange:m=>d(m.target.value)}),de(Gy,{fullWidth:!0,css:{width:"20%",height:"100%"},onClick:h,color:t?"error":"success",variant:"outlined",children:t?"Clear":"Apply"})]})]}):null},Azn=Tf(b.jsx("path",{d:"M21 11V3h-8l3.29 3.29-10 10L3 13v8h8l-3.29-3.29 10-10z"})),xzn=Tf(b.jsx("path",{d:"M22 3.41 16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59z"})),eft=Tf(b.jsx("path",{d:"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"})),wzn={h1:{fontSize:"1.6em"},h2:{fontSize:"1.4em"},h3:{fontSize:"1.2em"},h4:{fontSize:"1.0em"}},MK=({level:e,paddingLeft:t,divStyle:n,headingStyle:a,children:r,hideDivider:s=!1})=>{const i=e==="h1"||e==="h2"||e==="h3";return Et("div",{style:{marginBottom:".5em",...n},children:[de(Qi,{variant:e,fontSize:wzn[e].fontSize,fontWeight:"inherit",gutterBottom:e==="h1",paddingLeft:t,style:{...a},children:r}),i&&!s&&de(cB,{style:{width:"100%",margin:"0 auto"},"aria-hidden":!0})]})},pFe={height:"40px",width:"40px"},Hbe=({open:e,close:t,closeButtonTabIndex:n,children:a,label:r,title:s,buttons:i,embedded:o=!1})=>{const[l,c]=S.useState(!1),[f,u]=S.useState(462),d=Ze(obe),h=S.useCallback(g=>{g.stopPropagation(),g.preventDefault();const y=document.body.clientWidth-g.clientX;y>368&&u(y)},[u]),m=S.useCallback(()=>{document.removeEventListener("mouseup",m,!0),document.removeEventListener("mousemove",h,!0)},[h]),p=S.useCallback(g=>{g.preventDefault(),g.stopPropagation(),document.addEventListener("mouseup",m,!0),document.addEventListener("mousemove",h,!0)},[m,h]);return Et(lcn,{"aria-hidden":!e,sx:{width:e?l?"100%":f:0,flexShrink:0,"& .MuiDrawer-paper":{padding:"1em",marginTop:o?0:"2em",width:e?l?"100%":f:0,boxSizing:"border-box",zIndex:1,overflow:"hidden",paddingRight:0}},open:e,onClose:t,variant:"persistent",anchor:"right","aria-label":r,transitionDuration:0,children:[de(os,{sx:{width:"5px",cursor:l?"auto":"ew-resize",padding:"4px 0 0",borderTop:"1px solid #ddd",position:"absolute",top:0,bottom:0,left:0,zIndex:100,backgroundColor:"#f4f7f9"},onMouseDown:g=>p(g)}),Et("div",{style:{height:"100%",overflowY:"auto",overflowX:"hidden",paddingRight:"1em"},children:[Et(os,{display:"flex",flexWrap:"nowrap",flexDirection:"row",children:[de("div",{style:{minWidth:0,alignSelf:"center",flexGrow:1,flexShrink:1,width:"100%",display:"flex",alignItems:"center"},children:de(MK,{level:"h1",hideDivider:!0,divStyle:{marginBottom:0,width:"100%"},headingStyle:{marginBottom:0,whiteSpace:"nowrap",textOverflow:"ellipsis",overflow:"hidden",width:"100%"},children:s})}),Et("div",{style:{display:"flex",justifyContent:"end",flexGrow:0,flexShrink:0,alignSelf:"end"},children:[i,l?de(Po,{title:"Reduce to normal size",children:de(wm,{style:pFe,onClick:()=>{l&&c(!1)},"aria-label":"Reduce the sidebar to normal size",children:de(xzn,{})})}):de(Po,{title:"Expand to full screen",children:de(wm,{style:pFe,onClick:()=>{c(!0)},"aria-label":"Expand the sidebar in full screen",children:de(Azn,{style:{fontSize:"18.67px"}})})}),de(Po,{title:"Close",children:de(wm,{onClick:()=>{t()},tabIndex:n,"aria-label":"Close the sidebar",disabled:o,children:de(eft,{})})})]})]}),de(cB,{style:{width:"100%",margin:"0 auto",marginBottom:"1em"},"aria-hidden":!0}),a,de(os,{minHeight:d})]})]})},gFe=S.createContext();function Szn(e){return Fbe("MuiGridLegacy",e)}const Rzn=[0,1,2,3,4,5,6,7,8,9,10],Dzn=["column-reverse","column","row-reverse","row"],kzn=["nowrap","wrap-reverse","wrap"],pk=["auto",!0,1,2,3,4,5,6,7,8,9,10,11,12],I8=Dct("MuiGridLegacy",["root","container","item","zeroMinWidth",...Rzn.map(e=>`spacing-xs-${e}`),...Dzn.map(e=>`direction-xs-${e}`),...kzn.map(e=>`wrap-xs-${e}`),...pk.map(e=>`grid-xs-${e}`),...pk.map(e=>`grid-sm-${e}`),...pk.map(e=>`grid-md-${e}`),...pk.map(e=>`grid-lg-${e}`),...pk.map(e=>`grid-xl-${e}`)]);function Tzn({theme:e,ownerState:t}){let n;return e.breakpoints.keys.reduce((a,r)=>{let s={};if(t[r]&&(n=t[r]),!n)return a;if(n===!0)s={flexBasis:0,flexGrow:1,maxWidth:"100%"};else if(n==="auto")s={flexBasis:"auto",flexGrow:0,flexShrink:0,maxWidth:"none",width:"auto"};else{const i=jA({values:t.columns,breakpoints:e.breakpoints.values}),o=typeof i=="object"?i[r]:i;if(o==null)return a;const l=`${Math.round(n/o*1e8)/1e6}%`;let c={};if(t.container&&t.item&&t.columnSpacing!==0){const f=e.spacing(t.columnSpacing);if(f!=="0px"){const u=`calc(${l} + ${f})`;c={flexBasis:u,maxWidth:u}}}s={flexBasis:l,flexGrow:0,maxWidth:l,...c}}return e.breakpoints.values[r]===0?Object.assign(a,s):a[e.breakpoints.up(r)]=s,a},{})}function Mzn({theme:e,ownerState:t}){const n=jA({values:t.direction,breakpoints:e.breakpoints.values});return cd({theme:e},n,a=>{const r={flexDirection:a};return a.startsWith("column")&&(r[`& > .${I8.item}`]={maxWidth:"none"}),r})}function tft({breakpoints:e,values:t}){let n="";Object.keys(t).forEach(r=>{n===""&&t[r]!==0&&(n=r)});const a=Object.keys(e).sort((r,s)=>e[r]-e[s]);return a.slice(0,a.indexOf(n))}function Nzn({theme:e,ownerState:t}){const{container:n,rowSpacing:a}=t;let r={};if(n&&a!==0){const s=jA({values:a,breakpoints:e.breakpoints.values});let i;typeof s=="object"&&(i=tft({breakpoints:e.breakpoints.values,values:s})),r=cd({theme:e},s,(o,l)=>{const c=e.spacing(o);return c!=="0px"?{marginTop:`calc(-1 * ${c})`,[`& > .${I8.item}`]:{paddingTop:c}}:i?.includes(l)?{}:{marginTop:0,[`& > .${I8.item}`]:{paddingTop:0}}})}return r}function Fzn({theme:e,ownerState:t}){const{container:n,columnSpacing:a}=t;let r={};if(n&&a!==0){const s=jA({values:a,breakpoints:e.breakpoints.values});let i;typeof s=="object"&&(i=tft({breakpoints:e.breakpoints.values,values:s})),r=cd({theme:e},s,(o,l)=>{const c=e.spacing(o);if(c!=="0px"){const f=`calc(-1 * ${c})`;return{width:`calc(100% + ${c})`,marginLeft:f,[`& > .${I8.item}`]:{paddingLeft:c}}}return i?.includes(l)?{}:{width:"100%",marginLeft:0,[`& > .${I8.item}`]:{paddingLeft:0}}})}return r}function Ezn(e,t,n={}){if(!e||e<=0)return[];if(typeof e=="string"&&!Number.isNaN(Number(e))||typeof e=="number")return[n[`spacing-xs-${String(e)}`]];const a=[];return t.forEach(r=>{const s=e[r];Number(s)>0&&a.push(n[`spacing-${r}-${String(s)}`])}),a}const Wzn=Sct("div",{name:"MuiGridLegacy",slot:"Root",overridesResolver:(e,t)=>{const{ownerState:n}=e,{container:a,direction:r,item:s,spacing:i,wrap:o,zeroMinWidth:l,breakpoints:c}=n;let f=[];a&&(f=Ezn(i,c,t));const u=[];return c.forEach(d=>{const h=n[d];h&&u.push(t[`grid-${d}-${String(h)}`])}),[t.root,a&&t.container,s&&t.item,l&&t.zeroMinWidth,...f,r!=="row"&&t[`direction-xs-${String(r)}`],o!=="wrap"&&t[`wrap-xs-${String(o)}`],...u]}})(({ownerState:e})=>({boxSizing:"border-box",...e.container&&{display:"flex",flexWrap:"wrap",width:"100%"},...e.item&&{margin:0},...e.zeroMinWidth&&{minWidth:0},...e.wrap!=="wrap"&&{flexWrap:e.wrap}}),Mzn,Nzn,Fzn,Tzn);function Izn(e,t){if(!e||e<=0)return[];if(typeof e=="string"&&!Number.isNaN(Number(e))||typeof e=="number")return[`spacing-xs-${String(e)}`];const n=[];return t.forEach(a=>{const r=e[a];if(Number(r)>0){const s=`spacing-${a}-${String(r)}`;n.push(s)}}),n}const Pzn=e=>{const{classes:t,container:n,direction:a,item:r,spacing:s,wrap:i,zeroMinWidth:o,breakpoints:l}=e;let c=[];n&&(c=Izn(s,l));const f=[];l.forEach(d=>{const h=e[d];h&&f.push(`grid-${d}-${String(h)}`)});const u={root:["root",n&&"container",r&&"item",o&&"zeroMinWidth",...c,a!=="row"&&`direction-xs-${String(a)}`,i!=="wrap"&&`wrap-xs-${String(i)}`,...f]};return cct(u,Szn,t)},p1=S.forwardRef(function(e,t){const n=Rct({props:e,name:"MuiGridLegacy"}),{breakpoints:a}=mjn(),r=dHn(n),{className:s,columns:i,columnSpacing:o,component:l="div",container:c=!1,direction:f="row",item:u=!1,rowSpacing:d,spacing:h=0,wrap:m="wrap",zeroMinWidth:p=!1,...g}=r;S.useEffect(()=>{},[]);const y=d||h,v=o||h,C=S.useContext(gFe),A=c?i||12:C,_={},x={...g};a.keys.forEach(M=>{g[M]!=null&&(_[M]=g[M],delete x[M])});const R={...r,columns:A,container:c,direction:f,item:u,rowSpacing:y,columnSpacing:v,wrap:m,zeroMinWidth:p,spacing:h,..._,breakpoints:a.keys},D=Pzn(R);return b.jsx(gFe.Provider,{value:A,children:b.jsx(Wzn,{ownerState:R,className:Sbe(D.root,s),as:l,ref:t,...x})})}),Ozn=({spec:e,data:t})=>de($R,{spec:yzn(e.attribute,e.bins,e.frequency),data:t,actions:!1}),$zn=({spec:e,data:t})=>de($R,{spec:pzn({attribute:e.x,logScale:e.xScaleLog||!1},{attribute:e.y,logScale:e.yScaleLog||!1}),data:t,actions:!1}),nft=({handleClose:e,type:t,bins:n,attribute:a,density:r,x:s,y:i,xScaleLog:o,yScaleLog:l,disabled:c})=>{const{actions:f}=S.useContext(yo);return de(Gy,{style:{display:"block",margin:"auto",width:"100%"},disabled:c,variant:"outlined",color:"success",onClick:()=>{t==="Scatterplot"&&s&&i?f.addPlot({id:Date.now().toString(),type:"Scatterplot",x:s,y:i,xScaleLog:o,yScaleLog:l}):t==="Histogram"&&a&&n&&f.addPlot({id:Date.now().toString(),type:"Histogram",attribute:a,bins:n,frequency:r??!0}),e()},children:"Add Plot"})},aft={width:"100%",display:"flex",justifyContent:"center"},Lzn=({handleClose:e})=>{const t=Ze(fK),n=Ze(S9),[a,r]=S.useState(t[0]),[s,i]=S.useState(t[1]),[o,l]=S.useState(!1),[c,f]=S.useState(!1);return Et(p1,{container:!0,spacing:1,sx:{width:"100%",height:"100%"},children:[de(p1,{container:!0,item:!0,xs:6,children:Et(o0,{fullWidth:!0,children:[de(GC,{id:"x-select-label",children:"X"}),de(s2,{labelId:"x-select-label",id:"x-select",value:a,label:"X",onChange:u=>r(u.target.value),children:t.map(u=>de(KC,{value:u,children:u},u))})]})}),de(p1,{container:!0,item:!0,xs:6,children:Et(o0,{fullWidth:!0,children:[de(GC,{id:"y-select-label",children:"Y"}),de(s2,{labelId:"y-select-label",id:"y-select",value:s,label:"Y",onChange:u=>i(u.target.value),children:t.map(u=>de(KC,{value:u,children:u},u))})]})}),de(p1,{container:!0,item:!0,xs:6,children:de(UM,{label:"Use logscale",control:de(Yoe,{value:o,onChange:()=>l(!o)})})}),de(p1,{container:!0,item:!0,xs:6,children:de(UM,{label:"Use logscale",control:de(Yoe,{value:c,onChange:()=>f(!c)})})}),a&&s&&Object.values(n).length&&de(os,{sx:aft,children:de($zn,{spec:{id:Date.now().toString(),type:"Scatterplot",x:a,y:s,xScaleLog:o,yScaleLog:c},data:{elements:Object.values(JSON.parse(JSON.stringify(n)))}})}),de(nft,{disabled:!(a&&s&&Object.values(n).length),handleClose:e,type:"Scatterplot",x:a,y:s,xScaleLog:o,yScaleLog:c})]})},yFe=({handleClose:e,density:t})=>{const n=Ze(S9),a=Ze(fK),[r,s]=S.useState(a[0]),[i,o]=S.useState(20);return Et(p1,{container:!0,spacing:1,sx:{width:"100%",height:"100%"},children:[de(p1,{container:!0,item:!0,xs:4,children:Et(o0,{fullWidth:!0,children:[de(GC,{id:"attribute-select-label",children:"Attribute"}),de(s2,{labelId:"attribute-select-label",id:"attribute-select",value:r,label:"Attribute",onChange:l=>s(l.target.value),children:a.map(l=>de(KC,{value:l,children:l},l))})]})}),!t&&de(p1,{container:!0,item:!0,xs:4,children:de(Ky,{disabled:t,label:"Bins",value:i,type:"number",onChange:l=>{const c=Number(l.target.value);c>0&&o(c)}})}),Et(p1,{container:!0,item:!0,xs:12,children:[r&&i>0&&Object.values(n).length&&de(os,{sx:aft,children:de(Ozn,{spec:{id:Date.now().toString(),type:"Histogram",attribute:r,bins:i,frequency:t},data:{elements:Object.values(JSON.parse(JSON.stringify(n)))}})}),de(nft,{disabled:!(r&&i>0&&Object.values(n).length),handleClose:e,type:"Histogram",attribute:r,bins:i,density:t})]})]})};function wae({children:e,index:t,value:n,...a}){return de(os,{sx:{width:600},children:n===t&&de(os,{sx:{padding:"1em",minHeight:300},...a,children:e})})}const Hzn=({open:e,onClose:t})=>{const[n,a]=S.useState("Scatterplot");return Et(PJe,{open:e,onClose:t,children:[Et(OJe,{children:["Add Plot",de(wm,{sx:{position:"absolute",right:8,top:8},onClick:t,children:de(eft,{})})]}),Et(adn,{value:n,onChange:(r,s)=>{a(s)},children:[de(Yee,{label:"Scatterplot",value:"Scatterplot"}),de(Yee,{label:"Histogram",value:"Histogram"}),de(Yee,{label:"KDE",value:"KDE"})]}),de(wae,{index:"Scatterplot",value:n,children:de(Lzn,{handleClose:t})}),de(wae,{index:"Histogram",value:n,children:de(yFe,{handleClose:t,density:!1})}),de(wae,{index:"KDE",value:n,children:de(yFe,{handleClose:t,density:!0})})]})},rft={top:0,bottom:1,left:0,right:2.5},H6=({text:e,margin:t={...rft},size:n=13,style:a=void 0})=>de(Po,{title:e,placement:"top",arrow:!0,style:a,children:de(wm,{sx:{alignSelf:"center",margin:`${t.top}px ${t.right}px ${t.bottom}px ${t.left}px`,padding:"3px"},disableTouchRipple:!0,"aria-hidden":!0,children:de(XWn,{sx:{height:n,width:n}})})}),vFe="0.5em";function jzn(e,t,n){if(e.length<1||t.length<1)return;const a=[];a.push(t.map(o=>o.includes(",")?`"${o}"`:o).join(",")),e.forEach(o=>{const l=[];t.forEach(c=>{l.push(o.atts[c]?.toString()||"-")}),a.push(l.map(c=>c.includes(",")?`"${c}"`:c).join(","))});const r=new Blob([a.join(`
+            `,transform:Bt(25,t.body.rowHeight/2),dominantBaseline:"middle",children:[de("title",{children:a?.name}),a?.name]}),de("g",{transform:Bt(t.xOffset+t.set.width/2,t.body.rowHeight+(t.set.width-10)),children:n.map((o,l)=>de(Lbe,{transform:Bt((t.set.width/2+t.gap/2)*l,0),membershipStatus:s(o),showoutline:!0}))}),de("g",{transform:Bt(0,t.body.rowHeight-2),children:de(TK,{size:r,vegaSelected:0,querySelected:0})})]})]})})},szn=()=>{const e=Ze(mr),t=Ze(o3),n=Ze(pE),a=Ze(gE);return de("g",{transform:Bt(0,e.header.totalHeight+5),children:t.length===0?de("text",{transform:Bt(e.matrixColumn.width+e.bookmarkStar.gap+e.bookmarkStar.width+e.bookmarkStar.gap,e.body.rowHeight),style:{zIndex:10},children:"No intersections to display..."}):Et("g",{children:[n&&de(azn,{}),HR(a)?de(rzn,{}):null,de(tzn,{rows:t})]})})},izn=Tf(b.jsx("path",{d:"M5 20h14v-2H5zM19 9h-4V3H9v6H5l7 7z"})),ozn=Tf(b.jsx("path",{d:"M22 5v2h-3v3h-2V7h-3V5h3V2h2v3zm-3 14H5V5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2zm-4-6v4h2v-4zm-4 4h2V9h-2zm-2 0v-6H7v6z"})),lzn=Tf(b.jsx("path",{d:"M7 9H2V7h5zm0 3H2v2h5zm13.59 7-3.83-3.83c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L22 17.59zM17 11c0-1.65-1.35-3-3-3s-3 1.35-3 3 1.35 3 3 3 3-1.35 3-3M2 19h10v-2H2z"})),czn=Tf(b.jsx("path",{d:"M6 13c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4m6-10C9.8 3 8 4.8 8 7s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4m6 10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4"})),fzn=Tf(b.jsx("path",{d:"M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6z"})),MP="small",Aae="rgba(0,0,0,0.2)",uzn=()=>{const{actions:e}=S.useContext(yo),t=Ze(Jg),n=Ze(Clt),a=Ze(Y_),r=Ze(R9),s=Ze(tbe),i=t?.elementName.replaceAll("~&~"," & ")||"",o=Ze(sE),l=Ze(iE),c=Ze(Rv);function f(u){t?.id===u.id&&c==="row"?e.setRowSelection(null):t?.id!==u.id&&e.setRowSelection(a[u.id])}return Et(Tun,{direction:"row",sx:{flexFlow:"row wrap"},children:[r.map(u=>de(II,{disabled:a[u.id]===void 0,sx:d=>({margin:d.spacing(.5),".MuiChip-icon":{color:Ox[u.colorIndex]??X2e},backgroundColor:u.id===t?.id&&c==="row"?"rgba(0,0,0,0.2)":"default"}),"aria-label":`Bookmarked intersection ${u.label}, size ${u.size}`,onKeyDown:d=>{d.key==="Enter"&&f(u)},label:`${u.label} - ${u.size}`,icon:de(jct,{fontSize:MP,onClick:d=>{t?.id===u.id&&c!=="row"&&e.setRowSelection(null),e.removeBookmark(u),d.stopPropagation()}}),onContextMenu:d=>{d.preventDefault(),d.stopPropagation(),e.removeBookmark(u),t?.id===u.id&&e.setRowSelection(null)},onClick:()=>{f(u)}},u.id)),t&&!r.find(u=>u.id===t.id)&&de(II,{sx:u=>({margin:u.spacing(.5),".MuiChip-icon":{color:n},backgroundColor:c==="row"?Aae:"default"}),icon:de(Bct,{fontSize:MP,onClick:u=>{e.addBookmark({id:t.id,label:i,size:t.size,colorIndex:s}),u.stopPropagation()}}),"aria-label":`Selected intersection ${i}, size ${t.size}`,onKeyDown:u=>{u.key==="Enter"&&e.addBookmark({id:t.id,label:i,size:t.size,colorIndex:s})},onClick:()=>{c==="row"&&e.setRowSelection(null)},label:`${i} - ${t.size}`}),o&&de(II,{sx:u=>({margin:u.spacing(.5),".MuiChip-icon":{color:jR},backgroundColor:c==="vega"?Aae:"default"}),icon:de(czn,{fontSize:MP}),"aria-label":`Selected elements ${Yce(o)}`,onContextMenu:u=>{u.preventDefault(),u.stopPropagation(),e.setVegaSelection(null)},onClick:()=>{c==="vega"?e.activateSelectionType(null):e.activateSelectionType("vega")},label:Yce(o)}),l&&de(II,{sx:u=>({margin:u.spacing(.5),".MuiChip-icon":{color:efe},backgroundColor:c==="query"?Aae:"default"}),icon:de(fzn,{fontSize:MP}),"aria-label":`Selected elements ${Xce(l)}`,onContextMenu:u=>{u.preventDefault(),u.stopPropagation(),e.setQuerySelection(null)},onClick:()=>{c==="query"?e.activateSelectionType(null):e.activateSelectionType("query")},label:Xce(l)})]})};function dzn(e){return S.useMemo(()=>e.map(t=>({...t.atts,_label:t._label,id:t._id})),[e])}function hzn(e){const t=Ze(glt);return S.useMemo(()=>e.map(n=>{const a=n==="_id"?"ID":n==="_label"?"Label":n;return{field:n,headerName:a,type:t.includes(n)?"boolean":"string",description:a}}),[e,t])}const mzn=()=>{const e=Ze(fK),t=Ze(nbe),n=dzn(t),a=Ze(glt),r=hzn(["_label",...[...e,...a].filter(o=>!o.startsWith("_"))]),[s,i]=S.useState(null);return S.useEffect(()=>{let o=!0;try{pQe(()=>import("./index-Dnk0S8PC.js"),[]).then(l=>{o&&i(()=>l.DataGrid??!1)}).catch(()=>{o&&i(!1)})}catch{i(!1)}return()=>{o=!1}},[]),s===!1?Et("p",{style:{padding:"1rem",color:"gray"},children:["Install ",de("code",{children:"@mui/x-data-grid"})," to view the element data table."]}):s?de(s,{style:{height:650},rows:n,columns:r}):null},Zct={and:[{not:{param:"brush",empty:!1}},{param:"brush"}]};function pzn(e,t,n=400,a=400){return{width:a,height:n,data:{name:"elements"},mark:{type:"point",opacity:.5},encoding:{x:{field:e.attribute,type:"quantitative",scale:{zero:!1,type:e.logScale?"log":"linear"}},y:{field:t.attribute,type:"quantitative",scale:{zero:!1,type:t.logScale?"log":"linear"}}}}}function gzn(e){return{width:200,height:200,signals:[{name:"brush",value:{}}],mark:{type:"point"},params:[{name:"brush",select:{type:"interval",clear:"mousedown"}}],encoding:{x:{field:e.x,title:e.x,type:"quantitative",scale:{zero:!1,type:e.xScaleLog?"log":"linear"}},y:{field:e.y,title:e.y,type:"quantitative",scale:{zero:!1,type:e.yScaleLog?"log":"linear"}},color:{condition:[{test:{and:[{param:"brush",empty:!1},{not:{and:[{field:"selectionType",equal:"row"},{field:"isCurrent",equal:!0}]}}]},value:jR}],field:"subset",legend:null,scale:{range:{field:"color"}}},opacity:{condition:[{test:{and:[{param:"brush",empty:!1},{field:"selectionType",equal:"vega"}]},value:.8},{test:{and:[{or:[Zct,{not:{field:"selectionType",equal:"vega"}}]},{or:[{field:"isCurrentSelected",equal:!1},{field:"isCurrent",equal:!0}]}]},value:.8}],value:.3},order:{condition:[{test:{and:[{param:"brush",empty:!1},{field:"selectionType",equal:"vega"}]},value:3},{test:{and:[{field:"isCurrent",equal:!0},{field:"selectionType",equal:"row"}]},value:4},{test:{and:[{field:"isCurrentSelected",equal:!0},{field:"isCurrent",equal:!0}]},value:2},{test:{field:"bookmarked",equal:!0},value:1}],value:0}}}}function yzn(e,t,n){return n?{width:400,height:400,data:{name:"elements"},transform:[{density:e}],mark:"line",encoding:{x:{field:"value",type:"quantitative"},y:{field:"density",type:"quantitative"}}}:{width:400,height:400,data:{name:"elements"},mark:"bar",encoding:{x:{bin:{maxbins:t},field:e},y:{aggregate:"count"}}}}function vzn(e,t,n){const a=[{name:"brush",select:{type:"interval",encodings:["x"],clear:"mousedown"}}],r={field:"subset",legend:null,scale:{range:{field:"color"}}},s={condition:{test:Zct,value:1},value:.4},i=t==="row";return e.frequency?{width:200,height:200,signals:[{name:"brush",value:{}}],layer:[{transform:[{density:e.attribute},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative",title:"Probability"},color:{value:blt},opacity:i?{value:.4}:s}},{params:a,transform:[{filter:{field:"bookmarked",equal:!0}},{density:e.attribute,groupby:["subset","color"]},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative",title:"Probability"},color:r,opacity:i?{value:.4}:s}},{transform:[{filter:{param:"brush",empty:!1}},{density:e.attribute},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative"},color:{value:jR},opacity:{value:i?.4:1}}},...i?[{transform:[{filter:{field:"isCurrent",equal:!0}},{density:e.attribute,groupby:["subset","color"]},{calculate:'datum["value"]',as:e.attribute}],mark:"line",encoding:{x:{field:e.attribute,type:"quantitative",title:e.attribute},y:{field:"density",type:"quantitative"},color:r,opacity:{value:1}}}]:[]]}:{width:200,height:200,signals:[{name:"brush",value:{}}],layer:[{params:a,mark:"bar",encoding:{x:{bin:{maxbins:e.bins},field:e.attribute},y:{aggregate:"count",title:"Frequency"},color:r,opacity:s}},{transform:[{filter:{param:"brush",empty:!1}}],mark:"bar",encoding:{x:{field:e.attribute,bin:{maxbins:e.bins},title:e.attribute},y:{aggregate:"count",title:"Frequency"},color:{value:jR},opacity:{value:1}}},...i&&n?[{transform:[{filter:{field:"isCurrent",equal:!0}}],mark:"bar",encoding:{x:{field:e.attribute,bin:{maxbins:e.bins}},y:{aggregate:"count",title:"Frequency"},color:r,opacity:{value:1}}}]:[]]}}function bzn(e,t,n){const a={data:{name:"elements"}};if(dlt(e))return{...a,...gzn(e)};if(hlt(e))return{...a,...vzn(e,t,n)};throw new Error("Invalid plot type")}const _fe="brush";async function mFe(e,t,n=!1){const a=e.getState();Object.entries(t).length===0?a.data[`${_fe}_store`]=[]:a.data[`${_fe}_store`]=[{fields:Object.keys(t).map(r=>({type:"R",field:r})),values:Object.values(t).map(r=>r)}],e.setState(a),n?await e.runAsync():e.run()}const Czn=()=>{const e=Ze(Gct),t=Ze(Kct),n=Ze(eOn),a=Ze(sE),{actions:r}=S.useContext(yo),s=Ze(Rv),i=zi(Z_),o=zi(D9),l=S.useRef(a),c=S.useRef(!1),f=S.useRef(!1),[u,d]=S.useState([]),h=S.useRef(null),m=S.useRef(!1),p=S.useMemo(()=>({elements:Object.values(Px(n))}),[n]),g=S.useMemo(()=>e.concat(t),[e,t]),y=S.useMemo(()=>g.map(_=>({plot:_,spec:bzn(_,s,!!a)})),[g,s,a]),v=S.useCallback((_,x)=>{!ult(x)||_.id!==h.current?.id||f.current||(m.current=!0,l.current=x,u.filter(({plot:R})=>R.id!==_.id).forEach(({view:R})=>{mFe(R,x)}))},[l,u]),C=S.useCallback((_=!1)=>{if(c.current){c.current=_;return}m.current&&(l.current&&Object.keys(l.current).length>0&&!oPn(l.current,a??void 0)?(r.setVegaSelection(l.current),o([])):a&&r.setVegaSelection(null),l.current=null,_&&(c.current=!0))},[a,r,o]),A=S.useCallback(()=>{f.current=!0;const _=[];u.forEach(({view:x})=>{_.push(mFe(x,a??{},!0))}),Promise.allSettled(_).then(()=>{f.current=!1})},[u,a]);return S.useEffect(()=>{A()},[u,a]),de(p6,{onClick:()=>{C(),m.current=!1},onMouseLeave:()=>C(!0),onMouseEnter:()=>c.current=!1,children:de(p6,{sx:{overflowX:"auto",display:"flex",flexDirection:"row",flexWrap:"wrap",justifyContent:"space-around"},children:g.length>0&&y.map(({plot:_,spec:x})=>de(p6,{style:{display:"inline-block",position:"relative"},onContextMenu:R=>{R.preventDefault(),R.stopPropagation(),setTimeout(A,5),i({mouseX:R.clientX,mouseY:R.clientY,id:`${_.id}-menu`,items:[{label:"Remove Plot",onClick:()=>{r.removePlot(_),d(u.filter(({plot:D})=>D.id!==_.id)),i(null)}}]})},children:de($R,{spec:x,data:p,actions:!1,signalListeners:{[_fe]:(R,D)=>v(_,D)},style:{marginLeft:"5px"},onNewView:R=>{u.push({view:R,plot:_}),d([...u]),R.addEventListener("mouseover",()=>{h.current=_}),R.addEventListener("mouseout",()=>{h.current=null})}})},_.id))})})},xae=rm.EQUALS,_zn=()=>{const e=Ze(UPn),t=Ze(iE),{actions:n}=S.useContext(yo),a=Ze(rbe),r=zi(D9),s="5px",i={marginTop:s,width:"50%"},[o,l]=S.useState(t?.att??e.length>0?e[0]:void 0),[c,f]=S.useState(t?.type??xae),[u,d]=S.useState(t?.query);S.useEffect(()=>{t?(l(t?.att),f(t?.type),d(t?.query)):(l(e.length>0?e[0]:void 0),f(xae),d(void 0))},[t,e]);const h=S.useCallback(()=>{t?(n.setQuerySelection(null),l(void 0),f(void 0),d(void 0)):o&&c&&u&&Object.values(rm).includes(c)&&e.includes(o)&&(n.setQuerySelection({att:o,type:c||rm.EQUALS,query:u}),r([]))},[o,c,u,e,n,t,r]);return e.length>0?Et(p6,{css:{marginTop:"10px"},children:[Et(o0,{css:i,children:[de(GC,{id:"query-att-select-label",children:"Attribute Name"}),de(s2,{disabled:!!t,labelId:"query-att-select-label",label:"Attribute Name",value:o??"",onChange:m=>{l(m.target.value),f(xae)},children:e.map(m=>de(KC,{value:m,children:m},m))})]}),Et(o0,{css:i,children:[de(GC,{id:"query-type-select-label",children:"Query Type"}),de(s2,{disabled:!!t||!o,label:"Query Type",labelId:"query-type-select-label",value:c??"",onChange:m=>f(m.target.value),children:o&&Object.values(a[o]==="number"?Jot:rm).map(m=>de(KC,{value:m,children:m},m))})]}),Et(p6,{css:{height:"56px",marginTop:s},children:[de(Ky,{fullWidth:!0,placeholder:"Query",css:{width:"80%",display:"inline-block"},disabled:!!t,value:u??"",onChange:m=>d(m.target.value)}),de(Gy,{fullWidth:!0,css:{width:"20%",height:"100%"},onClick:h,color:t?"error":"success",variant:"outlined",children:t?"Clear":"Apply"})]})]}):null},Azn=Tf(b.jsx("path",{d:"M21 11V3h-8l3.29 3.29-10 10L3 13v8h8l-3.29-3.29 10-10z"})),xzn=Tf(b.jsx("path",{d:"M22 3.41 16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59z"})),eft=Tf(b.jsx("path",{d:"M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"})),wzn={h1:{fontSize:"1.6em"},h2:{fontSize:"1.4em"},h3:{fontSize:"1.2em"},h4:{fontSize:"1.0em"}},MK=({level:e,paddingLeft:t,divStyle:n,headingStyle:a,children:r,hideDivider:s=!1})=>{const i=e==="h1"||e==="h2"||e==="h3";return Et("div",{style:{marginBottom:".5em",...n},children:[de(Qi,{variant:e,fontSize:wzn[e].fontSize,fontWeight:"inherit",gutterBottom:e==="h1",paddingLeft:t,style:{...a},children:r}),i&&!s&&de(cB,{style:{width:"100%",margin:"0 auto"},"aria-hidden":!0})]})},pFe={height:"40px",width:"40px"},Hbe=({open:e,close:t,closeButtonTabIndex:n,children:a,label:r,title:s,buttons:i,embedded:o=!1})=>{const[l,c]=S.useState(!1),[f,u]=S.useState(462),d=Ze(obe),h=S.useCallback(g=>{g.stopPropagation(),g.preventDefault();const y=document.body.clientWidth-g.clientX;y>368&&u(y)},[u]),m=S.useCallback(()=>{document.removeEventListener("mouseup",m,!0),document.removeEventListener("mousemove",h,!0)},[h]),p=S.useCallback(g=>{g.preventDefault(),g.stopPropagation(),document.addEventListener("mouseup",m,!0),document.addEventListener("mousemove",h,!0)},[m,h]);return Et(lcn,{"aria-hidden":!e,sx:{width:e?l?"100%":f:0,flexShrink:0,"& .MuiDrawer-paper":{padding:"1em",marginTop:o?0:"2em",width:e?l?"100%":f:0,boxSizing:"border-box",zIndex:1,overflow:"hidden",paddingRight:0}},open:e,onClose:t,variant:"persistent",anchor:"right","aria-label":r,transitionDuration:0,children:[de(os,{sx:{width:"5px",cursor:l?"auto":"ew-resize",padding:"4px 0 0",borderTop:"1px solid #ddd",position:"absolute",top:0,bottom:0,left:0,zIndex:100,backgroundColor:"#f4f7f9"},onMouseDown:g=>p(g)}),Et("div",{style:{height:"100%",overflowY:"auto",overflowX:"hidden",paddingRight:"1em"},children:[Et(os,{display:"flex",flexWrap:"nowrap",flexDirection:"row",children:[de("div",{style:{minWidth:0,alignSelf:"center",flexGrow:1,flexShrink:1,width:"100%",display:"flex",alignItems:"center"},children:de(MK,{level:"h1",hideDivider:!0,divStyle:{marginBottom:0,width:"100%"},headingStyle:{marginBottom:0,whiteSpace:"nowrap",textOverflow:"ellipsis",overflow:"hidden",width:"100%"},children:s})}),Et("div",{style:{display:"flex",justifyContent:"end",flexGrow:0,flexShrink:0,alignSelf:"end"},children:[i,l?de(Po,{title:"Reduce to normal size",children:de(wm,{style:pFe,onClick:()=>{l&&c(!1)},"aria-label":"Reduce the sidebar to normal size",children:de(xzn,{})})}):de(Po,{title:"Expand to full screen",children:de(wm,{style:pFe,onClick:()=>{c(!0)},"aria-label":"Expand the sidebar in full screen",children:de(Azn,{style:{fontSize:"18.67px"}})})}),de(Po,{title:"Close",children:de(wm,{onClick:()=>{t()},tabIndex:n,"aria-label":"Close the sidebar",disabled:o,children:de(eft,{})})})]})]}),de(cB,{style:{width:"100%",margin:"0 auto",marginBottom:"1em"},"aria-hidden":!0}),a,de(os,{minHeight:d})]})]})},gFe=S.createContext();function Szn(e){return Fbe("MuiGridLegacy",e)}const Rzn=[0,1,2,3,4,5,6,7,8,9,10],Dzn=["column-reverse","column","row-reverse","row"],kzn=["nowrap","wrap-reverse","wrap"],pk=["auto",!0,1,2,3,4,5,6,7,8,9,10,11,12],I8=Dct("MuiGridLegacy",["root","container","item","zeroMinWidth",...Rzn.map(e=>`spacing-xs-${e}`),...Dzn.map(e=>`direction-xs-${e}`),...kzn.map(e=>`wrap-xs-${e}`),...pk.map(e=>`grid-xs-${e}`),...pk.map(e=>`grid-sm-${e}`),...pk.map(e=>`grid-md-${e}`),...pk.map(e=>`grid-lg-${e}`),...pk.map(e=>`grid-xl-${e}`)]);function Tzn({theme:e,ownerState:t}){let n;return e.breakpoints.keys.reduce((a,r)=>{let s={};if(t[r]&&(n=t[r]),!n)return a;if(n===!0)s={flexBasis:0,flexGrow:1,maxWidth:"100%"};else if(n==="auto")s={flexBasis:"auto",flexGrow:0,flexShrink:0,maxWidth:"none",width:"auto"};else{const i=jA({values:t.columns,breakpoints:e.breakpoints.values}),o=typeof i=="object"?i[r]:i;if(o==null)return a;const l=`${Math.round(n/o*1e8)/1e6}%`;let c={};if(t.container&&t.item&&t.columnSpacing!==0){const f=e.spacing(t.columnSpacing);if(f!=="0px"){const u=`calc(${l} + ${f})`;c={flexBasis:u,maxWidth:u}}}s={flexBasis:l,flexGrow:0,maxWidth:l,...c}}return e.breakpoints.values[r]===0?Object.assign(a,s):a[e.breakpoints.up(r)]=s,a},{})}function Mzn({theme:e,ownerState:t}){const n=jA({values:t.direction,breakpoints:e.breakpoints.values});return cd({theme:e},n,a=>{const r={flexDirection:a};return a.startsWith("column")&&(r[`& > .${I8.item}`]={maxWidth:"none"}),r})}function tft({breakpoints:e,values:t}){let n="";Object.keys(t).forEach(r=>{n===""&&t[r]!==0&&(n=r)});const a=Object.keys(e).sort((r,s)=>e[r]-e[s]);return a.slice(0,a.indexOf(n))}function Nzn({theme:e,ownerState:t}){const{container:n,rowSpacing:a}=t;let r={};if(n&&a!==0){const s=jA({values:a,breakpoints:e.breakpoints.values});let i;typeof s=="object"&&(i=tft({breakpoints:e.breakpoints.values,values:s})),r=cd({theme:e},s,(o,l)=>{const c=e.spacing(o);return c!=="0px"?{marginTop:`calc(-1 * ${c})`,[`& > .${I8.item}`]:{paddingTop:c}}:i?.includes(l)?{}:{marginTop:0,[`& > .${I8.item}`]:{paddingTop:0}}})}return r}function Fzn({theme:e,ownerState:t}){const{container:n,columnSpacing:a}=t;let r={};if(n&&a!==0){const s=jA({values:a,breakpoints:e.breakpoints.values});let i;typeof s=="object"&&(i=tft({breakpoints:e.breakpoints.values,values:s})),r=cd({theme:e},s,(o,l)=>{const c=e.spacing(o);if(c!=="0px"){const f=`calc(-1 * ${c})`;return{width:`calc(100% + ${c})`,marginLeft:f,[`& > .${I8.item}`]:{paddingLeft:c}}}return i?.includes(l)?{}:{width:"100%",marginLeft:0,[`& > .${I8.item}`]:{paddingLeft:0}}})}return r}function Ezn(e,t,n={}){if(!e||e<=0)return[];if(typeof e=="string"&&!Number.isNaN(Number(e))||typeof e=="number")return[n[`spacing-xs-${String(e)}`]];const a=[];return t.forEach(r=>{const s=e[r];Number(s)>0&&a.push(n[`spacing-${r}-${String(s)}`])}),a}const Wzn=Sct("div",{name:"MuiGridLegacy",slot:"Root",overridesResolver:(e,t)=>{const{ownerState:n}=e,{container:a,direction:r,item:s,spacing:i,wrap:o,zeroMinWidth:l,breakpoints:c}=n;let f=[];a&&(f=Ezn(i,c,t));const u=[];return c.forEach(d=>{const h=n[d];h&&u.push(t[`grid-${d}-${String(h)}`])}),[t.root,a&&t.container,s&&t.item,l&&t.zeroMinWidth,...f,r!=="row"&&t[`direction-xs-${String(r)}`],o!=="wrap"&&t[`wrap-xs-${String(o)}`],...u]}})(({ownerState:e})=>({boxSizing:"border-box",...e.container&&{display:"flex",flexWrap:"wrap",width:"100%"},...e.item&&{margin:0},...e.zeroMinWidth&&{minWidth:0},...e.wrap!=="wrap"&&{flexWrap:e.wrap}}),Mzn,Nzn,Fzn,Tzn);function Izn(e,t){if(!e||e<=0)return[];if(typeof e=="string"&&!Number.isNaN(Number(e))||typeof e=="number")return[`spacing-xs-${String(e)}`];const n=[];return t.forEach(a=>{const r=e[a];if(Number(r)>0){const s=`spacing-${a}-${String(r)}`;n.push(s)}}),n}const Pzn=e=>{const{classes:t,container:n,direction:a,item:r,spacing:s,wrap:i,zeroMinWidth:o,breakpoints:l}=e;let c=[];n&&(c=Izn(s,l));const f=[];l.forEach(d=>{const h=e[d];h&&f.push(`grid-${d}-${String(h)}`)});const u={root:["root",n&&"container",r&&"item",o&&"zeroMinWidth",...c,a!=="row"&&`direction-xs-${String(a)}`,i!=="wrap"&&`wrap-xs-${String(i)}`,...f]};return cct(u,Szn,t)},p1=S.forwardRef(function(e,t){const n=Rct({props:e,name:"MuiGridLegacy"}),{breakpoints:a}=mjn(),r=dHn(n),{className:s,columns:i,columnSpacing:o,component:l="div",container:c=!1,direction:f="row",item:u=!1,rowSpacing:d,spacing:h=0,wrap:m="wrap",zeroMinWidth:p=!1,...g}=r;S.useEffect(()=>{},[]);const y=d||h,v=o||h,C=S.useContext(gFe),A=c?i||12:C,_={},x={...g};a.keys.forEach(M=>{g[M]!=null&&(_[M]=g[M],delete x[M])});const R={...r,columns:A,container:c,direction:f,item:u,rowSpacing:y,columnSpacing:v,wrap:m,zeroMinWidth:p,spacing:h,..._,breakpoints:a.keys},D=Pzn(R);return b.jsx(gFe.Provider,{value:A,children:b.jsx(Wzn,{ownerState:R,className:Sbe(D.root,s),as:l,ref:t,...x})})}),Ozn=({spec:e,data:t})=>de($R,{spec:yzn(e.attribute,e.bins,e.frequency),data:t,actions:!1}),$zn=({spec:e,data:t})=>de($R,{spec:pzn({attribute:e.x,logScale:e.xScaleLog||!1},{attribute:e.y,logScale:e.yScaleLog||!1}),data:t,actions:!1}),nft=({handleClose:e,type:t,bins:n,attribute:a,density:r,x:s,y:i,xScaleLog:o,yScaleLog:l,disabled:c})=>{const{actions:f}=S.useContext(yo);return de(Gy,{style:{display:"block",margin:"auto",width:"100%"},disabled:c,variant:"outlined",color:"success",onClick:()=>{t==="Scatterplot"&&s&&i?f.addPlot({id:Date.now().toString(),type:"Scatterplot",x:s,y:i,xScaleLog:o,yScaleLog:l}):t==="Histogram"&&a&&n&&f.addPlot({id:Date.now().toString(),type:"Histogram",attribute:a,bins:n,frequency:r??!0}),e()},children:"Add Plot"})},aft={width:"100%",display:"flex",justifyContent:"center"},Lzn=({handleClose:e})=>{const t=Ze(fK),n=Ze(S9),[a,r]=S.useState(t[0]),[s,i]=S.useState(t[1]),[o,l]=S.useState(!1),[c,f]=S.useState(!1);return Et(p1,{container:!0,spacing:1,sx:{width:"100%",height:"100%"},children:[de(p1,{container:!0,item:!0,xs:6,children:Et(o0,{fullWidth:!0,children:[de(GC,{id:"x-select-label",children:"X"}),de(s2,{labelId:"x-select-label",id:"x-select",value:a,label:"X",onChange:u=>r(u.target.value),children:t.map(u=>de(KC,{value:u,children:u},u))})]})}),de(p1,{container:!0,item:!0,xs:6,children:Et(o0,{fullWidth:!0,children:[de(GC,{id:"y-select-label",children:"Y"}),de(s2,{labelId:"y-select-label",id:"y-select",value:s,label:"Y",onChange:u=>i(u.target.value),children:t.map(u=>de(KC,{value:u,children:u},u))})]})}),de(p1,{container:!0,item:!0,xs:6,children:de(UM,{label:"Use logscale",control:de(Yoe,{value:o,onChange:()=>l(!o)})})}),de(p1,{container:!0,item:!0,xs:6,children:de(UM,{label:"Use logscale",control:de(Yoe,{value:c,onChange:()=>f(!c)})})}),a&&s&&Object.values(n).length&&de(os,{sx:aft,children:de($zn,{spec:{id:Date.now().toString(),type:"Scatterplot",x:a,y:s,xScaleLog:o,yScaleLog:c},data:{elements:Object.values(JSON.parse(JSON.stringify(n)))}})}),de(nft,{disabled:!(a&&s&&Object.values(n).length),handleClose:e,type:"Scatterplot",x:a,y:s,xScaleLog:o,yScaleLog:c})]})},yFe=({handleClose:e,density:t})=>{const n=Ze(S9),a=Ze(fK),[r,s]=S.useState(a[0]),[i,o]=S.useState(20);return Et(p1,{container:!0,spacing:1,sx:{width:"100%",height:"100%"},children:[de(p1,{container:!0,item:!0,xs:4,children:Et(o0,{fullWidth:!0,children:[de(GC,{id:"attribute-select-label",children:"Attribute"}),de(s2,{labelId:"attribute-select-label",id:"attribute-select",value:r,label:"Attribute",onChange:l=>s(l.target.value),children:a.map(l=>de(KC,{value:l,children:l},l))})]})}),!t&&de(p1,{container:!0,item:!0,xs:4,children:de(Ky,{disabled:t,label:"Bins",value:i,type:"number",onChange:l=>{const c=Number(l.target.value);c>0&&o(c)}})}),Et(p1,{container:!0,item:!0,xs:12,children:[r&&i>0&&Object.values(n).length&&de(os,{sx:aft,children:de(Ozn,{spec:{id:Date.now().toString(),type:"Histogram",attribute:r,bins:i,frequency:t},data:{elements:Object.values(JSON.parse(JSON.stringify(n)))}})}),de(nft,{disabled:!(r&&i>0&&Object.values(n).length),handleClose:e,type:"Histogram",attribute:r,bins:i,density:t})]})]})};function wae({children:e,index:t,value:n,...a}){return de(os,{sx:{width:600},children:n===t&&de(os,{sx:{padding:"1em",minHeight:300},...a,children:e})})}const Hzn=({open:e,onClose:t})=>{const[n,a]=S.useState("Scatterplot");return Et(PJe,{open:e,onClose:t,children:[Et(OJe,{children:["Add Plot",de(wm,{sx:{position:"absolute",right:8,top:8},onClick:t,children:de(eft,{})})]}),Et(adn,{value:n,onChange:(r,s)=>{a(s)},children:[de(Yee,{label:"Scatterplot",value:"Scatterplot"}),de(Yee,{label:"Histogram",value:"Histogram"}),de(Yee,{label:"KDE",value:"KDE"})]}),de(wae,{index:"Scatterplot",value:n,children:de(Lzn,{handleClose:t})}),de(wae,{index:"Histogram",value:n,children:de(yFe,{handleClose:t,density:!1})}),de(wae,{index:"KDE",value:n,children:de(yFe,{handleClose:t,density:!0})})]})},rft={top:0,bottom:1,left:0,right:2.5},H6=({text:e,margin:t={...rft},size:n=13,style:a=void 0})=>de(Po,{title:e,placement:"top",arrow:!0,style:a,children:de(wm,{sx:{alignSelf:"center",margin:`${t.top}px ${t.right}px ${t.bottom}px ${t.left}px`,padding:"3px"},disableTouchRipple:!0,"aria-hidden":!0,children:de(XWn,{sx:{height:n,width:n}})})}),vFe="0.5em";function jzn(e,t,n){if(e.length<1||t.length<1)return;const a=[];a.push(t.map(o=>o.includes(",")?`"${o}"`:o).join(",")),e.forEach(o=>{const l=[];t.forEach(c=>{l.push(o.atts[c]?.toString()||"-")}),a.push(l.map(c=>c.includes(",")?`"${c}"`:c).join(","))});const r=new Blob([a.join(`
 `)],{type:"text/csv"}),s=URL.createObjectURL(r),i=document.createElement("a");i.style="display: none",document.body.appendChild(i),i.href=s,i.download=`${n}_${Date.now()}.csv`,i.click(),i.remove()}const Bzn=({open:e,close:t,embedded:n})=>{const[a,r]=S.useState(!1),s=Ze(sE),i=Ze(iE),o=Ze(Rv),l=Ze(nbe),c=Ze(aOn),f=Ze(QPn),u=Ze(Slt),d=Ze(R9),h=Ze(Jg),[m,p]=S.useState(!1),g=Ze(fK),y=S.useMemo(()=>d.length>0||h||s||i,[d.length,h,s,i]),v=S.useMemo(()=>g.length>0,[g.length]),C=S.useCallback(()=>r(!1),[r]),A=S.useMemo(()=>o==="vega"&&s?`Currently showing elements in visible intersections matching the selection "${Yce(s)}."`:o==="query"&&i?`Currently showing elements in visible intersections matching the query "${Xce(i)}."`:o==="row"&&h?`Currently showing elements in the selected intersection ${h.elementName}.`:"Currently showing all elements in visible intersections.",[o,s,i,h]);return Et(Hbe,{open:e,close:t,label:"Element View Sidebar",title:"Element View",embedded:n,buttons:Et(K0,{children:[de(Po,{title:"Add plot",children:de(wm,{onClick:()=>r(!0),disabled:!v,children:de(ozn,{})})}),de(Po,{title:`${m?"Hide":"Show"} element query`,children:de(wm,{onClick:()=>{p(!m)},disabled:!v,children:de(lzn,{})})})]}),children:[de(os,{height:m?140:0,overflow:"hidden",style:{transition:"height 0.2s ease-in-out",marginBottom:m?vFe:0},children:de(_zn,{})}),!y&&de(CJe,{severity:"info",style:{paddingTop:"2px",paddingBottom:"2px"},children:"Selected intersections and elements will appear here."}),de(uzn,{}),de(os,{height:vFe}),de(Czn,{}),de(Hzn,{open:a,onClose:C}),Et(MK,{level:"h2",divStyle:{marginTop:"1em"},children:["Element Table",de(Qi,{display:"inline",variant:"caption",style:{marginLeft:"0.5em"},children:`${c} of ${f} elements`}),de(H6,{text:A,style:{float:"right",position:"relative",bottom:"1px"},size:21}),de(Po,{title:`Download ${c} elements`,children:de(wm,{onClick:()=>{jzn(l,u,"upset_elements")},style:{height:"1.2em",float:"right"},children:de(izn,{})})})]}),de(mzn,{})]})},NK=ia({key:"sort-by",get:({get:e})=>e(Lr).sortBy}),FK=ia({key:"sort-by-order",get:({get:e})=>e(Lr).sortByOrder}),jbe=({translateX:e,translateY:t})=>{const n=Ze(FK),a=Ze(mr),r=16,s=16;return e===void 0&&(e=a.attribute.width/2-s),t===void 0&&(t=-8),de("g",{transform:`${Bt(e,t)}`,children:de(n2,{height:`${r}px`,width:`${s}px`,component:n==="Ascending"?qWn:UWn})})},sft=({label:e,tooltip:t})=>{const n=Ze(mr),{actions:a}=S.useContext(yo),r=Ze(NK),s=Ze(FK),i=zi(Z_),o=Ze(Jct),l=Ze(ibe),c=m=>{a.sortBy(e,m)},f=m=>{c(r!==e?"Ascending":s==="Ascending"?"Descending":"Ascending"),m.stopPropagation()},u=()=>{i(null)};function d(){const m=[{label:`Sort by ${e} - Ascending`,onClick:()=>{c("Ascending"),u()},disabled:r===e&&s==="Ascending"},{label:`Sort by ${e} - Descending`,onClick:()=>{c("Descending"),u()},disabled:r===e&&s==="Descending"}];return uC.includes(e)||Object.values(rE).forEach(p=>{m.push({label:`Change plot type to ${p}`,onClick:()=>{a.updateAttributePlotType(e,p),u()},disabled:o[e]===p})}),l&&m.push({label:`Remove ${e}`,onClick:()=>{a.removeAttribute(e),u()},disabled:!1}),m}const h=m=>{i({mouseX:m.clientX,mouseY:m.clientY,id:`header-menu-${e}`,items:d()})};return de(Po,{title:de("div",{dangerouslySetInnerHTML:{__html:t??e}}),arrow:!0,placement:"top",children:Et("g",{css:{"&:hover":{opacity:.7},cursor:"context-menu"},onContextMenu:m=>{m.preventDefault(),m.stopPropagation(),h(m)},transform:Bt(0,6),onClick:f,children:[de("rect",{height:n.attribute.buttonHeight,width:n.attribute.width,fill:"#ccc",stroke:"#000",opacity:"0.5",strokeWidth:"0.3px"}),Et("g",{transform:Bt(n.attribute.width/2,n.attribute.buttonHeight/2),children:[de("text",{id:`header-text-${e}`,pointerEvents:"default",dominantBaseline:"middle",textAnchor:"middle",transform:Bt(0,1),children:e}),r===e&&de(jbe,{})]})]})})},zzn=Or`
   textshadow: 0 0 5px white;
 `,Vzn=({type:e,value:t,fontSize:n,tickLength:a,tickFontHeight:r,hideLine:s})=>{const i=S.useMemo(()=>{switch(e){case"bottom":return Bt(0,a+r/1.5);case"left":return Bt(-10,0);case"top":return Bt(0,-(a+r/1.5));case"right":return Bt(10,0);default:return}},[e,a,r]),o=S.useMemo(()=>{switch(e){case"bottom":return;case"left":return Bt(-a,0);case"top":return Bt(0,-a);case"right":return;default:return}},[e,a]),l=S.useMemo(()=>{switch(e){case"bottom":return"middle";case"left":return"end";case"top":return"middle";case"right":return"start";default:return}},[e]);return Et(K0,{children:[!s&&de("line",{stroke:"currentColor",y2:e==="bottom"||e==="top"?a:void 0,x1:e==="left"||e==="right"?a:void 0,transform:o}),de("text",{css:Or`
