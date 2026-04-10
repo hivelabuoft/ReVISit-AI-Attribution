@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { StimulusParams } from '../../../store/types';
 
 interface CoursePolicyReminderParams {
@@ -57,65 +57,13 @@ export default function CoursePolicyReminder({
   answers,
   setAnswer,
 }: StimulusParams<CoursePolicyReminderParams>) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const infoEntry = Object.entries(answers || {}).find(
     ([key]) => key.startsWith('inst-course-info_'),
   );
   const courseNameKey = `inst-course-${parameters.courseNumber}-name`;
   const courseName = infoEntry?.[1]?.answer?.[courseNameKey] as string | undefined;
   const label = getOrdinalLabel(parameters.courseNumber);
-  const courseReference = courseName || label;
   const previousCourseNumber = parameters.prefillFromCourseNumber;
-
-  useEffect(() => {
-    const root = containerRef.current;
-    const responseBlock = root?.parentElement?.nextElementSibling;
-
-    if (!responseBlock) {
-      return () => {};
-    }
-
-    const promptTexts = [
-      `Does ${courseReference} explicitly allow the use of AI/LLMs?`,
-      `Which of the following best describes the AI policy for ${courseReference}? (Select all that apply)`,
-      `How are students asked to acknowledge or cite AI use in ${courseReference}? (Select all that apply)`,
-      `In your perspective, how often do students choose to disclose AI use in ${courseReference} when it is required?`,
-    ];
-
-    const updatePromptLabels = () => {
-      const promptLabels = Array.from(
-        responseBlock.querySelectorAll<HTMLElement>('.no-last-child-bottom-padding'),
-      );
-
-      promptLabels.slice(0, promptTexts.length).forEach((promptLabel, index) => {
-        const walker = document.createTreeWalker(promptLabel, NodeFilter.SHOW_TEXT);
-        let textNode = walker.nextNode() as Text | null;
-
-        while (textNode && textNode.textContent?.trim().length === 0) {
-          textNode = walker.nextNode() as Text | null;
-        }
-
-        if (textNode) {
-          textNode.textContent = promptTexts[index];
-        }
-      });
-    };
-
-    updatePromptLabels();
-
-    const observer = new MutationObserver(() => {
-      updatePromptLabels();
-    });
-
-    observer.observe(responseBlock, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [courseReference]);
 
   useEffect(() => {
     if (!previousCourseNumber) {
@@ -153,7 +101,7 @@ export default function CoursePolicyReminder({
   }, [answers, parameters.courseNumber, previousCourseNumber, setAnswer]);
 
   return (
-    <div ref={containerRef} style={containerStyle}>
+    <div style={containerStyle}>
       <div style={eyebrowStyle}>Course Reminder</div>
       <div style={titleStyle}>
         {label}
