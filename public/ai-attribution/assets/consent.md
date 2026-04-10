@@ -38,7 +38,7 @@ Students or instructional staff who are at least 18 years old and have experienc
 
 ## What will I be asked to do?
 
-The survey should take about **30 minutes** to complete. The **first 150 qualified participants** who complete the survey and **pass all attention checks** will receive a **$5 gift card**. In addition, qualified completers will be entered into a raffle for **5 gift cards worth $30 each**. If you receive compensation, you will be contacted separately using the email address you provide.
+The survey should take about **30 minutes** to complete. The **first 150 qualified student participants** who complete the survey and **pass all attention checks** will receive a **$5 gift card**. In addition, qualified student completers will be entered into a raffle for **5 gift cards worth $30 each**. If you receive compensation, you will be contacted separately using the email address you provide.
 
 Compensation will be provided only after successful completion of the survey, passing all attention checks, and confirmation that appropriate effort has been demonstrated. Please read each question carefully and answer to the best of your ability. Attention checks are included throughout the survey, and failure to complete them correctly will result in forfeiture of compensation.
 
