@@ -8,8 +8,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #1a1a2e;
-    color: #e0e0e0;
+    background: #f0f7f2;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,7 @@
   }
   h1 {
     font-size: 1.4rem;
-    color: #b0b0c8;
+    color: #4a5568;
     margin-bottom: 18px;
     text-align: center;
   }
@@ -27,25 +27,27 @@
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
-    background: #22223a;
+    background: #fff;
     border-radius: 14px;
     padding: 34px 32px 28px 32px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-left: 4px solid #F7DC6F;
+    border-top: 4px solid #27AE60;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.18rem;
-    color: #F7DC6F;
+    color: #27AE60;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -61,13 +63,13 @@
     padding: 8px 0 8px 24px;
     font-size: 0.97rem;
     line-height: 1.6;
-    color: #c9c9de;
+    color: #4a5568;
   }
   .slide ul li::before {
     content: '▸';
     position: absolute;
     left: 0;
-    color: #F7DC6F;
+    color: #27AE60;
     font-weight: bold;
   }
   .controls {
@@ -75,11 +77,12 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #F7DC6F;
-    color: #1a1a2e;
+    background: #27AE60;
+    color: #fff;
     border: none;
     border-radius: 8px;
     padding: 9px 24px;
@@ -88,16 +91,16 @@
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
   }
-  .controls button:hover { background: #f5d24a; transform: scale(1.03); }
+  .controls button:hover { background: #219a52; transform: scale(1.03); }
   .controls button:disabled {
-    background: #3a3a55;
-    color: #6a6a80;
+    background: #c0d9c8;
+    color: #888;
     cursor: default;
     transform: none;
   }
   .page-info {
     font-size: 0.9rem;
-    color: #8888a8;
+    color: #718096;
     font-weight: 600;
     min-width: 72px;
     text-align: center;
@@ -106,16 +109,17 @@
   /* Right panel */
   .vignette-panel {
     flex: 1;
-    background: #22223a;
+    background: #fff;
     border-radius: 14px;
     padding: 28px 26px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    border-top: 4px solid #c8e6d0;
     position: sticky;
     top: 24px;
   }
   .vignette-panel h3 {
     font-size: 1rem;
-    color: #8888a8;
+    color: #718096;
     margin-bottom: 14px;
     display: flex;
     align-items: center;
@@ -125,15 +129,15 @@
   .vignette-segment {
     font-size: 0.93rem;
     line-height: 1.75;
-    color: #9a9ab8;
+    color: #4a5568;
     padding: 3px 5px;
     border-radius: 5px;
     transition: background 0.4s, color 0.4s;
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: rgba(247,220,111,0.15);
-    color: #F7DC6F;
+    background: #f0fff4;
+    color: #1a7a3e;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;

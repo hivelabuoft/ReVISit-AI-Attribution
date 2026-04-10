@@ -8,7 +8,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f1f8;
+    background: #fef9f0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -27,11 +27,13 @@
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -40,12 +42,12 @@
     padding: 34px 32px 30px 32px;
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     min-height: 300px;
-    border-top: 4px solid #BB8FCE;
+    border-top: 4px solid #F39C12;
   }
   .slide.active { display: block; }
   .slide h2 {
     font-size: 1.15rem;
-    color: #BB8FCE;
+    color: #F39C12;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -67,7 +69,7 @@
     content: '▸';
     position: absolute;
     left: 0;
-    color: #BB8FCE;
+    color: #F39C12;
     font-weight: bold;
     font-size: 1.05rem;
   }
@@ -76,10 +78,11 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
-    background: #BB8FCE;
+    background: #F39C12;
     color: #fff;
     border: none;
     border-radius: 9px;
@@ -89,9 +92,9 @@
     transition: background 0.2s;
     font-weight: 600;
   }
-  .controls button:hover { background: #a370bd; }
+  .controls button:hover { background: #d4890a; }
   .controls button:disabled {
-    background: #d5c4df;
+    background: #fde9c0;
     cursor: default;
   }
   .page-info {
@@ -110,7 +113,7 @@
     box-shadow: 0 3px 14px rgba(0,0,0,0.07);
     position: sticky;
     top: 24px;
-    border-top: 4px solid #e2d1ee;
+    border-top: 4px solid #fde5b0;
   }
   .vignette-panel h3 {
     font-size: 1rem;
@@ -131,8 +134,8 @@
     display: inline;
   }
   .vignette-segment.highlighted {
-    background: #f3e8fa;
-    color: #7b3fa0;
+    background: #fff8ec;
+    color: #8a5200;
     font-weight: 600;
     border-radius: 4px;
     box-decoration-break: clone;

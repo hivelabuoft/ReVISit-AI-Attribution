@@ -27,11 +27,13 @@
     gap: 28px;
     max-width: 1120px;
     width: 100%;
-    align-items: flex-start;
+    align-items: stretch;
   }
   .slide-panel {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
   }
   .slide {
     display: none;
@@ -76,7 +78,8 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
   }
   .controls button {
     background: #6bbfad;
