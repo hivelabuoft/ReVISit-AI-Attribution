@@ -563,7 +563,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c1",
-                    "prompt": "Does your first course explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does Course 1 explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -571,7 +571,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c1",
-                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for Course 1? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -586,7 +586,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c1",
-                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in Course 1? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -601,7 +601,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c1",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in Course 1 when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -623,7 +623,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c2",
-                    "prompt": "Does your second course explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does Course 2 explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -631,7 +631,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c2",
-                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for Course 2? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -646,7 +646,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c2",
-                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in Course 2? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -661,7 +661,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c2",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in Course 2 when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -683,7 +683,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c3",
-                    "prompt": "Does your third course explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does Course 3 explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -691,7 +691,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c3",
-                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for Course 3? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -706,7 +706,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c3",
-                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in Course 3? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -721,7 +721,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c3",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in Course 3 when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -743,7 +743,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c4",
-                    "prompt": "Does your fourth course explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does Course 4 explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -751,7 +751,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c4",
-                    "prompt": "Which of the following best describes the AI policy for this course? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for Course 4? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -766,7 +766,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c4",
-                    "prompt": "How are students asked to acknowledge or cite AI use in this course? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in Course 4? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -781,7 +781,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c4",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in this course when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in Course 4 when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
