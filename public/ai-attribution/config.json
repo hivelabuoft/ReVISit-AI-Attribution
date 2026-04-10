@@ -591,13 +591,14 @@
                     "location": "belowStimulus",
                     "type": "checkbox",
                     "options": [
-                        "No acknowledgment required",
-                        "Comments within the code (at the block or function level)",
-                        "A separate \"Declaration of AI Use\" form/appendix",
-                        "Standard academic citation (e.g., APA, MLA)",
-                        "A reflective paragraph explaining the AI's contribution",
-                        "Evidence of prompt history (e.g., chat links)"
-                    ]
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "inst-attrib-freq-c1",
@@ -651,13 +652,14 @@
                     "location": "belowStimulus",
                     "type": "checkbox",
                     "options": [
-                        "No acknowledgment required",
-                        "Comments within the code (at the block or function level)",
-                        "A separate \"Declaration of AI Use\" form/appendix",
-                        "Standard academic citation (e.g., APA, MLA)",
-                        "A reflective paragraph explaining the AI's contribution",
-                        "Evidence of prompt history (e.g., chat links)"
-                    ]
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "inst-attrib-freq-c2",
@@ -711,13 +713,14 @@
                     "location": "belowStimulus",
                     "type": "checkbox",
                     "options": [
-                        "No acknowledgment required",
-                        "Comments within the code (at the block or function level)",
-                        "A separate \"Declaration of AI Use\" form/appendix",
-                        "Standard academic citation (e.g., APA, MLA)",
-                        "A reflective paragraph explaining the AI's contribution",
-                        "Evidence of prompt history (e.g., chat links)"
-                    ]
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "inst-attrib-freq-c3",
@@ -771,13 +774,14 @@
                     "location": "belowStimulus",
                     "type": "checkbox",
                     "options": [
-                        "No acknowledgment required",
-                        "Comments within the code (at the block or function level)",
-                        "A separate \"Declaration of AI Use\" form/appendix",
-                        "Standard academic citation (e.g., APA, MLA)",
-                        "A reflective paragraph explaining the AI's contribution",
-                        "Evidence of prompt history (e.g., chat links)"
-                    ]
+                        "No attribution needed",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "inst-attrib-freq-c4",
