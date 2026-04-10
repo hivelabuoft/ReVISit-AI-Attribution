@@ -335,7 +335,7 @@ export function ResponseBlock({
           return (
             <React.Fragment key={`${response.id}-${currentStep}`}>
               {isInCurrentLocation ? (
-                response.hidden ? '' : (
+                response.hidden || (response.hideIf && typeof answerValidator.values[response.hideIf.id] === 'string' && (answerValidator.values[response.hideIf.id] as string).includes(response.hideIf.valueContains)) ? '' : (
                   <>
                     <ResponseSwitcher
                       storedAnswer={storedAnswer}

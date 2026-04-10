@@ -42,7 +42,11 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
 
   return (
     <div style={{
-      maxWidth: 860, margin: '0 auto', fontSize: '1.05rem', lineHeight: 1.7,
+      maxWidth: 860,
+      margin: '0 auto',
+      fontSize: '1.05rem',
+      lineHeight: 1.7,
+      color: '#2c3e50',
     }}
     >
       <h1 style={{ textAlign: 'center' }}>
@@ -63,7 +67,7 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
         margin: '1.5em 0',
         padding: '1em 1.5em',
         background: '#eef6ff',
-        border: '2px solid #4a90d9',
+        border: '1px solid #4a90d9',
         borderRadius: 8,
         fontSize: '1.1rem',
       }}
@@ -162,79 +166,16 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
       <hr style={{ border: 'none', borderTop: '2px solid #e0e0e0', margin: '2em 0' }} />
 
       <div style={{
-        background: '#fafafa',
-        border: '1px solid #e0e0e0',
-        borderRadius: 8,
-        padding: '1.2em 1.5em',
-        margin: '1.5em 0',
-      }}
-      >
-        <h3 style={{
-          marginTop: 0, color: '#555', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: 0.5,
-        }}
-        >
-          Example — Text-based scenario
-        </h3>
-        <blockquote style={{
-          margin: '0.8em 0 0 0',
-          padding: '0.8em 1em',
-          background: '#fff',
-          borderLeft: '3px solid #ccc',
-          borderRadius: 4,
-          fontStyle: 'italic',
-          color: '#444',
-        }}
-        >
-          &ldquo;In a web programming course, a student&apos;s task within their team project was to write a web scraper.
-          Before starting to code, they were unsure about the correct way to access website data and used an AI chatbot
-          for conceptual planning.
-          <br />
-          <br />
-          The student asked, &lsquo;What is the purpose of a robots.txt file and how do I respect it?&rsquo; After reviewing the AI&apos;s
-          explanation, the student asked follow-up questions about edge cases, such as websites without a robots.txt file and
-          interpreting Crawl-delay directives. Synthesizing insights from the full conversation, the student planned a more
-          robust implementation strategy that handled a missing robots.txt file and adapted request timing.&rdquo;
-        </blockquote>
-      </div>
-
-      <div style={{
-        background: '#fafafa',
-        border: '1px solid #e0e0e0',
-        borderRadius: 8,
-        padding: '1.2em 1.5em',
-        margin: '1.5em 0',
-      }}
-      >
-        <h3 style={{
-          marginTop: 0, color: '#555', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: 0.5,
-        }}
-        >
-          Example — The
-          {' '}
-          <u><b>same</b></u>
-          {' '}
-          scenario as a slide show
-        </h3>
-        <p style={{
-          color: '#666', fontStyle: 'italic', margin: '1em 0', textAlign: 'center',
-        }}
-        >
-          The scenarios will be presented as interactive slide decks on the following pages.
-        </p>
-      </div>
-
-      <hr style={{ border: 'none', borderTop: '2px solid #e0e0e0', margin: '2em 0' }} />
-
-      <div style={{
         textAlign: 'center',
         fontSize: '1.3rem',
         margin: '2em 0 1em',
         padding: '0.8em',
-        background: 'linear-gradient(135deg, #e8f4f8, #f0e6ff)',
+        background: '#f5f5f5',
+        border: '1px solid #e0e0e0',
         borderRadius: 8,
       }}
       >
-        You are free to continue when you are ready! 💪🧠
+        You are free to continue when you are ready!
       </div>
     </div>
   );

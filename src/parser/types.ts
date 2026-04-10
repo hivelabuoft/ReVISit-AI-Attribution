@@ -375,6 +375,8 @@ export interface BaseResponse {
   style?: Styles;
   /** Exclude response from randomization. If present, will override the `responseOrder` randomization setting in the components. Defaults to false. */
   excludeFromRandomization?: boolean;
+  /** Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string. */
+  hideIf?: { id: string; valueContains: string };
 }
 
 /**

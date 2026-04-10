@@ -282,6 +282,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -385,6 +402,23 @@
         "hidden": {
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "horizontal": {
           "description": "Whether to render the checkboxes horizontally. Defaults to false, so they render horizontally.",
@@ -679,6 +713,23 @@
         "hidden": {
           "not": {}
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -759,6 +810,23 @@
         "hidden": {
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
@@ -1407,6 +1475,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -1515,6 +1600,23 @@
         "hidden": {
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
@@ -1794,6 +1896,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -1934,6 +2053,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -2065,6 +2201,23 @@
         "hidden": {
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
@@ -2307,6 +2460,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "horizontal": {
           "description": "Whether to render the radio buttons horizontally. Defaults to false, so they render horizontally.",
           "type": "boolean"
@@ -2464,6 +2634,23 @@
         "hidden": {
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
@@ -2723,6 +2910,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -2887,6 +3091,23 @@
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
         },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
+        },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
           "type": "string"
@@ -2989,6 +3210,23 @@
         "hidden": {
           "description": "Controls whether the response is hidden.",
           "type": "boolean"
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",
@@ -3411,6 +3649,23 @@
         },
         "hidden": {
           "not": {}
+        },
+        "hideIf": {
+          "additionalProperties": false,
+          "description": "Conditionally hide this response based on another response's value. The response is hidden when the referenced response's value contains the specified string.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "valueContains": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "valueContains"
+          ],
+          "type": "object"
         },
         "id": {
           "description": "The id of the response. This is used to identify the response in the data file.",

@@ -215,6 +215,13 @@ const generateValidation = (responses: Response[]) => {
       validateObj = {
         ...validateObj,
         [response.id]: (value: StoredAnswer['answer'][string], values: StoredAnswer['answer']) => {
+          // Skip validation if hideIf condition is met
+          if (response.hideIf) {
+            const depValue = values[response.hideIf.id];
+            if (typeof depValue === 'string' && depValue.includes(response.hideIf.valueContains)) {
+              return null;
+            }
+          }
           if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
             if (response.type === 'matrix-checkbox' || response.type === 'matrix-radio') {
               return checkMatrixResponse(response, value);

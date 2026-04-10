@@ -50,7 +50,7 @@ This study does not involve risks beyond those encountered in daily life. The ex
 
 ## Privacy and data protection
 
-We will make efforts to protect the privacy and security of your personal information throughout the study. The survey is administered online through Qualtrics. De-identified data from this study may be shared among research teams at the University of Toronto. Only individuals who require access for research purposes, such as members of the research team, will review your study-related records.
+We will make efforts to protect the privacy and security of your personal information throughout the study. The survey is administered online through reVisit. De-identified data from this study may be shared among research teams at the University of Toronto. Only individuals who require access for research purposes, such as members of the research team, will review your study-related records.
 
 ## Questions?
 

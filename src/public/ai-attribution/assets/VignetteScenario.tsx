@@ -73,11 +73,13 @@ const styles = {
     display: 'flex',
     gap: 28,
     padding: '24px 0',
-    alignItems: 'flex-start',
+    alignItems: 'stretch',
   } as React.CSSProperties,
   slidePanel: {
     flex: 1,
     minWidth: 0,
+    display: 'flex',
+    flexDirection: 'column',
   } as React.CSSProperties,
   slideCard: {
     background: '#fff',
@@ -85,6 +87,7 @@ const styles = {
     padding: '32px 30px 28px',
     boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
     minHeight: 220,
+    flex: 1,
   } as React.CSSProperties,
   slideTitle: {
     fontSize: '1.15rem',
@@ -117,7 +120,8 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     gap: 16,
-    marginTop: 18,
+    marginTop: 'auto',
+    paddingTop: 18,
   } as React.CSSProperties,
   navBtn: (disabled: boolean) => ({
     background: disabled ? '#cbd5e0' : '#2b6cb0',
