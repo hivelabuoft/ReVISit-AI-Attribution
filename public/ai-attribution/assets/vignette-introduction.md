@@ -85,7 +85,7 @@
   font-size: 1.3rem;
   margin: 2em 0 1em;
   padding: 0.8em;
-  background: linear-gradient(135deg, #e8f4f8, #f0e6ff);
+  background: #f5f5f5;
   border-radius: 8px;
 }
 </style>
@@ -96,7 +96,7 @@
 
 <img class="hero-img" src="https://rotman.az1.qualtrics.com/CP/Graphic.php?IM=IM_bmgQoer6NQ9zwZo" alt="AI in Coursework">
 
-<p>In the next part of the survey, you will be presented with <strong>5 different scenarios</strong>. Each one describes a hypothetical computer science <strong>student</strong> and <strong>their approach to using (or not using) AI for graded coursework</strong>, such as a lab, assignment, or team project.</p>
+<p>In the next part of the survey, you will be presented with <strong>5 different scenarios</strong>. Each one describes a hypothetical computer science <strong>student</strong> and <strong>their approach to using AI for graded coursework</strong>, such as a lab, assignment, or team project.</p>
 
 <hr>
 
@@ -109,27 +109,10 @@
 </ul>
 </div>
 
-<hr>
 
-<div class="example-box">
-<h3>Example &mdash; Text-based scenario</h3>
-<blockquote>
-"In a web programming course, a student's task within their team project was to write a web scraper. Before starting to code, they were unsure about the correct way to access website data and used an AI chatbot for conceptual planning.<br><br>
-The student asked, 'What is the purpose of a robots.txt file and how do I respect it?' After reviewing the AI's explanation, the student asked follow-up questions about edge cases, such as websites without a robots.txt file and interpreting Crawl-delay directives. Synthesizing insights from the full conversation, the student planned a more robust implementation strategy that handled a missing robots.txt file and adapted request timing."
-</blockquote>
-</div>
-
-<div class="example-box">
-<h3>Example &mdash; The <u><b>same</b></u> scenario as a slide show</h3>
-<div class="iframe-wrapper">
-<iframe src="https://hivelabuoft.github.io/ai-attribution-in-cs/pages/76" title="Scenario slide show example"></iframe>
-</div>
-</div>
-
-<hr>
 
 <div class="ready-banner">
-You are free to continue when you are ready! 💪🧠
+You are free to continue when you are ready!
 </div>
 
 </div>

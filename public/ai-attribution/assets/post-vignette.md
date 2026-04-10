@@ -1,5 +1,5 @@
 <div style="text-align: center; max-width: 700px; margin: 0 auto; padding: 1em 0;">
-  <div style="background: linear-gradient(135deg, #e8f4f8, #f0e6ff); border-radius: 12px; padding: 2em 2em 1.5em;">
+  <div style="background: #f5f5f5; border-radius: 4px; padding: 2em 2em 1.5em; border: 1px solid #e0e0e0;">
     <p style="font-size: 1.4rem; font-weight: 600; color: #2c3e50; margin: 0 0 0.6em 0;">
       Almost there!
     </p>
