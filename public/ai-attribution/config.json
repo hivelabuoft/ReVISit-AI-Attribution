@@ -74,11 +74,12 @@
                         "d) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
                         "e) Evidence/justification of human edits, review, or testing",
                         "f) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
-                    ]
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "s1-8",
-                    "prompt": "How fair would it be to <strong>grade this submission as typical</strong> for this assessment?",
+                    "prompt": "How <strong>fair</strong> would it be to grade this submission as typical for this assessment?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "likert",
@@ -892,7 +893,8 @@
                         "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
                         "d) Evidence/justification of human edits, review, or testing",
                         "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
-                    ]
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "s1-8",
@@ -984,11 +986,12 @@
                         "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
                         "d) Evidence/justification of human edits, review, or testing",
                         "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
-                    ]
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "s1-8",
-                    "prompt": "How fair would it be to <strong>grade this submission as typical</strong> for this assessment?",
+                    "prompt": "How <strong>fair</strong> would it be to grade this submission as typical for this assessment?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -1076,11 +1079,12 @@
                         "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
                         "d) Evidence/justification of human edits, review, or testing",
                         "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
-                    ]
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "s1-8",
-                    "prompt": "How fair would it be to <strong>grade this submission as typical</strong> for this assessment?",
+                    "prompt": "How <strong>fair</strong> would it be to grade this submission as typical for this assessment?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -1168,11 +1172,12 @@
                         "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
                         "d) Evidence/justification of human edits, review, or testing",
                         "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
-                    ]
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "s1-8",
-                    "prompt": "How fair would it be to <strong>grade this submission as typical</strong> for this assessment?",
+                    "prompt": "How <strong>fair</strong> would it be to grade this submission as typical for this assessment?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -1260,11 +1265,12 @@
                         "c) Conversation history/Interaction sharing (e.g., share a link of the conversation)",
                         "d) Evidence/justification of human edits, review, or testing",
                         "e) Links to any sources provided/used via AI (e.g., a paper accessed through AI, a website)"
-                    ]
+                    ],
+                    "withOther": true
                 },
                 {
                     "id": "s1-8",
-                    "prompt": "How fair would it be to <strong>grade this submission as typical</strong> for this assessment?",
+                    "prompt": "How <strong>fair</strong> would it be to grade this submission as typical for this assessment?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",

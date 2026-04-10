@@ -137,9 +137,11 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
             <strong>How to View:</strong>
             {' '}
             Each scenario is available in both
+            {' '}
             <u>plain text</u>
             {' '}
             and
+            {' '}
             <u>interactive slide deck</u>
             {' '}
             formats.
