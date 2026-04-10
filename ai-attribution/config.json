@@ -43,7 +43,7 @@
                         "Who has more <strong>ownership</strong> in the final work?",
                         "If the final work contained an error, which party would be <strong>responsible</strong>?"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"]
+                    "answerOptions": ["1 (Entirely Human)", "2", "3", "4", "5", "6", "7 (Entirely AI)"]
                 },
                 {
                     "id": "s1-4",
@@ -52,10 +52,12 @@
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "a) <strong>None</strong>",
-                        "b) <strong>Brief acknowledgment</strong> (\"AI used in …\")",
-                        "c) <strong>Citation</strong> (include AI as a source or reference)",
-                        "d) <strong>Contributorship/co-authorship</strong>"
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
                     ]
                 },
                 {
@@ -63,6 +65,7 @@
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "aboveStimulus",
+                    "hideIf": { "id": "s1-4", "valueContains": "None" },
                     "type": "checkbox",
                     "options": [
                         "a) None (no disclosure necessary)",
@@ -141,9 +144,9 @@
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "Yes, always",
+                        "Yes, this scenario always requires disclosure",
                         "Sure, but it's not strictly necessary",
-                        "No, it's not necessary"
+                        "No, it's not necessary at all"
                     ]
                 },
                 {
@@ -156,7 +159,7 @@
                 },
                 {
                     "id": "s1-15",
-                    "prompt": "Would you personally disclose AI use if you were this student? Can you explain why or why not.",
+                    "prompt": "Would you personally disclose AI use if you were this student? Can you explain why or why not?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
@@ -193,7 +196,7 @@
                 },
                 {
                     "id": "role",
-                    "prompt": "What is your major role?",
+                    "prompt": "What is your primary role?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
@@ -302,6 +305,23 @@
                     "type": "longText",
                     "placeholder": "e.g., Computer Science"
                 },
+                                {
+                    "id": "ai-tools-used",
+                    "prompt": "Which AI tool(s) have you used in your computer science work during university? (check all that apply)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "checkbox",
+                    "options": [
+                        "ChatGPT",
+                        "Claude",
+                        "Gemini",
+                        "GitHub Copilot",
+                        "WindSurf",
+                        "Claude Code",
+                        "OpenAI Codex"
+                    ],
+                    "withOther": true
+                },
                 {
                     "id": "ai-usage-frequency",
                     "prompt": "How often would you use various AI tools in your computer science work during university? Rate each on a scale of <strong>1 (Never)</strong> to <strong>7 (Multiple times a day)</strong>.",
@@ -315,24 +335,7 @@
                         "<strong>Debugging/Fixing Errors</strong> (e.g., \"Why is this code crashing?\")",
                         "<strong>Writing Documentation/Comments</strong>"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"]
-                },
-                {
-                    "id": "ai-tools-used",
-                    "prompt": "Which AI tool(s) have you used often? (check all that apply)",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        "ChatGPT",
-                        "Claude",
-                        "Gemini",
-                        "GitHub Copilot",
-                        "WindSurf",
-                        "Claude Code",
-                        "OpenAI Codex",
-                        "Other"
-                    ]
+                    "answerOptions": ["1 (Never)", "2 (Less than once a month)", "3 (A few times a month)", "4 (1-2 times a week)", "5 (3-5 times a week)", "6 (About once a day)", "7 (Multiple times a day)"]
                 }
             ]
         },
@@ -386,12 +389,15 @@
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
+                        "None",
                         "Brief acknowledgment (\"AI used in …\")",
-                        "Short statement (e.g., a sentence or paragraph describing how AI was used)",
-                        "Detailed log (e.g., a full record of prompts and AI responses, or a detailed appendix describing the interaction with AI)",
-                        "No details provided",
-                        "Other"
-                    ]
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship",
+                        "No details provided"
+                    ],
+                    "withOther": true
                 }
             ]
         },
@@ -408,9 +414,9 @@
                         "None",
                         "Brief acknowledgment (\"AI used in …\")",
                         "Short statement (e.g., a sentence or paragraph describing how AI was used)",
-                        "Detailed log (e.g., a full record of prompts and AI responses, or a detailed appendix describing the interaction with AI)",
-                        "Other"
-                    ]
+                        "Detailed log (e.g., a full record of prompts and AI responses, or a detailed appendix describing the interaction with AI)"
+                    ],
+                    "withOther": true
                 }
             ]
         },
@@ -509,7 +515,7 @@
                 },
                 {
                     "id": "inst-course-count",
-                    "prompt": "How many <strong>distinct computing courses</strong> have you taught in the last year? (If not currently teaching, answer for your most recent courses)",
+                    "prompt": "How many <strong>distinct computing courses</strong> have you taught in the past year? (If not currently teaching, answer for your most recent year of active teaching)",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "radio",
@@ -855,7 +861,7 @@
                         "Who has more <strong>ownership</strong> in the final work?",
                         "If the final work contained an error, which party would be <strong>responsible</strong>?"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "answerOptions": ["1 (Entirely Human)", "2", "3", "4", "5", "6", "7 (Entirely AI)"],
                     "questionOrder": "random"
                 },
                 {
@@ -865,10 +871,12 @@
                     "location": "belowStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>None</strong>",
-                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
-                        "<strong>Citation</strong> (include AI as a source or reference)",
-                        "<strong>Contributorship/co-authorship</strong>"
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
                     ]
                 },
                 {
@@ -876,6 +884,7 @@
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "belowStimulus",
+                    "hideIf": { "id": "s1-4", "valueContains": "None" },
                     "type": "checkbox",
                     "options": [
                         "a) Prompts or instructions given to the AI",
@@ -937,14 +946,14 @@
                     "location": "belowStimulus",
                     "type": "matrix-radio",
                     "questionOptions": [
-                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI <strong>effort</strong>?",
+                        "To what extent does the work in this submission reflect human versus AI <strong>effort</strong>?",
                         "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
                         "You are focused! You are amazing! Select option <strong>five</strong>...",
                         "Who took more <strong>initiative</strong> in advancing the work?",
                         "Who has more <strong>ownership</strong> in the final work?",
                         "If the final work contained an error, which party would be <strong>responsible</strong>?"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "answerOptions": ["1 (Entirely Human)", "2", "3", "4", "5", "6", "7 (Entirely AI)"],
                     "questionOrder": "random"
                 },
                 {
@@ -954,10 +963,12 @@
                     "location": "belowStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>None</strong>",
-                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
-                        "<strong>Citation</strong> (include AI as a source or reference)",
-                        "<strong>Contributorship/co-authorship</strong>"
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
                     ]
                 },
                 {
@@ -965,6 +976,7 @@
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "belowStimulus",
+                    "hideIf": { "id": "s1-4", "valueContains": "None" },
                     "type": "checkbox",
                     "options": [
                         "a) Prompts or instructions given to the AI",
@@ -1026,14 +1038,14 @@
                     "location": "belowStimulus",
                     "type": "matrix-radio",
                     "questionOptions": [
-                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI <strong>effort</strong>?",
+                        "To what extent does the work in this submission reflect human versus AI <strong>effort</strong>?",
                         "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
                         "You are focused! You are amazing! Select option <strong>one</strong>...",
                         "Who took more <strong>initiative</strong> in advancing the work?",
                         "Who has more <strong>ownership</strong> in the final work?",
                         "If the final work contained an error, which party would be <strong>responsible</strong>?"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "answerOptions": ["1 (Entirely Human)", "2", "3", "4", "5", "6", "7 (Entirely AI)"],
                     "questionOrder": "random"
                 },
                 {
@@ -1043,10 +1055,12 @@
                     "location": "belowStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>None</strong>",
-                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
-                        "<strong>Citation</strong> (include AI as a source or reference)",
-                        "<strong>Contributorship/co-authorship</strong>"
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
                     ]
                 },
                 {
@@ -1054,6 +1068,7 @@
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "belowStimulus",
+                    "hideIf": { "id": "s1-4", "valueContains": "None" },
                     "type": "checkbox",
                     "options": [
                         "a) Prompts or instructions given to the AI",
@@ -1115,14 +1130,14 @@
                     "location": "belowStimulus",
                     "type": "matrix-radio",
                     "questionOptions": [
-                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI <strong>effort</strong>?",
+                        "To what extent does the work in this submission reflect human versus AI <strong>effort</strong>?",
                         "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
                         "You are focused! You are amazing! Select option <strong>six</strong>...",
                         "Who took more <strong>initiative</strong> in advancing the work?",
                         "Who has more <strong>ownership</strong> in the final work?",
                         "If the final work contained an error, which party would be <strong>responsible</strong>?"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "answerOptions": ["1 (Entirely Human)", "2", "3", "4", "5", "6", "7 (Entirely AI)"],
                     "questionOrder": "random"
                 },
                 {
@@ -1132,10 +1147,12 @@
                     "location": "belowStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>None</strong>",
-                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
-                        "<strong>Citation</strong> (include AI as a source or reference)",
-                        "<strong>Contributorship/co-authorship</strong>"
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
                     ]
                 },
                 {
@@ -1143,6 +1160,7 @@
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "belowStimulus",
+                    "hideIf": { "id": "s1-4", "valueContains": "None" },
                     "type": "checkbox",
                     "options": [
                         "a) Prompts or instructions given to the AI",
@@ -1204,14 +1222,14 @@
                     "location": "belowStimulus",
                     "type": "matrix-radio",
                     "questionOptions": [
-                        "To what extent does the <strong>work</strong> in this submission reflect human versus AI <strong>effort</strong>?",
+                        "To what extent does the work in this submission reflect human versus AI <strong>effort</strong>?",
                         "To what extent do the <strong>new ideas</strong> in this submission reflect human versus AI <strong>contribution</strong>?",
                         "You are focused! You are amazing! Select option <strong>four</strong>...",
                         "Who took more <strong>initiative</strong> in advancing the work?",
                         "Who has more <strong>ownership</strong> in the final work?",
                         "If the final work contained an error, which party would be <strong>responsible</strong>?"
                     ],
-                    "answerOptions": ["1", "2", "3", "4", "5", "6", "7"],
+                    "answerOptions": ["1 (Entirely Human)", "2", "3", "4", "5", "6", "7 (Entirely AI)"],
                     "questionOrder": "random"
                 },
                 {
@@ -1221,10 +1239,12 @@
                     "location": "belowStimulus",
                     "type": "radio",
                     "options": [
-                        "<strong>None</strong>",
-                        "<strong>Brief acknowledgment</strong> (\"AI used in …\")",
-                        "<strong>Citation</strong> (include AI as a source or reference)",
-                        "<strong>Contributorship/co-authorship</strong>"
+                        "None",
+                        "Brief acknowledgment (\"AI used in …\")",
+                        "Citation (include AI as a source/reference, e.g., \"ChatGPT, OpenAI, 2026\")",
+                        "Short statement (sentence or paragraph describing how AI was used)",
+                        "Detailed log (full record of prompts/responses or detailed appendix)",
+                        "Contributorship/co-authorship"
                     ]
                 },
                 {
@@ -1232,6 +1252,7 @@
                     "prompt": "When disclosing this interaction, what element(s) do you think are essential as part of the acknowledgement (that will be submitted alongside the assessment itself)?",
                     "required": true,
                     "location": "belowStimulus",
+                    "hideIf": { "id": "s1-4", "valueContains": "None" },
                     "type": "checkbox",
                     "options": [
                         "a) Prompts or instructions given to the AI",
