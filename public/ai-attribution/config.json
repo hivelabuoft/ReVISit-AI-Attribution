@@ -15,7 +15,7 @@
         "withProgressBar": true,
         "autoDownloadStudy": false,
         "withSidebar": true,
-        "studyEndMsg": "Thank you for completing this study! If you are among the first 150 qualified completers who passed all attention checks, or if you win one of the 5 $30 raffle gift cards, you will be contacted via the email you provided."
+        "studyEndMsg": "Thank you for completing this study! If you are among the first 150 qualified completers who passed all attention checks, or if you win one of the 5 $30 raffle gift cards, you will be contacted via the email you provided. We will not send out confirmation emails for course bonus compensation, but if you are eligible for a course bonus, your instructor will be notified of your completion."
     },
     "baseComponents": {
         "vignette-questions-base": {
@@ -189,11 +189,19 @@
             "response": [
                 {
                     "id": "contact-email",
-                    "prompt": "Contact email (input your UofT email if you are a student or faculty member at the University of Toronto). If the email you entered is incorrect, compensation cannot be provided.",
+                    "prompt": "Contact email (input your UofT email if you are a student or faculty member at the University of Toronto). If the email you entered is incorrect, compensation (gift card or course bonus) cannot be provided.",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
                     "placeholder": "yourname@mail.utoronto.ca"
+                },
+                {
+                    "id": "UTORid",
+                    "prompt": "UTORid (input your UofT ID if you are a student or faculty member at the University of Toronto), i.e., johnsmith123. Enter NA if you are not affiliated with the University of Toronto. If you are a UofT student and you enter an incorrect UTORid, compensation (gift card or course bonus) cannot be provided.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "longText",
+                    "placeholder": "yourUTORid"
                 },
                 {
                     "id": "role",
@@ -247,14 +255,15 @@
             "response": [
                 {
                     "id": "gift-card-preference",
-                    "prompt": "You will win a <strong>$5 gift card</strong> if you are among the first 150 qualified completers (who complete the survey with reasonable effort, and pass ALL attention checks). You will also have a chance to win one of the 5 <strong>$30 raffle gift cards</strong>, which gift card would you prefer?",
+                    "prompt": "You will win a <strong>$5 gift card</strong> if you are among the first 150 qualified completers (who complete the survey with reasonable effort, and pass ALL attention checks). You will also have a chance to win one of the 5 <strong>$30 raffle gift cards</strong>. Alternatively, if you completed if you complete this survey as a active student in a course that offers this as a bonus (i.e., CSC343), you may qualify to receive a course bonus. Which method of compensation would you prefer?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "dropdown",
-                    "placeholder": "Select your preferred gift card",
+                    "placeholder": "Select your preferred gift card/method of compensation",
                     "options": [
                         "Amazon (CA)",
-                        "Starbucks (CA)"
+                        "Starbucks (CA)",
+                        "Course bonus (ONLY if you complete this survey as a student in a course that offers this as a bonus, selecting gift card option will disqualify you from receiving the course bonus)"
                     ]
                 },
                 {

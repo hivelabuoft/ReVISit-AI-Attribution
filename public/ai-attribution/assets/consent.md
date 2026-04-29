@@ -40,11 +40,13 @@ Students or instructional staff who are at least 18 years old and have experienc
 
 The survey should take about **30 minutes** to complete. The **first 150 qualified student participants** who complete the survey and **pass all attention checks** will receive a **$5 gift card**. In addition, qualified student completers will be entered into a raffle for **5 gift cards worth $30 each**. If you receive compensation, you will be contacted separately using the email address you provide.
 
+Alternatively, if you complete this survey as part of a course that offer bonus grades during the semester, bonus will be provided in-place of the gift card (i.e., you will receive bonus grade and no gift card).
+
 Compensation will be provided only after successful completion of the survey, passing all attention checks, and confirmation that appropriate effort has been demonstrated. Please read each question carefully and answer to the best of your ability. Attention checks are included throughout the survey, and failure to complete them correctly will result in forfeiture of compensation.
 
 ## Benefits and risks
 
-You are unlikely to receive any direct benefit from participating other than receiving compensation if you qualify.
+You are unlikely to receive any direct benefit from participating other than receiving appropreate compensation if you qualify.
 
 This study does not involve risks beyond those encountered in daily life. The experience should be comparable to viewing a computer monitor and using a keyboard. You may withdraw at any time.
 
