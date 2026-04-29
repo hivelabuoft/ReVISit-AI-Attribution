@@ -259,12 +259,20 @@
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "dropdown",
-                    "placeholder": "Select your preferred gift card/method of compensation",
+                    "placeholder": "Select your preferred method of compensation",
                     "options": [
                         "Amazon (CA)",
                         "Starbucks (CA)",
                         "Course bonus (ONLY if you complete this survey as a student in a course that offers this as a bonus, selecting gift card option will disqualify you from receiving the course bonus)"
                     ]
+                },
+                {
+                    "id": "course-bonus-eligibility",
+                    "prompt": "(Optional) If you are taking this survey to receive a course bonus, please indicate the course code you are taking and the corresponding instructor:",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "e.g., CSC343 - Prof. Smith"
                 },
                 {
                     "id": "high-school-country",
