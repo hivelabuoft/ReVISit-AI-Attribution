@@ -204,6 +204,14 @@
                     "placeholder": "yourUTORid"
                 },
                 {
+                    "id": "institution-campus",
+                    "prompt": "What is your institution and campus?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "e.g., University of Toronto Mississauga"
+                },
+                {
                     "id": "role",
                     "prompt": "What is your primary role?",
                     "required": true,
