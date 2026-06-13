@@ -851,12 +851,31 @@
                     "location": "aboveStimulus",
                     "type": "longText",
                     "placeholder": "Explain your reasoning"
+                },
+                {
+                    "id": "inst-vignette-count",
+                    "prompt": "How many student-work scenarios would you like to review in the next section? (each takes about 5-7 mins)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "1 scenario",
+                        "2 scenarios",
+                        "3 scenarios",
+                        "4 scenarios",
+                        "5 scenarios"
+                    ]
                 }
             ]
         },
         "role-gate": {
             "type": "react-component",
             "path": "ai-attribution/assets/RoleGate.tsx",
+            "response": []
+        },
+        "vignette-count-gate": {
+            "type": "react-component",
+            "path": "ai-attribution/assets/VignetteCountGate.tsx",
             "response": []
         },
         "vignette-introduction": {
@@ -1390,7 +1409,7 @@
             "response": [
                 {
                     "id": "post-factors",
-                    "prompt": "Across all scenarios, what element(s) contribute the most to your <strong>attribution decisions</strong>? (select all that apply)",
+                    "prompt": "For the scenario you reviewed, what element(s) contributed the most to your <strong>attribution decision</strong>? (select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -1403,7 +1422,7 @@
                 },
                 {
                     "id": "post-factors-other",
-                    "prompt": "Across all scenarios, what <strong>other element(s)</strong> contribute the most to your <strong>attribution decisions</strong>, in addition to what have been shown above? (optional)",
+                    "prompt": "For the scenario you reviewed, what <strong>other element(s)</strong> contributed the most to your <strong>attribution decision</strong>, in addition to what has been shown above? (optional)",
                     "required": false,
                     "location": "belowStimulus",
                     "type": "longText",
@@ -1425,7 +1444,7 @@
             "response": [
                 {
                     "id": "post-factors",
-                    "prompt": "Across all scenarios, what element(s) contribute the most to your <strong>attribution decisions</strong>? (select all that apply)",
+                    "prompt": "For the scenario(s) you reviewed, what element(s) contributed the most to your <strong>attribution decision(s)</strong>? (select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -1438,7 +1457,7 @@
                 },
                 {
                     "id": "post-factors-other",
-                    "prompt": "Across all scenarios, what <strong>other element(s)</strong> contribute the most to your <strong>attribution decisions</strong>, in addition to what have been shown above? (optional)",
+                    "prompt": "For the scenario(s) you reviewed, what <strong>other element(s)</strong> contributed the most to your <strong>attribution decision(s)</strong>, in addition to what has been shown above? (optional)",
                     "required": false,
                     "location": "belowStimulus",
                     "type": "longText",
@@ -1650,7 +1669,20 @@
                     }
                 ]
             },
-            "vignette-1-closing",
+            {
+                "order": "fixed",
+                "components": ["vignette-count-gate", "vignette-1-closing"],
+                "skip": [
+                    {
+                        "name": "vignette-count-gate",
+                        "check": "response",
+                        "responseId": "vignette-count",
+                        "value": "1",
+                        "comparison": "equal",
+                        "to": "post-vignette-instructor"
+                    }
+                ]
+            },
             "vignette-scenario-2",
             {
                 "order": "fixed",
@@ -1680,7 +1712,20 @@
                     }
                 ]
             },
-            "vignette-2-closing",
+            {
+                "order": "fixed",
+                "components": ["vignette-count-gate", "vignette-2-closing"],
+                "skip": [
+                    {
+                        "name": "vignette-count-gate",
+                        "check": "response",
+                        "responseId": "vignette-count",
+                        "value": "2",
+                        "comparison": "equal",
+                        "to": "post-vignette-instructor"
+                    }
+                ]
+            },
             "vignette-scenario-3",
             {
                 "order": "fixed",
@@ -1710,7 +1755,20 @@
                     }
                 ]
             },
-            "vignette-3-closing",
+            {
+                "order": "fixed",
+                "components": ["vignette-count-gate", "vignette-3-closing"],
+                "skip": [
+                    {
+                        "name": "vignette-count-gate",
+                        "check": "response",
+                        "responseId": "vignette-count",
+                        "value": "3",
+                        "comparison": "equal",
+                        "to": "post-vignette-instructor"
+                    }
+                ]
+            },
             "vignette-scenario-4",
             {
                 "order": "fixed",
@@ -1740,7 +1798,20 @@
                     }
                 ]
             },
-            "vignette-4-closing",
+            {
+                "order": "fixed",
+                "components": ["vignette-count-gate", "vignette-4-closing"],
+                "skip": [
+                    {
+                        "name": "vignette-count-gate",
+                        "check": "response",
+                        "responseId": "vignette-count",
+                        "value": "4",
+                        "comparison": "equal",
+                        "to": "post-vignette-instructor"
+                    }
+                ]
+            },
             "vignette-scenario-5",
             {
                 "order": "fixed",
