@@ -7,11 +7,14 @@ import { parse as hjsonParse } from 'hjson';
 import { availableVignetteIds } from './vignetteRegistry';
 
 const MAX_VIGNETTE_ID = availableVignetteIds.at(-1) ?? 0;
-const VIGNETTES_PER_PARTICIPANT = Math.min(5, availableVignetteIds.length);
+const DEFAULT_VIGNETTES_PER_PARTICIPANT = Math.min(5, availableVignetteIds.length);
+const MIN_INSTRUCTOR_VIGNETTES_PER_PARTICIPANT = availableVignetteIds.length > 0 ? 1 : 0;
+const MAX_INSTRUCTOR_VIGNETTES_PER_PARTICIPANT = Math.min(5, availableVignetteIds.length);
 const STUDY_ID = 'ai-attribution';
 const TABLE = 'revisit';
 const FIRESTORE_COLLECTION = '_revisit';
 const LOCAL_STORAGE_KEY = 'vignette_assignment';
+const STUDENT_ROLE = 'Student';
 
 const MODE: 'local' | 'supabase' | 'firebase' = (import.meta.env.VITE_VIGNETTE_MODE as string) === 'supabase'
   ? 'supabase'
@@ -45,7 +48,37 @@ function getFirestore_() {
 }
 
 // ── Picking logic (shared) ──────────────────────────────────────────────
-function pickLeastAssigned(counts: number[]): number[] {
+function getVignetteCount(vignetteCount = DEFAULT_VIGNETTES_PER_PARTICIPANT) {
+  return Math.min(vignetteCount, availableVignetteIds.length);
+}
+
+function getInstructorVignetteCount(requestedCount: string | number | undefined) {
+  const parsedCount = typeof requestedCount === 'number'
+    ? requestedCount
+    : Number.parseInt(requestedCount || '', 10);
+
+  if (Number.isNaN(parsedCount)) {
+    return MIN_INSTRUCTOR_VIGNETTES_PER_PARTICIPANT;
+  }
+
+  return Math.min(
+    Math.max(parsedCount, MIN_INSTRUCTOR_VIGNETTES_PER_PARTICIPANT),
+    MAX_INSTRUCTOR_VIGNETTES_PER_PARTICIPANT,
+  );
+}
+
+export function getVignetteCountForRole(
+  role: string | undefined,
+  requestedCount?: string | number,
+): number {
+  if (!role || role === STUDENT_ROLE) {
+    return DEFAULT_VIGNETTES_PER_PARTICIPANT;
+  }
+
+  return getInstructorVignetteCount(requestedCount);
+}
+
+function pickLeastAssigned(counts: number[], vignetteCount: number): number[] {
   const indexed = availableVignetteIds.map((id) => ({ id, count: counts[id - 1] ?? 0 }));
   // Shuffle for random tie-breaking
   for (let i = indexed.length - 1; i > 0; i -= 1) {
@@ -54,7 +87,7 @@ function pickLeastAssigned(counts: number[]): number[] {
   }
   // Sort by count (stable sort preserves shuffle for ties)
   indexed.sort((a, b) => a.count - b.count);
-  const selected = indexed.slice(0, VIGNETTES_PER_PARTICIPANT).map((v) => v.id);
+  const selected = indexed.slice(0, getVignetteCount(vignetteCount)).map((v) => v.id);
   selected.sort((a, b) => a - b);
   return selected;
 }
@@ -80,16 +113,16 @@ function saveLocalStore(store: LocalStore): void {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(store));
 }
 
-async function getAssignmentLocal(participantId: string): Promise<number[]> {
+async function getAssignmentLocal(participantId: string, vignetteCount: number): Promise<number[]> {
   const store = getLocalStore();
 
   // Already assigned? Return it.
   if (store.assignments[participantId]) {
-    return store.assignments[participantId];
+    return store.assignments[participantId].slice(0, getVignetteCount(vignetteCount));
   }
 
   // Pick least-assigned
-  const selected = pickLeastAssigned(store.counts);
+  const selected = pickLeastAssigned(store.counts, vignetteCount);
 
   // Update counts
   for (const id of selected) {
@@ -104,7 +137,7 @@ async function getAssignmentLocal(participantId: string): Promise<number[]> {
 }
 
 // ── Supabase backend ────────────────────────────────────────────────────
-async function getAssignmentSupabase(participantId: string): Promise<number[]> {
+async function getAssignmentSupabase(participantId: string, vignetteCount: number): Promise<number[]> {
   const supabase = getSupabase();
 
   // 1. Check for existing assignment
@@ -117,7 +150,7 @@ async function getAssignmentSupabase(participantId: string): Promise<number[]> {
 
   const existingAssignment = existing?.data?.vignettes as number[] | undefined;
   if (existingAssignment) {
-    return existingAssignment;
+    return existingAssignment.slice(0, getVignetteCount(vignetteCount));
   }
 
   // 2. Fetch global counts
@@ -132,7 +165,7 @@ async function getAssignmentSupabase(participantId: string): Promise<number[]> {
     ?? new Array(MAX_VIGNETTE_ID).fill(0);
 
   // 3. Pick least-assigned
-  const selected = pickLeastAssigned(counts);
+  const selected = pickLeastAssigned(counts, vignetteCount);
 
   // 4. Update counts
   for (const id of selected) {
@@ -157,7 +190,7 @@ async function getAssignmentSupabase(participantId: string): Promise<number[]> {
 }
 
 // ── Firebase backend ────────────────────────────────────────────────────
-async function getAssignmentFirebase(participantId: string): Promise<number[]> {
+async function getAssignmentFirebase(participantId: string, vignetteCount: number): Promise<number[]> {
   const firestore = getFirestore_();
 
   // 1. Check for existing assignment
@@ -166,7 +199,7 @@ async function getAssignmentFirebase(participantId: string): Promise<number[]> {
 
   if (participantSnap.exists()) {
     const data = participantSnap.data();
-    return data.vignettes || [];
+    return (data.vignettes || []).slice(0, getVignetteCount(vignetteCount));
   }
 
   // 2. Get global counts (with transaction-like behavior for consistency)
@@ -178,7 +211,7 @@ async function getAssignmentFirebase(participantId: string): Promise<number[]> {
     : new Array(MAX_VIGNETTE_ID).fill(0);
 
   // 3. Pick least-assigned
-  const selected = pickLeastAssigned(counts);
+  const selected = pickLeastAssigned(counts, vignetteCount);
 
   // 4. Update counts
   for (const id of selected) {
@@ -223,12 +256,15 @@ export function getParticipantId(email: string | undefined | null): string {
 }
 
 // ── Public API ──────────────────────────────────────────────────────────
-export async function getVignetteAssignment(participantId: string): Promise<number[]> {
+export async function getVignetteAssignment(
+  participantId: string,
+  vignetteCount = DEFAULT_VIGNETTES_PER_PARTICIPANT,
+): Promise<number[]> {
   if (MODE === 'supabase') {
-    return getAssignmentSupabase(participantId);
+    return getAssignmentSupabase(participantId, vignetteCount);
   }
   if (MODE === 'firebase') {
-    return getAssignmentFirebase(participantId);
+    return getAssignmentFirebase(participantId, vignetteCount);
   }
-  return getAssignmentLocal(participantId);
+  return getAssignmentLocal(participantId, vignetteCount);
 }

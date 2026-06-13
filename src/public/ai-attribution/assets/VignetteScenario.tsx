@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { StimulusParams } from '../../../store/types';
-import { getParticipantId, getVignetteAssignment } from './vignetteAssignment';
+import {
+  getParticipantId,
+  getVignetteAssignment,
+  getVignetteCountForRole,
+} from './vignetteAssignment';
 import { getVignetteHtml } from './vignetteRegistry';
 
 interface Slide {
@@ -264,16 +268,23 @@ export default function VignetteScenario({ parameters, setAnswer, answers }: Sti
   const infoEntry = Object.entries(answers || {}).find(
     ([key]) => key.startsWith('information_'),
   );
+  const gradingEntry = Object.entries(answers || {}).find(
+    ([key]) => key.startsWith('inst-grading-eval_'),
+  );
   const participantId = getParticipantId(
     infoEntry?.[1]?.answer?.['contact-email'] as string | undefined,
   );
+  const role = (infoEntry?.[1]?.answer?.role as string | undefined)
+    || (answers?.information?.answer?.role as string | undefined);
+  const requestedVignetteCount = gradingEntry?.[1]?.answer?.['inst-vignette-count'] as string | undefined;
+  const vignetteCount = getVignetteCountForRole(role, requestedVignetteCount);
 
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
       try {
-        const ids = await getVignetteAssignment(participantId);
+        const ids = await getVignetteAssignment(participantId, vignetteCount);
         if (!cancelled) {
           setVignetteIds(ids);
           setLoading(false);
@@ -293,7 +304,7 @@ export default function VignetteScenario({ parameters, setAnswer, answers }: Sti
     load();
     return () => { cancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [participantId, parameters.slotIndex]);
+  }, [participantId, parameters.slotIndex, vignetteCount]);
 
   if (loading) {
     return (
@@ -317,6 +328,7 @@ export default function VignetteScenario({ parameters, setAnswer, answers }: Sti
 
   const vignetteId = vignetteIds[parameters.slotIndex];
   const slotNum = parameters.slotIndex + 1;
+  const totalSlots = vignetteIds.length || vignetteCount;
   const html = getVignetteHtml(vignetteId);
 
   if (!html) {
@@ -341,7 +353,9 @@ export default function VignetteScenario({ parameters, setAnswer, answers }: Sti
         {' '}
         {slotNum}
         {' '}
-        of 5
+        of
+        {' '}
+        {totalSlots}
       </div>
       <SlideViewer data={data} />
     </div>

@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { StimulusParams } from '../../../store/types';
-import { getParticipantId, getVignetteAssignment } from './vignetteAssignment';
+import {
+  getParticipantId,
+  getVignetteAssignment,
+  getVignetteCountForRole,
+} from './vignetteAssignment';
 
 export default function VignetteIntroWithAssignment({ setAnswer, answers }: StimulusParams<Record<string, never>>) {
   const [vignetteIds, setVignetteIds] = useState<number[] | null>(null);
@@ -8,18 +12,29 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
   const infoEntry = Object.entries(answers || {}).find(
     ([key]) => key.startsWith('information_'),
   );
+  const gradingEntry = Object.entries(answers || {}).find(
+    ([key]) => key.startsWith('inst-grading-eval_'),
+  );
 
   const participantId = getParticipantId(
     (infoEntry?.[1]?.answer?.['contact-email'] as string | undefined)
       || (answers?.information?.answer?.['contact-email'] as string | undefined),
   );
+  const role = (infoEntry?.[1]?.answer?.role as string | undefined)
+    || (answers?.information?.answer?.role as string | undefined);
+  const requestedVignetteCount = gradingEntry?.[1]?.answer?.['inst-vignette-count'] as string | undefined;
+  const vignetteCount = getVignetteCountForRole(role, requestedVignetteCount);
+  const scenarioLabel = vignetteCount === 1 ? 'scenario' : 'scenarios';
+  const scenarioCountText = vignetteCount === 1
+    ? '1 scenario'
+    : `${vignetteCount} different scenarios`;
 
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
       try {
-        const ids = await getVignetteAssignment(participantId);
+        const ids = await getVignetteAssignment(participantId, vignetteCount);
         if (!cancelled) {
           setVignetteIds(ids);
           setLoading(false);
@@ -38,7 +53,7 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
     load();
     return () => { cancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [participantId]);
+  }, [participantId, vignetteCount]);
 
   return (
     <div style={{
@@ -76,7 +91,12 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
           <span>Assigning your scenarios...</span>
         ) : vignetteIds ? (
           <>
-            <strong>You are assigned vignettes: </strong>
+            <strong>
+              You are assigned
+              {' '}
+              {scenarioLabel}
+              {': '}
+            </strong>
             {vignetteIds.map((id) => (
               <span
                 key={id}
@@ -103,7 +123,7 @@ export default function VignetteIntroWithAssignment({ setAnswer, answers }: Stim
       <p>
         In the next part of the survey, you will be presented with
         {' '}
-        <strong>5 different scenarios</strong>
+        <strong>{scenarioCountText}</strong>
         .
         Each one describes a hypothetical computer science
         {' '}
