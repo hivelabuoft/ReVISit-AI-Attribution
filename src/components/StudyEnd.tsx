@@ -1,5 +1,5 @@
 import {
-  Button, Center, Flex, Loader, Space, Text,
+  Center, Flex, Loader, Space, Text,
 } from '@mantine/core';
 import {
   useEffect, useState, useCallback, useMemo, useRef,
@@ -152,23 +152,13 @@ export function StudyEnd() {
     return getStudyEndMessage(answers, studyEndMsg, participantId, urlParticipantIdParam);
   }, [answers, participantId, studyConfig]);
 
-  const handleDone = useCallback(() => {
-    window.close();
-  }, []);
-
   return (
     <Center style={{ height: '100%' }}>
       <Flex direction="column" align="center">
         {completed || !dataCollectionEnabled
-          ? (
-            <>
-              {processedStudyEndMsg
-                ? <ReactMarkdownWrapper text={processedStudyEndMsg} />
-                : <Text size="xl" display="block">Thank you for completing the study. You may close this window now.</Text>}
-              <Space h="md" />
-              <Button onClick={handleDone}>Done</Button>
-            </>
-          )
+          ? (processedStudyEndMsg
+            ? <ReactMarkdownWrapper text={processedStudyEndMsg} />
+            : <Text size="xl" display="block">Thank you for completing the study. You may close this window now.</Text>)
           : (
             <>
               <Text size="xl" display="block">Please wait while your answers are uploaded.</Text>

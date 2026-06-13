@@ -15,7 +15,7 @@
         "withProgressBar": true,
         "autoDownloadStudy": false,
         "withSidebar": true,
-        "studyEndMsg": "Thank you for completing this study."
+        "studyEndMsg": "Thank you for completing this study. You may close this window."
     },
     "baseComponents": {
         "vignette-questions-base": {
