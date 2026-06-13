@@ -27,6 +27,7 @@ import { TextOnlyInput } from './TextOnlyInput';
 import { useFetchStylesheet } from '../../utils/fetchStylesheet';
 import { parseStringOptionValue } from '../../utils/stringOptions';
 import { getDefaultFieldValue } from './utils';
+import { interpolateAnswerReferences } from './promptInterpolation';
 
 export function ResponseSwitcher({
   response,
@@ -57,6 +58,7 @@ export function ResponseSwitcher({
   const nextConfig = useMemo(() => (nextComponent ? studyConfig.components[nextComponent] : undefined), [nextComponent, studyConfig]);
 
   const completed = useStoreSelector((state) => state.completed);
+  const answers = useStoreSelector((state) => state.answers);
 
   // Don't update if we're in analysis mode
   const ans = useMemo(() => (isAnalysis || (Object.keys(storedAnswer || {}).length > 0 && !nextConfig?.previousButton) || completed ? { value: storedAnswer![response.id] } : form) || { value: undefined }, [isAnalysis, storedAnswer, response.id, form, nextConfig?.previousButton, completed]);
@@ -135,66 +137,98 @@ export function ResponseSwitcher({
 
   const responseStyle = response.style || {};
   const responseDividers = useMemo(() => response.withDivider ?? config?.responseDividers ?? studyConfig.uiConfig.responseDividers, [response, config, studyConfig]);
+  const displayResponse = useMemo<Response>(() => {
+    if (response.type === 'divider') {
+      return response;
+    }
+
+    const prompt = interpolateAnswerReferences(response.prompt, answers);
+
+    if (response.type === 'textOnly') {
+      if (prompt === response.prompt) {
+        return response;
+      }
+
+      return {
+        ...response,
+        prompt,
+      };
+    }
+
+    const secondaryText = response.secondaryText
+      ? interpolateAnswerReferences(response.secondaryText, answers)
+      : response.secondaryText;
+
+    if (prompt === response.prompt && secondaryText === response.secondaryText) {
+      return response;
+    }
+
+    return {
+      ...response,
+      prompt,
+      secondaryText,
+    };
+  }, [answers, response]);
 
   return (
     <Box mb={responseDividers ? 'xl' : 'lg'} className="response" id={response.id} style={responseStyle}>
-      {response.type === 'numerical' && (
+      {displayResponse.type === 'numerical' && (
       <NumericInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: number }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'shortText' && (
+      {displayResponse.type === 'shortText' && (
       <StringInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'longText' && (
+      {displayResponse.type === 'longText' && (
       <TextAreaInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'likert' && (
+      {displayResponse.type === 'likert' && (
       <LikertInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'dropdown' && (
+      {displayResponse.type === 'dropdown' && (
       <DropdownInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'slider' && (
+      {displayResponse.type === 'slider' && (
       <SliderInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: number }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'radio' && (
+      {displayResponse.type === 'radio' && (
       <RadioInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string }}
         index={index}
@@ -202,9 +236,9 @@ export function ResponseSwitcher({
         otherValue={otherValue}
       />
       )}
-      {response.type === 'checkbox' && (
+      {displayResponse.type === 'checkbox' && (
       <CheckBoxInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string[] }}
         index={index}
@@ -213,43 +247,43 @@ export function ResponseSwitcher({
         dontKnowCheckbox={dontKnowCheckbox as { checked?: boolean; onChange?: (value: boolean) => void }}
       />
       )}
-      {(response.type === 'ranking-sublist' || response.type === 'ranking-categorical' || response.type === 'ranking-pairwise') && (
+      {(displayResponse.type === 'ranking-sublist' || displayResponse.type === 'ranking-categorical' || displayResponse.type === 'ranking-pairwise') && (
       <RankingInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: Record<string, string> }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'reactive' && (
+      {displayResponse.type === 'reactive' && (
       <ReactiveInput
-        response={response}
+        response={displayResponse}
         answer={ans as { value: string[] }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {(response.type === 'matrix-radio' || response.type === 'matrix-checkbox') && (
+      {(displayResponse.type === 'matrix-radio' || displayResponse.type === 'matrix-checkbox') && (
       <MatrixInput
         disabled={isDisabled || dontKnowCheckbox?.checked}
-        response={response}
+        response={displayResponse}
         answer={ans as { value: Record<string, string> }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'buttons' && (
+      {displayResponse.type === 'buttons' && (
       <ButtonsInput
-        response={response}
+        response={displayResponse}
         disabled={isDisabled || dontKnowCheckbox?.checked}
         answer={ans as { value: string }}
         index={index}
         enumerateQuestions={enumerateQuestions}
       />
       )}
-      {response.type === 'textOnly' && (
-      <TextOnlyInput response={response} />
+      {displayResponse.type === 'textOnly' && (
+      <TextOnlyInput response={displayResponse} />
       )}
       {response.withDontKnow && (
       <Checkbox

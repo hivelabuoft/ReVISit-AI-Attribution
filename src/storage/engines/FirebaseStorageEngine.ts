@@ -753,12 +753,14 @@ export class FirebaseStorageEngine extends CloudStorageEngine {
         adminUsersList: adminUsers.adminUsersList,
       },
     );
+    this.userManagementData.adminUsers = { adminUsersList: adminUsers.adminUsersList };
   }
 
   async changeAuth(bool: boolean) {
     await setDoc(doc(this.firestore, 'user-management', 'authentication'), {
       isEnabled: bool,
     });
+    this.userManagementData.authentication = { isEnabled: bool };
   }
 
   async addAdminUser(user: StoredUser) {
@@ -773,11 +775,14 @@ export class FirebaseStorageEngine extends CloudStorageEngine {
         await setDoc(doc(this.firestore, 'user-management', 'adminUsers'), {
           adminUsersList: adminList,
         });
+        this.userManagementData.adminUsers = { adminUsersList: adminList };
       }
     } else {
+      const adminUsersList = [{ email: user.email, uid: user.uid }];
       await setDoc(doc(this.firestore, 'user-management', 'adminUsers'), {
-        adminUsersList: [{ email: user.email, uid: user.uid }],
+        adminUsersList,
       });
+      this.userManagementData.adminUsers = { adminUsersList };
     }
   }
 
@@ -795,6 +800,9 @@ export class FirebaseStorageEngine extends CloudStorageEngine {
         await setDoc(doc(this.firestore, 'user-management', 'adminUsers'), {
           adminUsersList: adminUsers?.adminUsersList,
         });
+        this.userManagementData.adminUsers = {
+          adminUsersList: adminUsers.adminUsersList,
+        };
       }
     }
   }
@@ -802,11 +810,11 @@ export class FirebaseStorageEngine extends CloudStorageEngine {
   async login() {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
-    signInWithPopup(auth, provider, browserPopupRedirectResolver);
+    const credential = await signInWithPopup(auth, provider, browserPopupRedirectResolver);
 
     return {
-      email: auth.currentUser?.email || null,
-      uid: auth.currentUser?.uid || null,
+      email: credential.user.email || null,
+      uid: credential.user.uid || null,
     };
   }
 

@@ -52,6 +52,11 @@ function getOrdinalLabel(courseNumber: number) {
   }
 }
 
+function getCourseTitle(courseName: string | undefined, fallbackLabel: string) {
+  const trimmedName = courseName?.trim();
+  return trimmedName || fallbackLabel;
+}
+
 export default function CoursePolicyReminder({
   parameters,
   answers,
@@ -63,7 +68,14 @@ export default function CoursePolicyReminder({
   const courseNameKey = `inst-course-${parameters.courseNumber}-name`;
   const courseName = infoEntry?.[1]?.answer?.[courseNameKey] as string | undefined;
   const label = getOrdinalLabel(parameters.courseNumber);
+  const title = getCourseTitle(courseName, label);
   const previousCourseNumber = parameters.prefillFromCourseNumber;
+  const previousCourseName = previousCourseNumber
+    ? infoEntry?.[1]?.answer?.[`inst-course-${previousCourseNumber}-name`] as string | undefined
+    : undefined;
+  const previousCourseTitle = previousCourseNumber
+    ? getCourseTitle(previousCourseName, getOrdinalLabel(previousCourseNumber))
+    : undefined;
 
   useEffect(() => {
     if (!previousCourseNumber) {
@@ -103,15 +115,10 @@ export default function CoursePolicyReminder({
   return (
     <div style={containerStyle}>
       <div style={eyebrowStyle}>Course Reminder</div>
-      <div style={titleStyle}>
-        {label}
-        {courseName ? ':' : ''}
-        {' '}
-        {courseName || 'Use the course you entered on the previous page.'}
-      </div>
+      <div style={titleStyle}>{title || 'Use the course you entered on the previous page.'}</div>
       <p style={detailStyle}>
         {previousCourseNumber
-          ? `We pre-filled these answers from Course ${previousCourseNumber}. Please review them and change anything that does not apply to this course.`
+          ? `We pre-filled these answers from ${previousCourseTitle}. Please review them and change anything that does not apply to this course.`
           : 'Please answer the following AI policy questions for this course.'}
       </p>
     </div>

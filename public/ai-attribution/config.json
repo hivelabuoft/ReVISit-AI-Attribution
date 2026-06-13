@@ -15,7 +15,7 @@
         "withProgressBar": true,
         "autoDownloadStudy": false,
         "withSidebar": true,
-        "studyEndMsg": "Thank you for completing this study! If you are among the first 150 qualified completers who passed all attention checks, or if you win one of the 5 $30 raffle gift cards, you will be contacted via the email you provided. We will not send out confirmation emails for course bonus compensation, but if you are eligible for a course bonus, your instructor will be notified of your completion."
+        "studyEndMsg": "Thank you for completing this study."
     },
     "baseComponents": {
         "vignette-questions-base": {
@@ -189,7 +189,7 @@
             "response": [
                 {
                     "id": "contact-email",
-                    "prompt": "Contact email (input your UofT email if you are a student or faculty member at the University of Toronto). If the email you entered is incorrect, compensation (gift card or course bonus) cannot be provided.",
+                    "prompt": "Contact email (input your UofT email if you are a student or faculty member at the University of Toronto).",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
@@ -197,7 +197,7 @@
                 },
                 {
                     "id": "UTORid",
-                    "prompt": "UTORid (input your UofT ID if you are a student or faculty member at the University of Toronto), i.e., johnsmith123. Enter NA if you are not affiliated with the University of Toronto. If you are a UofT student and you enter an incorrect UTORid, compensation (gift card or course bonus) cannot be provided.",
+                    "prompt": "UTORid (input your UofT ID if you are a student or faculty member at the University of Toronto), i.e., johnsmith123. Enter NA if you are not affiliated with the University of Toronto.",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "longText",
@@ -234,8 +234,8 @@
                     "location": "aboveStimulus",
                     "type": "radio",
                     "options": [
-                        "Men",
-                        "Women",
+                        "Man",
+                        "Woman",
                         "Non-binary",
                         "Prefer not to say"
                     ]
@@ -588,7 +588,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c1",
-                    "prompt": "Does <strong>Course 1</strong> explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does <strong>{answer:inst-course-info.inst-course-1-name|Course 1}</strong> explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -596,7 +596,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c1",
-                    "prompt": "Which of the following best describes the AI policy for <strong>Course 1</strong>? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for <strong>{answer:inst-course-info.inst-course-1-name|Course 1}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -611,7 +611,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c1",
-                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>Course 1</strong>? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>{answer:inst-course-info.inst-course-1-name|Course 1}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -627,7 +627,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c1",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>Course 1</strong> when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>{answer:inst-course-info.inst-course-1-name|Course 1}</strong> when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -649,7 +649,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c2",
-                    "prompt": "Does <strong>Course 2</strong> explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does <strong>{answer:inst-course-info.inst-course-2-name|Course 2}</strong> explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -657,7 +657,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c2",
-                    "prompt": "Which of the following best describes the AI policy for <strong>Course 2</strong>? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for <strong>{answer:inst-course-info.inst-course-2-name|Course 2}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -672,7 +672,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c2",
-                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>Course 2</strong>? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>{answer:inst-course-info.inst-course-2-name|Course 2}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -688,7 +688,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c2",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>Course 2</strong> when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>{answer:inst-course-info.inst-course-2-name|Course 2}</strong> when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -710,7 +710,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c3",
-                    "prompt": "Does <strong>Course 3</strong> explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does <strong>{answer:inst-course-info.inst-course-3-name|Course 3}</strong> explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -718,7 +718,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c3",
-                    "prompt": "Which of the following best describes the AI policy for <strong>Course 3</strong>? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for <strong>{answer:inst-course-info.inst-course-3-name|Course 3}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -733,7 +733,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c3",
-                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>Course 3</strong>? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>{answer:inst-course-info.inst-course-3-name|Course 3}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -749,7 +749,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c3",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>Course 3</strong> when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>{answer:inst-course-info.inst-course-3-name|Course 3}</strong> when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
@@ -771,7 +771,7 @@
             "response": [
                 {
                     "id": "inst-ai-pcy-c4",
-                    "prompt": "Does <strong>Course 4</strong> explicitly allow the use of AI/LLMs?",
+                    "prompt": "Does <strong>{answer:inst-course-info.inst-course-4-name|Course 4}</strong> explicitly allow the use of AI/LLMs?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "radio",
@@ -779,7 +779,7 @@
                 },
                 {
                     "id": "inst-ai-pcy-qual-c4",
-                    "prompt": "Which of the following best describes the AI policy for <strong>Course 4</strong>? (Select all that apply)",
+                    "prompt": "Which of the following best describes the AI policy for <strong>{answer:inst-course-info.inst-course-4-name|Course 4}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -794,7 +794,7 @@
                 },
                 {
                     "id": "inst-attrib-pcy-qual-c4",
-                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>Course 4</strong>? (Select all that apply)",
+                    "prompt": "How are students asked to acknowledge or cite AI use in <strong>{answer:inst-course-info.inst-course-4-name|Course 4}</strong>? (Select all that apply)",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "checkbox",
@@ -810,7 +810,7 @@
                 },
                 {
                     "id": "inst-attrib-freq-c4",
-                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>Course 4</strong> when it is required?",
+                    "prompt": "In your perspective, how often do students choose to disclose AI use in <strong>{answer:inst-course-info.inst-course-4-name|Course 4}</strong> when it is required?",
                     "required": true,
                     "location": "belowStimulus",
                     "type": "likert",
