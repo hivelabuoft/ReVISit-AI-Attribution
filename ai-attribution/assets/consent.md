@@ -12,7 +12,7 @@
 
 ## Study details
 
-**Principal Investigators:** Dr. Michael Liut, Assistant Professor at the University of Toronto
+**Principal Investigators:** Dr. Michael Liut, Assistant Professor, Teaching Stream, University of Toronto Mississauga
 
 **Study Title:** Perceptions of AI Contribution and Attribution in Higher Education in Computing Education
 
