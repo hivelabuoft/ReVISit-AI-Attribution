@@ -71,6 +71,7 @@ export function DropdownInput({
         errorProps={{ c: required ? 'red' : 'orange' }}
         classNames={{ input: classes.fixDisabled }}
         maxDropdownHeight={200}
+        searchable
         renderOption={renderOption}
       />
     )
